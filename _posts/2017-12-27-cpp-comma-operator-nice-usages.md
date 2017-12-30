@@ -1,9 +1,11 @@
 ---
 layout: post
-title: 'C++ comma operator (2): nice usages'
+title: 'C++ Comma Operator'
+chapter-number: 2
+chapter-title: 'Nice usages'
 date: 2017-12-27
 author: ivansanz
-cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-banner.png'
+cover: '/assets/img/cpp-header.jpg'
 tags: c++
 ---
 

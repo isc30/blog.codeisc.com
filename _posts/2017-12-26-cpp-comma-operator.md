@@ -1,9 +1,11 @@
 ---
 layout: post
-title: 'C++ comma operator (1): your filthy friend'
+title: 'C++ Comma Operator'
+chapter-number: 1
+chapter-title: 'Your filthy friend'
 date: 2017-12-26
 author: ivansanz
-#cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-banner.png'
+cover: '/assets/img/cpp-header.jpg'
 tags: c++
 ---
 
