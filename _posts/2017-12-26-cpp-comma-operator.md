@@ -1,11 +1,11 @@
 ---
 layout: post
 current: post
-cover:  assets/images/welcome.jpg
+cover: assets/images/grapes.jpg
 navigation: True
 title: C++ comma operator, your filthy friend
 date: 2017-12-26 10:00:00
-tags: [cpp, comma, operator]
+tags: [cpp]
 class: post-template
 subclass: 'post tag-cpp'
 author: ivansanz
