@@ -21,7 +21,7 @@ avatar: '/assets/img/ivansanz.png'
 search: true
 
 # Night mode
-nightMode: true
+nightMode: false
 
 # Comments
 disqus: true
