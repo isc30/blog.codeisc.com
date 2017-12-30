@@ -19,21 +19,21 @@ bio: 'C++/.NET'
 avatar: '/assets/img/ivansanz.png'
 
 # Search
-search: true
+search: false
 
 # Night mode
 nightMode: true
 
 # Comments
-disqus: false
-#disqus_url: 'https://liaokeyu.disqus.com/embed.js'
+disqus: true
+disqus_url: 'https://codeisc.disqus.com/embed.js'
 
 # Share
 social-share: true
-social-share-items: ['wechat', 'weibo', 'douban', 'twitter']
+social-share-items: ['twitter'] # 'wechat', 'weibo', 'douban', 'twitter'
 
 # theme color
-theme-color: 'default'  # pink or default
+theme-color: 'pink'  # pink or default
 
 # Post header background patterns (when the post no cover): circuitBoard, overlappingCircles, food, glamorous, ticTacToe, seaOfClouds
 postPatterns: 'circuitBoard'
@@ -48,7 +48,7 @@ sns:
 
 # Tags
 recommend-tags: true # whether or not display recommend-tags on the sidebar
-recommend-condition-size: 12 # a tag will be recommended if the size of it is more than this value
+recommend-condition-size: 1 # a tag will be recommended if the size of it is more than this value
 
 # Build settings
 paginate: 6
@@ -57,9 +57,11 @@ exclude: ['node_modules', 'dev', 'package.json', 'gulpfile.js', '.gitignore', 'R
 
 # Markdown
 markdown: kramdown
-highlighter: rouge
+highlighter: none #rouge
 kramdown:
   input: GFM
+  syntax_highlighter_opts:
+    disable : true
 
 RSS: true
 
