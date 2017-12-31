@@ -2,7 +2,7 @@
 title: 'CodeIsc'
 description: 'Description of the website'
 keyword: 'code, isc, codeisc'
-url: 'http://isc30.github.io'
+url: '//isc30.github.io'
 
 # if you don't need baseurl, you should leave this value blank.
 baseurl: ''
@@ -25,7 +25,7 @@ nightMode: false
 
 # Comments
 disqus: true
-disqus_url: 'https://codeisc.disqus.com/embed.js'
+disqus_url: '//codeisc.disqus.com/embed.js'
 
 # Share
 social-share: true
