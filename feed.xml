@@ -8,9 +8,13 @@
 		<link>{{ site.url }}</link>
 		<atom:link href="{{ site.url }}/{{ page.path }}" rel="self" type="application/rss+xml" />
 		<lastBuildDate>{% for post in site.posts limit:1 %}{{ post.date | date_to_rfc822 }}{% endfor %}</lastBuildDate>
-		{% for post in site.posts limit:10 %}
+		{% for post in site.posts %}
 			<item>
+				{% if post.series %}
+				<title>{{ post.series | append: ' - ' | append: post.chapter | append: '. ' | append: post.title | xml_escape }}</title>
+				{% else %}
 				<title>{{ post.title | xml_escape }}</title>
+				{% endif %}
 				{% if post.author.name %}
 					<dc:creator>{{ post.author.name | xml_escape }}</dc:creator>
 				{% endif %}        

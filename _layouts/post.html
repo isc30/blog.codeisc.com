@@ -75,6 +75,11 @@
         </ul>
         {% endif %}
     </section>
+    {% if page.series %}
+    <section class="post-footer-item read-next">
+        {% include post-series.html %}
+    </section>
+    {% endif %}
     <section class="post-footer-item read-next">
         {% if page.next.url %}
         <div class="read-next-item">

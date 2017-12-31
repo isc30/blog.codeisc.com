@@ -1,19 +1,15 @@
 ---
 layout: post
 title: 'Nice usages'
-chapter: 2
 series: 'C++ Comma Operator'
+chapter: 2
 date: 2017-12-27
 author: ivansanz
 cover: '/assets/img/cpp-header.jpg'
 tags: c++
 ---
 
-This article is a continuation for the [**comma operator series**][comma-operator-series], please read it before continuing.
-
 In this article I will explain some nice real world usages for the comma operator.
-
-<br/>
 
 ------
 ## Beautiful while

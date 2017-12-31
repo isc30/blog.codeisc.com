@@ -481,7 +481,7 @@ a {
       .g-footer section a:hover {
         color: #83888F; }
 
-.post-header, .markdown-body, .post-wrapper, .author-detail, .social-share-wrapper {
+.post-header, .markdown-body, .series-note, .post-wrapper, .author-detail, .social-share-wrapper {
   margin: 0 auto; }
 
 .post-wrapper {
@@ -620,19 +620,45 @@ a {
     .post-content .post-subtitle:after {
       bottom: 0; }
 
-.markdown-body {
+.series-note > .series-table {
+  overflow: hidden;
+  border: 1px solid gray;
+  background-color: white;
+  border-radius: 5px; }
+  .series-note > .series-table .series-title {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 5px; }
+  .series-note > .series-table a {
+    display: inline-block;
+    box-sizing: border-box;
+    border-top: 1px solid gray;
+    padding: 5px;
+    width: 100%; }
+    .series-note > .series-table a:hover {
+      background-color: #f4f4f4; }
+  .series-note > .series-table span {
+    display: inline-block;
+    box-sizing: border-box;
+    border-top: 1px solid gray;
+    padding: 5px;
+    width: 100%;
+    font-style: italic;
+    background-color: #f9f9f9; }
+
+.markdown-body, .series-note {
   font-family: "Merriweather-Light", -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   width: 720px;
   box-sizing: border-box;
   padding: 0 0 32px; }
-  .markdown-body .highlight {
+  .markdown-body .highlight, .series-note .highlight {
     margin: 0 0 16px;
     overflow: scroll; }
-  .markdown-body img {
+  .markdown-body img, .series-note img {
     transition: .3s; }
-  .markdown-body ul li p, .markdown-body ol li p {
+  .markdown-body ul li p, .series-note ul li p, .markdown-body ol li p, .series-note ol li p {
     margin: 0; }
-    .markdown-body ul li p:first-child, .markdown-body ol li p:first-child {
+    .markdown-body ul li p:first-child, .series-note ul li p:first-child, .markdown-body ol li p:first-child, .series-note ol li p:first-child {
       margin-bottom: 0; }
 
 .social-share-wrapper {
@@ -835,11 +861,11 @@ a {
     background-color: #282C33; }
     .night-mode .post-content .post-subtitle:before, .night-mode .post-content .post-subtitle:after {
       background-color: #575B63; }
-  .night-mode .markdown-body {
+  .night-mode .markdown-body, .night-mode .series-note {
     color: #868A94; }
-    .night-mode .markdown-body img {
+    .night-mode .markdown-body img, .night-mode .series-note img {
       -webkit-filter: brightness(0.6); }
-    .night-mode .markdown-body blockquote {
+    .night-mode .markdown-body blockquote, .night-mode .series-note blockquote {
       border-left-color: #555A61; }
   .night-mode .read-next-item {
     background-color: #484D59; }
@@ -886,7 +912,7 @@ a {
     width: 56px; } }
 
 @media screen and (max-width: 768px) {
-  .post-wrapper, .markdown-body, .read-next {
+  .post-wrapper, .markdown-body, .series-note, .read-next {
     width: 92%; }
   .post-content .post-subtitle {
     width: 92%; }
@@ -1024,24 +1050,26 @@ a {
       margin-bottom: 32px; }
       .post-content .post-subtitle:before {
         height: 0; }
-  .markdown-body p, .markdown-body ul > li {
-    font-size: 16px;
-    font-weight: 300;
-    -webkit-font-smoothing: auto;
-    -moz-osx-font-smoothing: auto; }
-  .markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4 {
-    margin-top: 24px; }
-  .markdown-body table {
-    margin: 16px auto; }
-  .markdown-body img {
-    margin: 0 auto 16px; }
-  .markdown-body strong {
-    font-weight: 400; }
-  .markdown-body blockquote p {
-    font-size: 18px;
-    letter-spacing: 1px;
-    color: #888;
-    word-break: break-all; } }
+  .markdown-body, .series-note {
+    /*strong {
+            font-weight: 400;
+        }*/ }
+    .markdown-body p, .series-note p, .markdown-body ul > li, .series-note ul > li {
+      font-size: 16px;
+      font-weight: 300;
+      -webkit-font-smoothing: auto;
+      -moz-osx-font-smoothing: auto; }
+    .markdown-body h1, .series-note h1, .markdown-body h2, .series-note h2, .markdown-body h3, .series-note h3, .markdown-body h4, .series-note h4 {
+      margin-top: 24px; }
+    .markdown-body table, .series-note table {
+      margin: 16px auto; }
+    .markdown-body img, .series-note img {
+      margin: 0 auto 16px; }
+    .markdown-body blockquote p, .series-note blockquote p {
+      font-size: 18px;
+      letter-spacing: 1px;
+      color: #888;
+      word-break: break-all; } }
 
 @media screen and (max-width: 376px) {
   .home-banner h2 {

@@ -8,20 +8,20 @@
     {% endfor %}
     {% assign seriesPosts = seriesPosts | sort: 'chapter' %}
 
-<div class="series-note" style="background-color: antiquewhite">
-    <p>
-    This article is <strong>Part {{ page.chapter }}</strong> in a <strong>{{ seriesPosts.size }}-Part</strong> Series. ({{ page.series }})
-    </p>
-    <ul>
-    {% for post in seriesPosts %}
-        <li>Part {{ post.chapter }} - 
-        {% if page.chapter == post.chapter %}
-            This Article
-        {% else %}
-            <a href="{{post.url}}">{{post.title}}</a>
-        {% endif %}
-        </li>
-    {% endfor %}
-    </ul>
+<div class="series-note">
+    <div class="series-table">
+        <p class="series-title"><strong>{{ page.series }}</strong> series:</p>
+        <ul>
+        {% for post in seriesPosts %}
+            <li>
+                {% if page.chapter != post.chapter %}
+                    <a href="{{ post.url }}">{{ post.chapter }}. {{post.title}}</a>
+                {% else %}
+                    <span>{{ post.chapter }}. {{post.title}}</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
 </div>
 {% endif %}
