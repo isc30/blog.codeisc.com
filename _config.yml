@@ -60,7 +60,5 @@ kramdown:
   syntax_highlighter_opts:
     disable : true
 
-rss: true
-
 # Plugins
 plugins: [jekyll-paginate]
