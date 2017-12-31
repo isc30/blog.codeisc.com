@@ -19,16 +19,11 @@
             {% endif %}
         </div>
 
+        {% if page.series %}
+        <h1>{{ page.series }}</h1>
+        <h2>{{ page.chapter }}. {{ page.title }}</h2>
+        {% else %}
         <h1>{{ page.title }}</h1>
-
-        {% if page.chapter-title %}
-            <h2>
-                {% if page.chapter-number %}
-                    {{ page.chapter-number }}.
-                {% endif %}
-
-                {{ page.chapter-title }}
-            </h2>
         {% endif %}
 
         <div class="post-meta">
@@ -43,6 +38,9 @@
 </header>
 
 <div class="post-content">
+    {% if page.series %}
+        {% include post-series.html %}
+    {% endif %}    
     {% if page.subtitle %}
     <h2 class="post-subtitle">{{ page.subtitle }}</h2>
     {% endif %}

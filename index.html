@@ -27,6 +27,9 @@ description: lol this is a description
                 <section class="post-preview">
                     <a class="post-link" href="{{ post.url }}" title="{{ post.title }}"></a>
                     <h2 class="post-title">{{ post.title }}</h2>
+                    {% if post.series %}
+                    <h3>{{ post.series }}</h3>
+                    {% endif %}
                     {% if post.subtitle %}
                     <h3 class="post-subtitle">{{ post.subtitle }}</h3>
                     {% endif %}

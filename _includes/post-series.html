@@ -1,0 +1,27 @@
+{% if page.series %}
+
+    {% assign seriesPosts = "" | split: "" %}
+    {% for post in site.posts %}
+        {% if post.series == page.series %}
+            {% assign seriesPosts = seriesPosts | push: post %}
+        {% endif %}
+    {% endfor %}
+    {% assign seriesPosts = seriesPosts | sort: 'chapter' %}
+
+<div class="series-note" style="background-color: antiquewhite">
+    <p>
+    This article is <strong>Part {{ page.chapter }}</strong> in a <strong>{{ seriesPosts.size }}-Part</strong> Series. ({{ page.series }})
+    </p>
+    <ul>
+    {% for post in seriesPosts %}
+        <li>Part {{ post.chapter }} - 
+        {% if page.chapter == post.chapter %}
+            This Article
+        {% else %}
+            <a href="{{post.url}}">{{post.title}}</a>
+        {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 'Your filthy friend'
-series: cpp-comma-operator
+title: 'Introduction to our filthy friend'
+series: 'C++ Comma Operator'
 chapter: 1
 date: 2017-12-26
 author: ivansanz

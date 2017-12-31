@@ -2,7 +2,7 @@
 layout: post
 title: 'Nice usages'
 chapter: 2
-series: cpp-comma-operator
+series: 'C++ Comma Operator'
 date: 2017-12-27
 author: ivansanz
 cover: '/assets/img/cpp-header.jpg'
