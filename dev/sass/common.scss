@@ -540,12 +540,17 @@
 
 .series-note {
     @extend .markdown-body;
+    /*position: fixed;
+    left: 10px;
+    top: 10px;
+    width: 350px;*/
 
     > .series-table {
         overflow: hidden;
         border: 1px solid gray;
         background-color: white;
         border-radius: 5px;
+        //font-size: 10pt;
 
         .series-title {
             display: inline-block;
@@ -553,26 +558,40 @@
             padding: 5px;
         }
 
-        a {
-            display: inline-block;
-            box-sizing: border-box;
-            border-top: 1px solid gray;
-            padding: 5px;
-            width: 100%;
-
-            &:hover {
-                background-color: #f4f4f4;
+        & > ul > li {
+            &.current-chapter {
+                background-color: #f9f9f9;
             }
-        }
 
-        span {
-            display: inline-block;
-            box-sizing: border-box;
-            border-top: 1px solid gray;
-            padding: 5px;
-            width: 100%;
-            font-style: italic;
-            background-color: #f9f9f9;
+            > a {
+                display: inline-block;
+                box-sizing: border-box;
+                border-top: 1px solid gray;
+                padding: 5px;
+                width: 100%;
+    
+                &:hover {
+                    background-color: #f4f4f4;
+                }
+            }
+
+            > span {
+                display: inline-block;
+                box-sizing: border-box;
+                border-top: 1px solid gray;
+                padding: 5px;
+                width: 100%;
+                font-style: italic;
+            }
+
+            ul, ol {
+                list-style-type: circle;
+                padding: 0.5em 1.5em;
+
+                li {
+                    margin: 0 1.5em;
+                }
+            }
         }
     }
 }
