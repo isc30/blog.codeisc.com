@@ -1,5 +1,5 @@
 @media screen and (min-width: 1920px) {
-    .home-banner {
+    /*.home-banner {
         height: 600px;
         h2 {
             padding-top: 260px;
@@ -8,7 +8,7 @@
         h3 {
             font-size: 22px;
         }
-    }
+    }*/
 }
 
 @media screen and (max-width: $g-container-w) {
@@ -158,7 +158,7 @@
 }
 
 @media screen and (max-width: 500px) {
-    .home-banner {
+    /*.home-banner {
         height: 400px;
         h2 {
             padding-top: 180px;
@@ -174,7 +174,7 @@
             width: 695px;
             left: -100px;
         }
-    }
+    }*/
     .home-content {
         margin-bottom: 32px;
     }

@@ -46,7 +46,7 @@ $(document).ready(function(){
                     'box-shadow': '0 1px 12px rgba(0, 0, 0, .08)'
                 });
                 appLogo.css({
-                    'background': 'url(/assets/icons/logo_' + themeColorFlag + '.svg) no-repeat center',
+                    'background': 'url(/assets/icons/logo-color.svg) no-repeat center',
                     'background-size': '100% 100%'
                 });
                 navText.css('color', '#666');
@@ -60,7 +60,7 @@ $(document).ready(function(){
                     'box-shadow': 'none'
                 });
                 appLogo.css({
-                    'background': 'url(/assets/icons/logo.svg) no-repeat center',
+                    'background': 'url(/assets/icons/logo-white.svg) no-repeat center',
                     'background-size': '100% 100%'
                 });
                 navText.css('color', '#fff');
@@ -220,43 +220,5 @@ $(document).ready(function(){
         };
     }
 
-    new Search();
-
-    /**
-     * Night mode
-     */
-    function nightMode() {
-        var el = $('body'),
-            className = 'night-mode';
-
-        var date = new Date(),
-            hour = date.getHours();
-
-        if((hour >= 0 && hour <= 6) || hour === 23) {
-            el.addClass(className);
-        }
-    }
-    
-    if($('#nm-switch').val() === 'true') {
-        nightMode();
-    }
-
-    /**
-     * Copy and copyright
-     */
-    function setClipboardData(str) {
-        str += '\n\n著作权归作者所有。\n商业转载请联系作者获得授权,非商业转载请注明出处。\n原文: ' + location.href;
-        $('.post-content').on('copy', function(e) {
-            var data = window.clipboardData || e.originalEvent.clipboardData;
-            data.setData('text/plain', str);
-            e.preventDefault();
-        }); 
-    }
-    $('.post-content').on('mouseup', function(e) {
-        var txt = window.getSelection();
-        if(txt.toString().length >= 30) {
-            setClipboardData(txt);
-        }
-    });
-    
+    new Search();    
 });

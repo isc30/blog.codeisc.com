@@ -26,13 +26,6 @@ cout << (1, 2, 3); // prints `3`
 ```
 <br/>
 
-### TEST 1
-### TEST 2
-#### TEST
-#### TEST
-### TEST 3
-#### TEST
-
 Back in C times, returning a *lvalue* from the operator wasn’t allowed. This changed in C++, so you get **exactly** the last element as if it was [forwaded][doc-forward], being *lvalue*, *rvalue* or [*whatever*][doc-value-category]. This feature allows writing things like:
 
 ```cpp

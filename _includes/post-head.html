@@ -3,8 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% assign title = site.title %}
-    {% if page.series %}{% assign title = page.series | append: ' - ' | append: title %}{% endif %}
-    {% if page.title %}{% assign title = page.title | append: ' - ' | append: title %}{% endif %}
+    {% if page.series %}{% assign title = page.series | append: ' | ' | append: title %}{% endif %}
+    {% if page.title %}{% assign title = page.title | append: ' | ' | append: title %}{% endif %}
 
     <title>{{ title }}</title>
     <meta name="author"  content="{{ site.author }}">

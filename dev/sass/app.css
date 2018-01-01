@@ -66,9 +66,9 @@ a {
   .g-header .g-logo {
     float: left;
     margin-left: 2%;
-    width: 60px;
-    height: 26px;
-    background: url("../icons/logo.svg") no-repeat center;
+    width: 48px;
+    height: 32px;
+    background: url("../icons/logo-white.svg") no-repeat center;
     background-size: 100% 100%;
     opacity: .8;
     transition: all .2s; }
@@ -111,7 +111,7 @@ a {
         .g-header .g-nav > ul > li > a:hover {
           opacity: 1; }
   .g-header .nav-default a:hover {
-    color: #1494FB !important; }
+    color: #131313 !important; }
   .g-header .nav-pink a:hover {
     color: #FC6794 !important; }
 
@@ -158,22 +158,13 @@ a {
     z-index: 0; }
 
 .banner-theme-default {
-  background: -webkit-linear-gradient(0deg, #3CD5FF, #007AFF);
-  background: -o-linear-gradient(0deg, #3CD5FF, #007AFF);
-  background: -moz-linear-gradient(0deg, #3CD5FF, #007AFF);
-  background: linear-gradient(100deg, #3CD5FF, #007AFF); }
-
-.banner-theme-pink {
-  background: -webkit-linear-gradient(0deg, #FFCE69, #FA709A);
-  background: -o-linear-gradient(0deg, #FFCE69, #FA709A);
-  background: -moz-linear-gradient(0deg, #FFCE69, #FA709A);
-  background: linear-gradient(100deg, #FFCE69, #FA709A); }
+  background: -webkit-linear-gradient(0deg, #434343, #131313);
+  background: -o-linear-gradient(0deg, #434343, #131313);
+  background: -moz-linear-gradient(0deg, #434343, #131313);
+  background: linear-gradient(0deg, #434343, #131313); }
 
 .themeColor-default {
-  background-color: #1494FB; }
-
-.themeColor-pink {
-  background-color: #FC6794; }
+  background-color: #131313; }
 
 .home-content {
   margin: 40px auto 60px; }
@@ -562,7 +553,7 @@ a {
     z-index: -2; }
 
 .bgcolor-default {
-  background-color: #1494FB; }
+  background-color: #131313; }
 
 .bgcolor-pink {
   background-color: #FC6794; }
@@ -901,13 +892,16 @@ a {
     color: #61BDCF; }
 
 @media screen and (min-width: 1920px) {
-  .home-banner {
-    height: 600px; }
-    .home-banner h2 {
-      padding-top: 260px;
-      font-size: 42px; }
-    .home-banner h3 {
-      font-size: 22px; } }
+  /*.home-banner {
+        height: 600px;
+        h2 {
+            padding-top: 260px;
+            font-size: 42px;
+        }
+        h3 {
+            font-size: 22px;
+        }
+    }*/ }
 
 @media screen and (max-width: 960px) {
   .g-container {
@@ -1004,19 +998,23 @@ a {
     padding: 30px 0; } }
 
 @media screen and (max-width: 500px) {
-  .home-banner {
-    height: 400px; }
-    .home-banner h2 {
-      padding-top: 180px;
-      font-size: 28px;
-      line-height: 48px; }
-    .home-banner h3 {
-      margin-top: 2px;
-      font-size: 18px;
-      letter-spacing: 6px; }
-    .home-banner .header-img {
-      width: 695px;
-      left: -100px; }
+  /*.home-banner {
+        height: 400px;
+        h2 {
+            padding-top: 180px;
+            font-size: 28px;
+            line-height: 48px;
+        }
+        h3 {
+            margin-top: 2px;
+            font-size: 18px;
+            letter-spacing: 6px;
+        }
+        .header-img {
+            width: 695px;
+            left: -100px;
+        }
+    }*/
   .home-content {
     margin-bottom: 32px; }
   .article-list .article-item {

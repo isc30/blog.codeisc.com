@@ -17,9 +17,9 @@
     .g-logo {
         float: left;
         margin-left: 2%;
-        width: 60px;
-        height: $g-header-h;
-        background: url('../icons/logo.svg') no-repeat center;
+        width: 45px;
+        height: 32px;
+        background: url('../icons/logo-white.svg') no-repeat center;
         background-size: 100% 100%;
         opacity: .8;
         transition: all .2s;
@@ -136,23 +136,14 @@
 }
 
 .banner-theme-default {
-    background: -webkit-linear-gradient(0deg, #3CD5FF, #007AFF);
-    background: -o-linear-gradient(0deg, #3CD5FF, #007AFF);
-    background: -moz-linear-gradient(0deg, #3CD5FF, #007AFF);
-    background: linear-gradient(100deg, #3CD5FF, #007AFF);
-}
-.banner-theme-pink {
-    background: -webkit-linear-gradient(0deg, #FFCE69, #FA709A);
-    background: -o-linear-gradient(0deg, #FFCE69, #FA709A);
-    background: -moz-linear-gradient(0deg, #FFCE69, #FA709A);
-    background: linear-gradient(100deg, #FFCE69, #FA709A);
+    background: -webkit-linear-gradient(0deg, #434343, #131313);
+    background: -o-linear-gradient(0deg, #434343, #131313);
+    background: -moz-linear-gradient(0deg, #434343, #131313);
+    background: linear-gradient(0deg, #434343, #131313);
 }
 
 .themeColor-default {
     background-color: $color-theme-default;
-}
-.themeColor-pink {
-    background-color: $color-theme-pink;
 }
 
 .home-content {

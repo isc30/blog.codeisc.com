@@ -1,14 +1,15 @@
 ---
-layout: default
-home-title: CodeIsc
-description: lol this is a description
+layout: 'default'
+home-title: 'CodeIsc'
+description: 'lol this is a description'
 ---
 
 {% include header.html %}
 
-<div class="g-banner home-banner {{ site.theme-color | prepend: 'banner-theme-' }}" data-theme="{{ site.theme-color }}">
-    <h2>{{ page.home-title }}</h2>
-    <h3>{{ page.description }}</h3>
+<div class="home-banner {{ site.theme-color | prepend: 'banner-theme-' }}" data-theme="{{ site.theme-color }}">
+    <h2></h2>
+    <!--<h2>{{ page.home-title }}</h2>
+    <h3>{{ page.description }}</h3>-->
     {% if page.header-img %}
     <img class="header-img" src="{{ page.header-img | prepend: site.baseurl }}" alt="">
     {% endif %}
@@ -26,9 +27,11 @@ description: lol this is a description
                 {% endif %}
                 <section class="post-preview">
                     <a class="post-link" href="{{ post.url }}" title="{{ post.title }}"></a>
-                    <h2 class="post-title">{{ post.title }}</h2>
                     {% if post.series %}
-                    <h3>{{ post.series }}</h3>
+                    <h2 class="post-title">{{ post.series }}</h2>
+                    <h3>{{ post.chapter }}. {{ post.title }}</h3>
+                    {% else %}
+                    <h2 class="post-title">{{ post.title }}</h2>
                     {% endif %}
                     {% if post.subtitle %}
                     <h3 class="post-subtitle">{{ post.subtitle }}</h3>
