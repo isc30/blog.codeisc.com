@@ -9,9 +9,8 @@ baseurl: ''
 
 # Navigation links
 nav:
-  subscribe: 'https://feedburner.google.com/fb/a/mailverify?uri=codeisc/blog&amp;loc=en_US'
-  feed: '/feed.xml'
-#  tags: '/tags.html'
+  subscribe: 'https://feedburner.google.com/fb/a/mailverify?uri=codeisc/blog&loc=en_US'
+  rss feed: '/feed.xml'
 
 # Author
 author: 'Ivan Sanz'
