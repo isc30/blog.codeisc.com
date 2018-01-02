@@ -85,7 +85,7 @@ cout << 1, 2, 3 << endl; // compilation error
 <br/>
 
 > ### Next chapter: **2. Nice usages**
-> If you want to get informed for my new articles, check the [**Subscribe**](https://feedburner.google.com/fb/a/mailverify?uri=codeisc/blog&loc=en_US) and [**RSS feed**](/feed.xml) buttons in the top menu.
+> If you want to get informed about my new articles, check the [**Subscribe**](https://feedburner.google.com/fb/a/mailverify?uri=codeisc/blog&loc=en_US) and [**RSS feed**](/feed.xml) buttons in the top menu.
 >
 > Thanks for reading!
 
