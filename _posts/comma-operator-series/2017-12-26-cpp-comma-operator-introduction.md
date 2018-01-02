@@ -80,7 +80,7 @@ cout << 1, 2, 3 << endl; // compilation error
 
 <br/>
 
-**always use parenthesis** to avoid nasty bugs.
+**Always use parenthesis** to avoid nasty bugs.
 
 <br/>
 
