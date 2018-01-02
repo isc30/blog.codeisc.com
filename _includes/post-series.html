@@ -3,7 +3,9 @@
     {% assign seriesPosts = "" | split: "" %}
     {% for post in site.posts %}
         {% if post.series == page.series %}
-            {% assign seriesPosts = seriesPosts | push: post %}
+            {% unless post.hidden %}
+                {% assign seriesPosts = seriesPosts | push: post %}
+            {% endunless %}
         {% endif %}
     {% endfor %}
     {% assign seriesPosts = seriesPosts | sort: 'chapter' %}
