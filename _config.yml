@@ -9,7 +9,9 @@ baseurl: ''
 
 # Navigation links
 nav:
-  tags: '/tags.html'
+  subscribe: 'https://feedburner.google.com/fb/a/mailverify?uri=codeisc/blog&amp;loc=en_US'
+  feed: '/feed.xml'
+#  tags: '/tags.html'
 
 # Author
 author: 'Ivan Sanz'
