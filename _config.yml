@@ -1,6 +1,6 @@
 # Site settings
 title: 'CodeIsc'
-description: 'Description of the website'
+description: 'CodeIsc'
 keyword: 'code, isc, codeisc'
 url: '//isc30.github.io'
 
@@ -18,7 +18,7 @@ bio: 'C++/.NET engineer'
 avatar: '/assets/img/ivansanz.png'
 
 # Search
-search: true
+search: false
 
 # Night mode
 nightMode: false
@@ -60,7 +60,7 @@ kramdown:
   syntax_highlighter_opts:
     disable : true
 
-excerpt_separator: <!--more-->
+excerpt_separator: <!-- more -->
     
 # Plugins
 plugins: [jekyll-paginate]

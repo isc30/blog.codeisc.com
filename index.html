@@ -1,12 +1,12 @@
 ---
 layout: 'default'
 home-title: 'CodeIsc'
-description: 'lol this is a description'
+description: 'CodeIsc'
 ---
 
 {% include header.html %}
 
-<div class="home-banner {{ site.theme-color | prepend: 'banner-theme-' }}" data-theme="{{ site.theme-color }}">
+<div class="home-banner {{ site.theme-color | prepend: 'banner-theme-' }} post-pattern-circuitBoard bgcolor-default" data-theme="{{ site.theme-color }}">
     <h2></h2>
     <!--<h2>{{ page.home-title }}</h2>
     <h3>{{ page.description }}</h3>-->
@@ -37,7 +37,7 @@ description: 'lol this is a description'
                     <h3 class="post-subtitle">{{ post.subtitle }}</h3>
                     {% endif %}
                     {% if post.subtitle.size==0 or post.subtitle==nil %}
-                    <p class="post-excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 126}}</p>
+                    <p class="post-excerpt">{{ post.excerpt | strip_html | strip_newlines }}</p>
                     {% endif %}
                 </section>
                 <footer class="post-meta">

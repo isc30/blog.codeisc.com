@@ -84,7 +84,12 @@
         <div class="read-next-item">
             <a href="{{ page.next.url }}" class="read-next-link"></a>
             <section>
-                <span>{{ page.next.title }}</span>
+                {% if page.next.series %}
+                <span class="item-title">{{ page.next.series }}</span>
+                <span class="item-subtitle">{{ page.next.chapter }}. {{ page.next.title }}</span>
+                {% else %}
+                <span class="item-title">{{ page.next.title }}</span>
+                {% endif %}
                 <p>{{ page.next.excerpt | strip_html | strip_newlines | truncate: 60}}</p>
             </section>
             {% if page.next.cover %}
@@ -97,7 +102,12 @@
         <div class="read-next-item">
             <a href="{{ page.previous.url }}" class="read-next-link"></a>
             <section>
-                <span>{{ page.previous.title }}</span>
+                {% if page.previous.series %}
+                <span class="item-title">{{ page.previous.series }}</span>
+                <span class="item-subtitle">{{ page.previous.chapter }}. {{ page.previous.title }}</span>
+                {% else %}
+                <span class="item-title">{{ page.previous.title }}</span>
+                {% endif %}
                 <p>{{ page.previous.excerpt | strip_html | strip_newlines | truncate: 60}}</p>
             </section>
             {% if page.previous.cover %}

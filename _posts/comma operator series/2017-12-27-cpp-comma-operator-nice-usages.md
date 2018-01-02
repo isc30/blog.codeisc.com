@@ -5,11 +5,13 @@ series: 'C++ Comma Operator'
 chapter: 2
 date: 2017-12-27
 author: ivansanz
-cover: '/assets/img/cpp-header.jpg'
+#cover: '/assets/img/cpp-header.jpg'
 tags: c++
 ---
 
 In this article I will explain some nice real world usages for the comma operator.
+
+<!-- more -->
 
 ------
 ## Beautiful while
@@ -56,5 +58,3 @@ while (processWindowEvents(window), window.isOpen())
 ```
 
 I personally prefer this version, I think it’s more readable and less susceptible to algorithmic bugs than the others.
-
-[comma-operator-series]: TODO

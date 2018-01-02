@@ -5,11 +5,12 @@ series: 'C++ Comma Operator'
 chapter: 1
 date: 2017-12-26
 author: ivansanz
-cover: '/assets/img/cpp-header.jpg'
+#cover: '/assets/img/cpp-header.jpg'
 tags: c++
 ---
 
 Comma operator has been with us for a long time. First seen in C spec and *improved* with custom overloads in C++, it quickly became one of those *hidden things you shouldn’t use*.
+<!-- more -->
 
 Most C/C++ books avoid speaking about `goto` the same way they do about *comma operator*. This is not fair, as both of them can be used properly on certain cases. Let’s speak about that.
 
