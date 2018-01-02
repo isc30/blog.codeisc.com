@@ -77,9 +77,17 @@ cout << 1, 2, 3 << endl; // compilation error
 //         (2,3)
 //         (3)
 ```
+
 <br/>
 
-> **always use parenthesis** to avoid nasty bugs.
+**always use parenthesis** to avoid nasty bugs.
+
+<br/>
+
+> ### Next chapter: **2. Nice usages**
+> If you want to get informed for my new articles, check the [**Subscribe**](https://feedburner.google.com/fb/a/mailverify?uri=codeisc/blog&loc=en_US) and [**RSS feed**](/feed.xml) buttons in the top menu.
+>
+> Thanks for reading!
 
 [doc-forward]: http://en.cppreference.com/w/cpp/utility/forward
 [doc-value-category]: http://en.cppreference.com/w/cpp/language/value_category
