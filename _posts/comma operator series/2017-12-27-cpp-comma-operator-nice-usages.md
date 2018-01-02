@@ -12,7 +12,7 @@ published: false
 
 In this article I will explain some nice real world usages for the comma operator.
 
-<!-- more -->
+<!-- more --><br/>
 
 ------
 ## Beautiful while
@@ -60,6 +60,8 @@ while (processWindowEvents(window), window.isOpen())
 
 I personally prefer this version, I think it’s more readable and less susceptible to algorithmic bugs than the others.
 
+<br/>
+
 ------
 ## Maintaining multiple variables in a for
 ------
@@ -85,10 +87,15 @@ cout << "O(" << bigO/(double)n << "n)"; // O(1.5n) = O(n+n/2)
 
 > Please note that declaring multiple variables in a single line by using comma `int x = 0, y = 33, ...` is something totally different than using comma operator, but they both use the same syntax/grammar.
 
+<br/>
+
+------
 ## SFINAE: decltype magic with custom type deduction
+------
+
 If you ever tried to master this demon, I’m pretty sure you have seen things like `decltype(T::something(), 0)` that you don't really understand but you just copy-paste them because, well... they work.
 
-But, what is that evil **comma in *decltype*** doing? Let's imagine this simple *type trait*:
+But, what is that **evil comma in decltype** doing? Let's imagine this simple *type trait*:
 
 ```cpp
 // SFINAE fallback
@@ -122,22 +129,52 @@ This is the perfect example when using the comma in `decltype` helps us avoiding
 >
 > (c++14) Using `decltype(0, auto)` for the return type doesn't deduct the proper type due to more complex technical limitations. If you want to learn more about this edge case please add a comment below.
 
+<br/>
+
+------
 ## SFINAE: call + return
+------
+
 // TODO
 
+<br/>
+
+------
 ## Params without variadic
+------
+
 // TODO
 
+<br/>
+
+------
 ## 1 line macros
+------
+
 // TODO
 
+<br/>
+
+------
 ## C++11 constexpr
+------
+
 // TODO
 
+<br/>
+
+------
 ## Condition + abort/terminate/exit + logs
+------
+
 // TODO
 
+<br/>
+
+------
 ## Obfuscation
+------
+
 // TODO
 
 [decltype-magic-example]: https://ideone.com/2iSRZX
