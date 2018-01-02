@@ -17,6 +17,10 @@ nickname: 'ivansanz'
 bio: 'C++/.NET engineer'
 avatar: '/assets/img/ivansanz.png'
 
+# Analytics
+analytics: true
+analytics-gtag: UA-111742878-1
+
 # Search
 search: false
 
