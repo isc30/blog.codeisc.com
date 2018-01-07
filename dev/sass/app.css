@@ -66,7 +66,7 @@ a {
   .g-header .g-logo {
     float: left;
     margin-left: 2%;
-    width: 45px;
+    width: 32px;
     height: 32px;
     background: url("../icons/logo-white.svg") no-repeat center;
     background-size: 100% 100%;
@@ -1068,6 +1068,14 @@ a {
   .markdown-body, .series-note {
     /*strong {
             font-weight: 400;
+        }
+        blockquote {
+            p {
+                font-size: 18px;
+                letter-spacing: 1px;
+                color: #888;
+                word-break: break-all;
+            }
         }*/ }
     .markdown-body p, .series-note p, .markdown-body ul > li, .series-note ul > li {
       font-size: 16px;
@@ -1079,12 +1087,7 @@ a {
     .markdown-body table, .series-note table {
       margin: 16px auto; }
     .markdown-body img, .series-note img {
-      margin: 0 auto 16px; }
-    .markdown-body blockquote p, .series-note blockquote p {
-      font-size: 18px;
-      letter-spacing: 1px;
-      color: #888;
-      word-break: break-all; } }
+      margin: 0 auto 16px; } }
 
 @media screen and (max-width: 376px) {
   .home-banner h2 {
@@ -1096,3 +1099,33 @@ a {
   .home-banner .header-img {
     width: 695px;
     left: -100px; } }
+
+.markdown-body blockquote.jackass, .series-note blockquote.jackass {
+  background-color: #131313;
+  color: #f8f8f2;
+  padding: 1em;
+  background-image: url("/assets/img/skull.png");
+  background-repeat: no-repeat;
+  background-size: auto 3em;
+  padding-left: 5em;
+  background-position: 1em center;
+  border-color: #ff6666; }
+  .markdown-body blockquote.jackass .title, .series-note blockquote.jackass .title {
+    color: #ff6666;
+    margin-bottom: 0; }
+  .markdown-body blockquote.jackass .content code, .series-note blockquote.jackass .content code {
+    background-color: rgba(255, 255, 255, 0.1); }
+
+.markdown-body blockquote.note, .series-note blockquote.note {
+  padding: 1em;
+  background-color: #FFFFCC;
+  border-color: #FFEB3B; }
+  .markdown-body blockquote.note .content, .series-note blockquote.note .content {
+    color: #24292e; }
+
+.markdown-body h2 img, .series-note h2 img {
+  display: inline-block;
+  height: 1.25em;
+  margin: 0;
+  box-sizing: border-box;
+  vertical-align: middle; }

@@ -1,0 +1,42 @@
+.markdown-body {
+    blockquote.jackass {
+        background-color: #131313;
+        color: #f8f8f2;
+        padding: 1em;
+        background-image: url('/assets/img/skull.png');
+        background-repeat: no-repeat;
+        background-size: auto 3em;
+        padding-left: 5em;
+        background-position: 1em center;
+        border-color:#ff6666;
+
+        .title {
+            color: #ff6666;
+            margin-bottom: 0;
+        }
+
+        .content {
+            code {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+    }
+
+    blockquote.note {
+        padding: 1em;
+        background-color: #FFFFCC;
+        border-color: #FFEB3B;
+
+        .content {
+            color: #24292e;
+        }
+    }
+
+    h2 img {
+        display: inline-block;
+        height: 1.25em;
+        margin: 0;
+        box-sizing: border-box;
+        vertical-align: middle;
+    }
+}

@@ -34,7 +34,7 @@ cout << &(a, b); // address of `b`
 ```
 <br/>
 
-Another nice point of the comma is that it introduces a [sequence point][doc-sequence-point] after every left operand evaluation, meaning that it [**ensures that all the sub-expressions will be evaluated in order (8.19.2)**][standard-8-19]. This is a really nice feature, as the compiler is usually allowed to evaluate operands in an arbitrary order (f.e. function args evaluation order is an *undefined behavior*)
+Another nice point of the comma is that it introduces a [sequence point][doc-sequence-point] after every left operand evaluation, meaning that it [**ensures that all the sub-expressions will be evaluated in order (§8.19.2)**][standard-8-19]. This is a really nice feature, as the compiler is usually allowed to evaluate operands in an arbitrary order (f.e. function args evaluation order is an *undefined behavior*)
 
 ```cpp
 int i = 0;
