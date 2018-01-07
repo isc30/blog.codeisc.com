@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Possible usages'
+title: 'Nice usages'
 series: 'C++ Comma Operator'
 chapter: 2
 date: 2018-01-05
@@ -147,27 +147,6 @@ As long as every previous sub-expression compiles, compiler will continue evalua
 <br/>
 
 ------
-## Single expression call + return
-------
-
-Whaat
-
-```cpp
-asd
-```
-
-This technique can also be used for putting complex logic in constructor initializers.
-
-```cpp
-class X : public A
-{
-    X() : A( (global_function(), global_result) ) { };
-};
-```
-
-<br/>
-
-------
 ## (C++03) Params of specific type
 ------
 
@@ -270,30 +249,6 @@ constexpr T array_at(T(&array)[N])
 {
     return checkArrayBounds<Index, N>(), *(array+Index); // Comma magic *-*
 }
-```
-
-<br/>
-
-------
-## Single line macros
-------
-
-No explanation needed (yes, macros are evil (and delete macros evil x2))
-
-```cpp
-#define _delete(ptr) delete ptr, ptr = nullptr
-```
-
-<br/>
-
-------
-## "Only noobs use braces"
-------
-
-Don't do this, please :)
-
-```cpp
-if (condition) log_error("fatal error XXXXX"), exit(1);
 ```
 
 <br/>

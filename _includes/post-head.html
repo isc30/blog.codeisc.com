@@ -20,7 +20,7 @@
     <meta name="description" content="{{ title }}">
     <meta name="keywords"  content="{% if page.tags.size > 0 %}{% for tag in page.tags  %}{{ tag }}{% if forloop.last == false %}, {% endif %}{% endfor %}{% endif %}">
     <!-- Open Graph -->
-    <meta property="og:title" content="{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:title" content="{{ title }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ page.url | prepend: site.url }}">
     <meta property="og:description" content="{{ site.description }}">
