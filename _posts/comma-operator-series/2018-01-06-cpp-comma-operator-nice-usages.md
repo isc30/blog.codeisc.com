@@ -14,8 +14,8 @@ In this article I will explain some *"nice"* real world usages for the comma ope
 
 <!-- more -->
 
-> "There appear to be few practical uses of operator,()"
-> <footer>- <cite>Bjarne Stroustrup, The Design and Evolution of C++</cite></footer>
+> "There appear to be few practical uses of operator,()"<br/>
+> -- *Bjarne Stroustrup, The Design and Evolution of C++*
 
 Oh, Bjarne, you are totally right.
 
@@ -25,9 +25,9 @@ Oh, Bjarne, you are totally right.
 ## Conclusions first
 ------
 
-Comma operator is **tricky** and nowadays (C++17) using it gives us a very small advantage (except for some cases, explained later).
+Comma operator is **tricky** and nowadays (C++17) using it won't help you much (except for some cases, explained later).
 
-Overloading the comma operator with explicit types is a bit shitty, you can easily end up with **hidden fallbacks to the language behaviour** if the specific overload isn't fulfilled. The worst part is that **there is no possible error/warning** when this happens.
+Overloading the comma operator with explicit types is a bit tricky too, as you can easily end up with **hidden fallbacks to the language behaviour** if the specific overload isn't fulfilled. The worst part is that **there is no possible error/warning** when this happens ([example of this nasty bug](https://ideone.com/cYvQrz)). This problem can be solved using proxy templates (explained later).
 
 <blockquote class="jackass">
     <p class="title">Questionable practices, read carefully</p>
@@ -153,7 +153,7 @@ As long as every previous sub-expression compiles, compiler will continue evalua
 In modern C++, passing **unlimited arguments of a specific type** is very easy with *variadic templates*, *std::initializer_list* or *brace initializers*.
 For old C++03, *explicit overloads* or *variadic args* are the only options... (or not? ...)
 
-Explicit overloads are nice and simple if you have a few defined usages and you know how many args you will need, but isn't scalable at all.
+Explicit overloads are nice and simple if you have a **few defined usages** and you know how many args you will need, but **isn't scalable** at all.
 
 Variadic args is something that comes from C world: it **only works in runtime** (not nice, as you get no compile-time errors) and does **implicit conversions instead of throwing errors** for incorrect types. Definitely a really bad option.
 
@@ -171,9 +171,8 @@ Why don't we create a class that overloads the comma operator for pushing parame
 
 ```cpp
 template<typename T>
-class Params : public std::vector<T>
+struct Params : public std::vector<T>
 {
-public:
     template<typename V> // avoids fallback to language-defined behavior
     inline Params<T>& operator,(const V& value)
     {
@@ -214,13 +213,13 @@ printParams(Params<int>()); // []
 // Some params
 printParams((Params<int>(), 1, 2, 3)); // [1, 2, 3]
 
-// compile-time error: invalid conversion from `const char[6]` to `int`
+// Compile-time error: invalid conversion from `const char[6]` to `int`
 printParams((Params<int>(), 1, 2, 3, "error"));
 ```
 
 This method is the best for **C++03** as it provides **nice syntax** and **compile-time errors**.
 
-([full working example](https://ideone.com/ssobvD))
+([full working example](https://ideone.com/KjZxbT))
 
 <blockquote class="jackass">
     <p class="title" markdown="1">If your compiler supports **C++11 or greater**</p>
@@ -239,17 +238,19 @@ In **C++11**, *constexpr* function body is limited to a simple return expression
 
 ```cpp
 template<size_t Index, size_t N>
-constexpr void checkArrayBounds()
+constexpr bool checkArrayBounds()
 {
-    static_assert(Index < N, "Index out of bounds");
+    return Index < N || (throw "Index out of bounds", false);
 }
 
 template<size_t Index, typename T, size_t N>
-constexpr T array_at(T(&array)[N])
+constexpr T array_at(T(&array)[N]) // `array` is a reference to `T[N]`
 {
     return checkArrayBounds<Index, N>(), *(array+Index); // Comma magic *-*
 }
 ```
+
+([full working example](https://ideone.com/5qZxa2))
 
 <br/>
 
