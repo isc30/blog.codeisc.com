@@ -78,9 +78,11 @@ cout << 1, 2, 3 << endl; // compilation error
 //         (3)
 ```
 
-<br/>
-
-**Always use parenthesis** to avoid nasty bugs.
+<blockquote class="note">
+    <p class="content" markdown="1">
+    **Always use parenthesis** to avoid nasty bugs.
+    </p>
+</blockquote>
 
 <br/>
 
