@@ -25,7 +25,7 @@ Oh, Bjarne, you are totally right.
 ## Conclusions first
 ------
 
-Comma operator is **tricky** and nowadays (C++17) using it won't help you much (except for some cases, explained later).
+Comma operator is **tricky** and nowadays (C++17) using it won't help you much (except for some cases, explained in this article).
 
 Overloading the comma operator with explicit types is a bit tricky too, as you can easily end up with **hidden fallbacks to the language behaviour** if the specific overload isn't fulfilled. The worst part is that **there is no possible error/warning** when this happens ([example of this nasty bug](https://ideone.com/cYvQrz)). This problem can be solved using proxy templates (explained later).
 
@@ -258,6 +258,20 @@ constexpr T array_at(T(&array)[N]) // `array` is a reference to `T[N]`
 ## Obfuscation
 ------
 
-// TODO
+Take a "*good practices guide*" and reverse it. You will get the **definitive guide for creating unmaintainable code**. One of the main rules will be: **use the comma operator frequently** (YESSS!).
+
+Here's a mind-blowing example using commas, enjoy :D
+
+```cpp
+char* c { (char*)-1 };
+if (c = 0, delete c++, c--)
+{
+    long a[] = {0b1100, 0x1, 0b10, 0b110, 0x10}, b = (long)c;
+    char(*p)(char) = [](char x) { return printf("%c", 67+x), x; };
+    for (int i = p(b); a[0],i<(a[1]|a[2]<<a[1])||p(b); p(b|a[i]),++i);
+}
+```
+
+([full working example](https://ideone.com/0SPARS))
 
 [decltype-magic-example]: https://ideone.com/2iSRZX
