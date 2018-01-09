@@ -3,14 +3,13 @@ layout: post
 title: 'Nice usages'
 series: 'C++ Comma Operator'
 chapter: 2
-date: 2018-01-05
+date: 2018-01-09
 author: ivansanz
-#cover: '/assets/img/cpp-header.jpg'
 tags: c++
 published: false
 ---
 
-In this article I will explain some *"nice"* real world usages for the comma operator.
+In this article I will explain some *nice* real world usages for the comma operator.
 
 <!-- more -->
 
@@ -27,7 +26,7 @@ Oh, Bjarne, you are totally right.
 
 Comma operator is **tricky** and nowadays (C++17) using it won't help you much (except for some cases, explained in this article).
 
-Overloading the comma operator with explicit types is a bit tricky too, as you can easily end up with **hidden fallbacks to the language behaviour** if the specific overload isn't fulfilled. The worst part is that **there is no possible error/warning** when this happens ([example of this nasty bug](https://ideone.com/cYvQrz)). This problem can be solved using proxy templates (explained later).
+Overloading the comma operator with explicit types is a bit tricky too, as you can easily end up with **hidden fallbacks to the language behavior** if the specific overload isn't fulfilled. The worst part is that **there is no possible error/warning** when this happens ([example of this nasty bug](https://ideone.com/cYvQrz)). This problem can be solved using proxy templates (explained later).
 
 <blockquote class="jackass">
     <p class="title">Questionable practices, read carefully</p>
@@ -130,13 +129,13 @@ decltype(0); // int
 decltype(hello(), 0); // (bool, int) => int
 ```
 
-In the example code, we want to specialize our template for `HasHelloFunction<T, int>` if the compilation succeeds (if `T::hello` function exists).
+In our example, we want to specialize our template for `HasHelloFunction<T, int>` if the compilation succeeds (if `T::hello` function exists).
 
 We don't care about the return type of `T::hello()`. **In case our expression compiles** (function exists and can be invoked with zero args), we want to deduce our **SFINAE fallback type**: `int`. As simple as that.
 
 This is the perfect example when using the comma in `decltype` helps us avoiding *long and complex* template activation traits.
 
-([full example sorce code][decltype-magic-example])
+([full example source code](https://ideone.com/2iSRZX))
 
 <blockquote class="note">
     <p class="content" markdown="1">
@@ -258,20 +257,35 @@ constexpr T array_at(T(&array)[N]) // `array` is a reference to `T[N]`
 ## Obfuscation
 ------
 
-Take a "*good practices guide*" and reverse it. You will get the **definitive guide for creating unmaintainable code**. One of the main rules will be: **use the comma operator frequently** (YESSS!).
+Take a "good practices guide" and reverse it. You will get the **definitive guide for creating unmaintainable code** (bible of code obfuscation).
+One of the main rules will be: **use the comma operator frequently** (YESSS!).
 
-Here's a mind-blowing example using commas, enjoy :D
+Here's a simple mind-blowing example that takes advantage of commas, enjoy :D
 
 ```cpp
-char* c { (char*)-1 };
+char* c{ (char*)-1 };
 if (c = 0, delete c++, c--)
 {
-    long a[] = {0b1100, 0x1, 0b10, 0b110, 0x10}, b = (long)c;
-    char(*p)(char) = [](char x) { return printf("%c", 67+x), x; };
-    for (int i = p(b); a[0],i<(a[1]|a[2]<<a[1])||p(b); p(b|a[i]),++i);
+    long a[] = { 0b1100, 0x1, 0b10, 0b110, 0x10 }, b = (long)c;
+    char(*p)(char) = [](char x) { return printf("%c", 0x43 + x), x; };
+    for (int i = (c++, p(b)); ++c, i < 5 || p(b); p(b | a[i]), ++i, c++);
 }
 ```
 
-([full working example](https://ideone.com/0SPARS))
+([full working example](https://ideone.com/3Z1HnZ))
 
-[decltype-magic-example]: https://ideone.com/2iSRZX
+<br/>
+
+----
+## The end
+----
+
+That's all! I didn't want to end up with a huge post so I omitted many other ~~even more questionable~~ "uses" of the comma operator, listed below. I personally consider those **really bad practices**.
+
+* Single line macros
+* Avoiding block braces
+* `std::optional<T>` fallback value (like `myVar || 0` in JavaScript)
+* Complex logic in constructor args (call global functions + pass other values)
+* ... a long and nasty etc
+
+Now that you are a real expert on the comma operator, what do you think about it? **Drop a comment below!**

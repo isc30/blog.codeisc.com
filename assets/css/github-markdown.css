@@ -584,6 +584,7 @@ li p:nth-child(2) {
   background-color: #f6f8fa;
 }
 
+.markdown-body li code,
 .markdown-body p code {
   padding: 0.2em 0.4em;
   margin: 0;
