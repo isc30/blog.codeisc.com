@@ -66,6 +66,6 @@ kramdown:
     disable : true
 
 excerpt_separator: <!-- more -->
-    
+
 # Plugins
 plugins: [jekyll-paginate]
