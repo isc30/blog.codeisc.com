@@ -1082,6 +1082,11 @@ a {
       font-weight: 300;
       -webkit-font-smoothing: auto;
       -moz-osx-font-smoothing: auto; }
+    .markdown-body pre, .series-note pre {
+      font-size: 14px;
+      font-weight: 300;
+      -webkit-font-smoothing: auto;
+      -moz-osx-font-smoothing: auto; }
     .markdown-body h1, .series-note h1, .markdown-body h2, .series-note h2, .markdown-body h3, .series-note h3, .markdown-body h4, .series-note h4 {
       margin-top: 24px; }
     .markdown-body table, .series-note table {
