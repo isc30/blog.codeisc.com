@@ -245,7 +245,7 @@
         }
     }
     .markdown-body {
-        p, ul>li {
+        p, pre, ul>li {
             font-size: 16px;
             font-weight: 300;
             -webkit-font-smoothing: auto;

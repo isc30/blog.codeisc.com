@@ -1077,7 +1077,7 @@ a {
                 word-break: break-all;
             }
         }*/ }
-    .markdown-body p, .series-note p, .markdown-body ul > li, .series-note ul > li {
+    .markdown-body p, .series-note p, .markdown-body pre, .series-note pre, .markdown-body ul > li, .series-note ul > li {
       font-size: 16px;
       font-weight: 300;
       -webkit-font-smoothing: auto;
