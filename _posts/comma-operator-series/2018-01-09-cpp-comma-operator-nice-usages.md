@@ -6,7 +6,6 @@ chapter: 2
 date: 2018-01-09
 author: ivansanz
 tags: c++
-published: false
 ---
 
 In this article I will explain some *nice* real world usages for the comma operator.
