@@ -15,16 +15,20 @@
     {% if page.series %}{% assign title = page.series | append: ' | ' | append: title %}{% endif %}
     {% if page.title %}{% assign title = page.title | append: ' | ' | append: title %}{% endif %}
 
+    {% assign description = page.excerpt | strip_html | strip_newlines %}
+
     <title>{{ title }}</title>
     <meta name="author"  content="{{ site.author }}">
-    <meta name="description" content="{{ title }}">
+    <meta name="description" content="{{ description }}">
     <meta name="keywords"  content="{% if page.tags.size > 0 %}{% for tag in page.tags  %}{{ tag }}{% if forloop.last == false %}, {% endif %}{% endfor %}{% endif %}">
+
     <!-- Open Graph -->
     <meta property="og:title" content="{{ title }}">
     <meta property="og:type" content="article">
     <meta property="og:url" content="{{ page.url | prepend: site.url }}">
-    <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines }}">
+    <meta property="og:description" content="{{ description }}">
     <meta property="og:site_name" content="{{ site.title }}">
+
     <link rel="alternate" href="/feed.xml" type="application/rss+xml" title="CodeIsc blog feed (atom)" />
     <link rel="icon" href="/favicon.ico"/>
     <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
