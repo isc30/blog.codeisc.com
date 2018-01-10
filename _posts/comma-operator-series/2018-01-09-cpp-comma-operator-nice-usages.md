@@ -5,6 +5,7 @@ series: 'C++ Comma Operator'
 chapter: 2
 date: 2018-01-09
 author: ivansanz
+reddit: /2017/12/26/cpp-comma-operator-introduction.html
 tags: c++
 ---
 
