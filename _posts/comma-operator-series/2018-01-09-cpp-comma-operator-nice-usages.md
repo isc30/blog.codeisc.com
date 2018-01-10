@@ -180,7 +180,7 @@ struct Params : public std::vector<T>
 };
 ```
 
-This technique is accepted and used in tons of nice libraries. For example, [boost::assign](http://www.boost.org/doc/libs/1_66_0/libs/assign/doc/#operator+=) uses the `operator+=` and [boost::format](http://www.boost.org/doc/libs/1_31_0/libs/format/doc/format.html#synopsis) uses the `operator%`.
+This technique is accepted and used in tons of nice libraries. For example [boost::spirit](http://www.boost.org/doc/libs/1_66_0/libs/spirit/doc/html/index.html) uses the `operator,`, [boost::assign](http://www.boost.org/doc/libs/1_66_0/libs/assign/doc/#operator+=) uses `operator+=` and [boost::format](http://www.boost.org/doc/libs/1_31_0/libs/format/doc/format.html#synopsis) uses `operator%` for similar purposes.
 
 We can use `Params<T>` in our functions like this:
 
