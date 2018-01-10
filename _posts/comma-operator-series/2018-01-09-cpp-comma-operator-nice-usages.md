@@ -26,7 +26,7 @@ Oh, Bjarne, you are totally right.
 
 Comma operator is **tricky** and nowadays (C++17) using it won't help you much (except for some cases, explained in this article).
 
-Overloading the comma operator with explicit types is a bit tricky too, as you can easily end up with **hidden fallbacks to the language behavior** if the specific overload isn't fulfilled. The worst part is that **there is no possible error/warning** when this happens ([example of this nasty bug](https://ideone.com/cYvQrz)). This problem can be solved using proxy templates (explained later).
+Overloading the comma operator with explicit types is a bit tricky too, as you can easily end up with **hidden fallbacks to the language behavior** if the specific overload isn't fulfilled. The worst part is that **there is no possible error/warning** when this happens ([example of this nasty bug](https://ideone.com/cYvQrz)). This problem can be solved using proxy templates (explained later in *C++03 Params* example) and explicitly casting all left operands to `void` to ensure no overloads.
 
 <blockquote class="jackass">
     <p class="title">Questionable practices, read carefully</p>
@@ -129,7 +129,7 @@ decltype(0); // int
 decltype(hello(), 0); // (bool, int) => int
 ```
 
-In our example, we want to specialize our template for `HasHelloFunction<T, int>` if the compilation succeeds (if `T::hello` function exists).
+In our example, we want to specialize our template for `HasHelloFunction<T, int>` if `T::hello` function exists.
 
 We don't care about the return type of `T::hello()`. **In case our expression compiles** (function exists and can be invoked with zero args), we want to deduce our **SFINAE fallback type**: `int`. As simple as that.
 

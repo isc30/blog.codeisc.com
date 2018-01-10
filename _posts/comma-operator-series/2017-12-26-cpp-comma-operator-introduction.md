@@ -20,7 +20,7 @@ Most C/C++ books avoid speaking about `goto` the same way they do about *comma o
 ## But first, what does it do?
 ------
 
-Comma operator is associative, it returns the **result of the last expression** after evaluating all of them (one by one, from left to right, as any other *binary operation*)
+Comma operator is associative, it returns the **result of the last expression** after evaluating all of them (from left to right, one by one, as any other *binary operation*)
 
 ```cpp
 cout << (1, 2, 3); // prints `3`
