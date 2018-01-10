@@ -1,13 +1,5 @@
 <head>
-	{% if site.analytics %}
-	<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics-gtag }}"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	  gtag('config', '{{ site.analytics-gtag }}');
-	</script>
-	{% endif %}
+    {% include analytics.html %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -37,4 +29,6 @@
     <link rel="stylesheet" href="/assets/css/prism.css">
     <link rel="stylesheet" href="/assets/css/share.min.css">
     <link rel="stylesheet" href="/assets/css/app.min.css">
+
+    <script src="/assets/js/parism.js"></script>
 </head>
