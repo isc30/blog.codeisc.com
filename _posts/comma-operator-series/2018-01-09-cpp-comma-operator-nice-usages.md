@@ -230,7 +230,7 @@ This method is the best for **C++03** as it provides **nice syntax** and **compi
 <br/>
 
 ------
-## (C++11) bypass constexpr restrictions
+## (C++11) Bypass constexpr restrictions
 ------
 
 In **C++11**, *constexpr* function body is limited to a simple return expression. This forced us to use *smart* ways to combine multiple expressions, being comma one of the most used ones as it ensures a perfectly defined evaluation order. Typical example is compile time assertions + return:
@@ -250,6 +250,47 @@ constexpr T array_at(T(&array)[N]) // `array` is a reference to `T[N]`
 ```
 
 ([full working example](https://ideone.com/5qZxa2))
+
+<br/>
+
+------
+## (C++17) Fold expressions (reducing parameter packs)
+------
+
+One of the best features of C++17, [fold expression](http://en.cppreference.com/w/cpp/language/fold), allows **reducing a parameter pack by applying a binary operator** (including comma). This opens a huge branch of possibilities like calling a function for each argument or easily getting the last argument from the pack.
+
+### Best way to get the last argument in C++17
+
+```cpp
+template<typename... Args>
+constexpr auto&& last_arg(Args&&... args)
+{
+    return (args, ...); // std::forward isn't needed
+}
+```
+
+([full working example](https://ideone.com/NRIumJ))
+
+### Calling a function for each argument
+
+For example, pushing every argument from the parameter pack to a `std::vector`:
+
+```cpp
+template<typename T, typename... Args>
+void push_back_vec(std::vector<T>& v, Args&&... args)
+{
+    (v.push_back(std::forward<Args>(args)), ...);
+}
+```
+
+<blockquote class="jackass">
+    <p class="title" markdown="1">Bug in **cppreference**</p>
+    <p class="content" markdown="1">
+        This example is taken from cppreference, but [their version](http://en.cppreference.com/w/cpp/language/fold) doesn't implement perfect forwarding properly! `std::forward` is needed here!
+    </p>
+</blockquote>
+
+([full working example](https://ideone.com/dr4IKw))
 
 <br/>
 
@@ -280,11 +321,11 @@ if (c = 0, delete c++, c--)
 ## The end
 ----
 
-That's all! I didn't want to end up with a huge post so I omitted many other ~~even more questionable~~ "uses" of the comma operator, listed below. I personally consider those **really bad practices**.
+That's all! I didn't want to end up with a huge post so I omitted many other ~~even more questionable~~ "uses" of the comma operator, listed below. I personally consider some of those **really bad practices**.
 
 * Single line functions/macros (advantage: copy/move elision)
 * Avoiding block braces
-* `std::optional<T>` fallback value (like `myVar || 0` in JavaScript)
+* `std::optional<T>` fallback value (like `myVar || 0` in javascript)
 * Complex logic in constructor args (call global functions + pass other values)
 * ... a long and nasty etc
 
