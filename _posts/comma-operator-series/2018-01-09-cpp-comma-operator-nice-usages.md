@@ -281,7 +281,7 @@ if (c = 0, delete c++, c--)
 
 That's all! I didn't want to end up with a huge post so I omitted many other ~~even more questionable~~ "uses" of the comma operator, listed below. I personally consider those **really bad practices**.
 
-* Single line macros
+* Single line functions/macros (advantage: copy/move elision)
 * Avoiding block braces
 * `std::optional<T>` fallback value (like `myVar || 0` in JavaScript)
 * Complex logic in constructor args (call global functions + pass other values)
