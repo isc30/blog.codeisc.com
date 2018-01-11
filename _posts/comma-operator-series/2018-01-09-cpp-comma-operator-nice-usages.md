@@ -314,13 +314,14 @@ if (c = 0, delete c++, c--)
 ## The end
 ----
 
-That's all! I didn't want to end up with a huge post so I omitted many other ~~even more questionable~~ "uses" of the comma operator, listed below. I personally consider some of those **really bad practices**.
+That's all! I didn't want to end up with a huge post so I omitted many other ~~even more questionable~~ uses of the comma operator, listed below.
 
 * Single line functions/macros (advantage: copy/move elision)
-* Avoiding block braces
+* `auto v = (std::lock_guard(m), vec[i]);` (don't use this inside loops!)
 * `std::optional<T>` fallback value (like `myVar || 0` in javascript)
 * Complex logic in constructor args (call global functions + pass other values)
-* ... a long and nasty etc
+* Avoiding block braces
+* ... a long etc
 
 Now that you are a real expert on the comma operator, what do you think about it? **Drop a comment below!**
 
