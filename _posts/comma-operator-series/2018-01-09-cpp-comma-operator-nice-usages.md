@@ -284,7 +284,7 @@ void push_back_vec(std::vector<T>& v, Args&&... args)
 ```
 
 <blockquote class="jackass">
-    <p class="title" markdown="1">Bug in **cppreference**</p>
+    <p class="title" markdown="1">Bug in cppreference</p>
     <p class="content" markdown="1">
         This example is taken from cppreference, but [their version](http://en.cppreference.com/w/cpp/language/fold) doesn't implement perfect forwarding properly! `std::forward` is needed here!
     </p>
