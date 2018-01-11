@@ -323,3 +323,5 @@ That's all! I didn't want to end up with a huge post so I omitted many other ~~e
 * ... a long and nasty etc
 
 Now that you are a real expert on the comma operator, what do you think about it? **Drop a comment below!**
+
+> Edit: Thanks a lot for your comments! I did some changes based on them :)
