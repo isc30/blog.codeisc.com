@@ -135,7 +135,13 @@ We don't care about the return type of `T::hello()`. **In case our expression co
 
 This is the perfect example when using the comma in `decltype` helps us avoiding *long and complex* template activation traits.
 
-([full example source code](https://ideone.com/2iSRZX))
+([full example source code](https://ideone.com/fSxhNh))
+
+<blockquote class="jackass">
+    <p class="content" markdown="1">
+`T::hello()` might return a type that overloads the comma operator. This affects our expected behavior as it *could* be that `(T::hello(), 0)` no longer returns `int(0)`. To be safe from our side, we must explicitly cast the method call result to `void`. The proper implementation is `decltype((void)T::hello(), 0)`
+    </p>
+</blockquote>
 
 <blockquote class="note">
     <p class="content" markdown="1">
@@ -257,29 +263,16 @@ constexpr T array_at(T(&array)[N]) // `array` is a reference to `T[N]`
 ## (C++17) Fold expressions (reducing parameter packs)
 ------
 
-One of the best features of C++17, [fold expression](http://en.cppreference.com/w/cpp/language/fold), allows **reducing a parameter pack by applying a binary operator** (including comma). This opens a huge branch of possibilities like calling a function for each argument or easily getting the last argument from the pack.
+One of the best features of C++17, [fold expression](http://en.cppreference.com/w/cpp/language/fold), allows **reducing a parameter pack by applying a binary operator** (including comma). This opens a huge branch of possibilities like easily getting the sum of the arguments, calling a function for each argument or easily getting the last argument from the pack.
 
-### Best way to get the last argument in C++17
-
-```cpp
-template<typename... Args>
-constexpr auto&& last_arg(Args&&... args)
-{
-    return (args, ...); // std::forward isn't needed
-}
-```
-
-([full working example](https://ideone.com/NRIumJ))
-
-### Calling a function for each argument
-
+We can take advantage of the *comma operator* to perform an action for each argument.
 For example, pushing every argument from the parameter pack to a `std::vector`:
 
 ```cpp
 template<typename T, typename... Args>
 void push_back_vec(std::vector<T>& v, Args&&... args)
 {
-    (v.push_back(std::forward<Args>(args)), ...);
+    ((void)v.push_back(std::forward<Args>(args)), ...);
 }
 ```
 
@@ -290,7 +283,7 @@ void push_back_vec(std::vector<T>& v, Args&&... args)
     </p>
 </blockquote>
 
-([full working example](https://ideone.com/dr4IKw))
+([full working example](https://ideone.com/bksyWj))
 
 <br/>
 
