@@ -263,9 +263,9 @@ constexpr T array_at(T(&array)[N]) // `array` is a reference to `T[N]`
 ## (C++17) Fold expressions (reducing parameter packs)
 ------
 
-One of the best features of C++17, [fold expression](http://en.cppreference.com/w/cpp/language/fold), allows **reducing a parameter pack by applying a binary operator** (including comma). This opens a huge branch of possibilities like easily getting the sum of the arguments, calling a function for each argument or easily getting the last argument from the pack.
+One of the best features of C++17, [fold expression](http://en.cppreference.com/w/cpp/language/fold), allows **reducing a parameter pack by applying a binary operator** (including comma). This opens a huge branch of possibilities like calculating the sum of the arguments, calling a function for each argument or easily getting the last argument from the pack.
 
-We can take advantage of the *comma operator* to perform an action for each argument.
+We can take advantage of the *comma operator* to perform an **action for each argument**.
 For example, pushing every argument from the parameter pack to a `std::vector`:
 
 ```cpp
