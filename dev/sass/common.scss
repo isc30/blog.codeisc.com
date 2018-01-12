@@ -184,6 +184,7 @@
             .post-title {
                 //font-family: 'Merriweather', $fonts;
                 color: $color-f-primary;
+                text-decoration-color: $color-f-primary;
                 font-size: 24px;
                 line-height: 32px;
             }
@@ -257,6 +258,7 @@
     input, .search_item {
         font-size: 16px;
         color: $color-f-primary;
+        text-decoration-color: $color-f-primary;
     }
     input {
         @include cardStyle;

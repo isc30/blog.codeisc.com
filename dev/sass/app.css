@@ -206,6 +206,7 @@ a {
       position: relative; }
       .article-list .article-item .post-preview .post-title {
         color: #4E4E4E;
+        text-decoration-color: #4E4E4E;
         font-size: 24px;
         line-height: 32px; }
       .article-list .article-item .post-preview .post-subtitle {
@@ -358,7 +359,8 @@ a {
   padding: 0; }
   .search-card input, .search-card .search_item {
     font-size: 16px;
-    color: #4E4E4E; }
+    color: #4E4E4E;
+    text-decoration-color: #4E4E4E; }
   .search-card input {
     padding: 30px 20px;
     background-color: #fff;
@@ -1110,6 +1112,7 @@ a {
   overflow: auto;
   border-radius: 0.3em;
   color: #f8f8f2;
+  text-decoration-color: #f8f8f2;
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   text-align: left;
@@ -1129,6 +1132,7 @@ a {
 .markdown-body blockquote.jackass, .series-note blockquote.jackass {
   background-color: #131313;
   color: #f8f8f2;
+  text-decoration-color: #f8f8f2;
   padding: 1em;
   background-image: url("/assets/img/skull.png");
   background-repeat: no-repeat;
@@ -1138,6 +1142,7 @@ a {
   border-color: #ff6666; }
   .markdown-body blockquote.jackass .title, .series-note blockquote.jackass .title {
     color: #ff6666;
+    text-decoration-color: #ff6666;
     margin-bottom: 0; }
   .markdown-body blockquote.jackass .content code, .series-note blockquote.jackass .content code {
     background-color: rgba(255, 255, 255, 0.1); }
@@ -1147,7 +1152,8 @@ a {
   background-color: #FFFFCC;
   border-color: #FFEB3B; }
   .markdown-body blockquote.note .content, .series-note blockquote.note .content {
-    color: #24292e; }
+    color: #24292e;
+    text-decoration-color: #24292e; }
 
 .markdown-body h2 img, .series-note h2 img {
   display: inline-block;

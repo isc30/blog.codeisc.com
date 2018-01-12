@@ -7,6 +7,7 @@
         border-radius: 0.3em;
 
         color: #f8f8f2;
+        text-decoration-color: #f8f8f2;
         text-shadow: 0 1px rgba(0, 0, 0, 0.3);
         font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
         text-align: left;
@@ -27,6 +28,7 @@
     blockquote.jackass {
         background-color: #131313;
         color: #f8f8f2;
+        text-decoration-color: #f8f8f2;
         padding: 1em;
         background-image: url('/assets/img/skull.png');
         background-repeat: no-repeat;
@@ -37,6 +39,7 @@
 
         .title {
             color: #ff6666;
+            text-decoration-color: #ff6666;
             margin-bottom: 0;
         }
 
@@ -54,6 +57,7 @@
 
         .content {
             color: #24292e;
+            text-decoration-color: #24292e;
         }
     }
 
