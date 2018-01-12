@@ -4,7 +4,6 @@ title: 'Introduction to our filthy friend'
 series: 'C++ Comma Operator'
 chapter: 1
 date: 2017-12-26
-author: ivansanz
 #cover: '/assets/img/cpp-header.jpg'
 tags: c++
 ---

@@ -13,8 +13,8 @@ nav:
   Atom feed: '/feed.xml'
 
 # Author
-author: 'Ivan Sanz'
-nickname: 'ivansanz'
+author: 'Ivan Sanz-Carasa'
+nickname: 'Ivan Sanz-Carasa'
 bio: 'C++/.NET engineer'
 avatar: '/assets/img/ivansanz.png'
 
@@ -46,6 +46,7 @@ postPatterns: 'circuitBoard'
 sns:
   linkedin: '//linkedin.com/in/ivan-sanz-carasa'
   github: '//github.com/isc30'
+  twitter: '//twitter.com/ivansanzcarasa'
   email: 'mailto:ivansanzcarasa@gmail.com'
 
 # Tags
