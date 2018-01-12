@@ -26,7 +26,7 @@ Oh, Bjarne, you are totally right.
 
 Comma operator is **tricky** and nowadays (C++17) using it won't help you much (except for some cases, explained in this article).
 
-Overloading the comma operator with explicit types is a bit tricky too, as you can easily end up with **hidden fallbacks to the language behavior** if the specific overload isn't fulfilled. The worst part is that **there is no possible error/warning** when this happens ([example of this nasty bug](https://ideone.com/cYvQrz)). This problem can be solved using proxy templates (explained later in *C++03 Params* example) and explicitly casting all left operands to `void` to ensure no overloads.
+Overloading the comma operator with explicit types is a bit tricky too, as you can easily end up with **hidden fallbacks to the language behavior** if the specific overload isn't matched. The worst part is that **there is no possible error/warning** when this happens ([example of this nasty bug](https://ideone.com/cYvQrz)). This problem can be solved using proxy templates (explained later in *C++03 Params* example) and explicitly casting all operands to `void` to ensure calling the non-overloaded operator.
 
 <blockquote class="jackass">
     <p class="title">Questionable practices, read carefully</p>
@@ -266,7 +266,7 @@ constexpr T array_at(T(&array)[N]) // `array` is a reference to `T[N]`
 One of the best features of C++17, [fold expression](http://en.cppreference.com/w/cpp/language/fold), allows **reducing a parameter pack by applying a binary operator** (including comma). This opens a huge branch of possibilities like calculating the sum of the arguments, calling a function for each argument or easily getting the last argument from the pack.
 
 We can take advantage of the *comma operator* to perform an **action for each argument**.
-For example, pushing every argument from the parameter pack to a `std::vector`:
+For example, pushing every argument from the pack to a `std::vector`:
 
 ```cpp
 template<typename T, typename... Args>
@@ -279,7 +279,7 @@ void push_back_vec(std::vector<T>& v, Args&&... args)
 <blockquote class="jackass">
     <p class="title" markdown="1">Bugs in cppreference</p>
     <p class="content" markdown="1">
-        This example is taken from cppreference, but [their version](http://en.cppreference.com/w/cpp/language/fold) doesn't implement perfect forwarding properly, `std::forward` is needed here! Also note the defense against custom operator overloads by casting the result to `void`.
+        This example is taken from cppreference, but [their version](http://en.cppreference.com/w/cpp/language/fold) doesn't implement perfect forwarding properly, `std::forward` is needed here! Also note the defense against any possible comma operator overloads by casting the result to `void`.
     </p>
 </blockquote>
 
