@@ -146,6 +146,8 @@ This is the perfect example when using the comma in `decltype` helps us avoiding
     <p class="content" markdown="1">
 As long as every previous sub-expression compiles, compiler will continue evaluating them. The behavior is very similar to `std::enable_if_t` but with a different/custom resolution type.</p>
 <p class="content" markdown="1">(c++14) Using `decltype(0, auto)` for the return type doesn't deduct the proper type due to more complex technical limitations. If you want to learn more about this edge case please add a comment below.
+</p>
+<p class="content" markdown="1">(c++17) `void_t` was added to avoid the need of manual resolution to fallback type. Proper C++17 implementation can be found [here](https://ideone.com/OKQu18).
 </p></blockquote>
 
 <br/>
