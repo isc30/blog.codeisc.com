@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {% assign title = site.title %}
+    {% assign title = site.author %}
     {% if page.series %}{% assign title = page.series | append: ' | ' | append: title %}{% endif %}
     {% if page.title %}{% assign title = page.title | append: ' | ' | append: title %}{% endif %}
 
