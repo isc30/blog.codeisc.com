@@ -222,17 +222,42 @@ $(document).ready(function(){
 
     new Search();
 
-    // any link that is not part of the current domain is modified
+    // anchor link icon
+    $("h1, h2, h3, h4, h5, h6").each(function(i, el) {
+        var $el, icon, id;
+        $el = $(el);
+        id = $el.attr('id');
+        icon = '<i class="fa fa-link"></i>';
+        if (id) {
+            return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+        }
+    });
 
+    // add anchor link class to all links
+    $('a').each(function(i, el) {
+        var $el = $(el);
+        try {
+            if ($el.attr('href')[0] == '#')
+            {
+                $el.addClass("anchor-link");
+            }
+        } catch(e){}
+    });
+
+    // hide menu on anchor link click
+    $('.anchor-link').click(function()
+    {
+        scFlag = -999; // simulate scrolling down to hide the menu
+    });
+
+    // any link that is not part of the current domain is modified
     (function() {
         var links = document.links;
         for (var i = 0, linksLength = links.length; i < linksLength; i++) {
-        // can also be
-        //  links[i].hostname != 'subdomain.example.com'
-        if (links[i].hostname != window.location.hostname) {
-            links[i].target = '_blank';
-            links[i].className += ' externalLink';
-        }
+            if (links[i].hostname != window.location.hostname) {
+                links[i].target = '_blank';
+                links[i].className += ' externalLink';
+            }
         }
     })();
 

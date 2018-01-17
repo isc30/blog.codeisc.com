@@ -44,10 +44,10 @@ postPatterns: 'circuitBoard'
 
 # SNS settings, url: weibo, zhihu, twitter, instagram, juejin, github, douban, facebook, dribble, uicn, jianshu, medium, linkedin
 sns:
-  linkedin: '//linkedin.com/in/ivan-sanz-carasa'
-  github: '//github.com/isc30'
-  twitter: '//twitter.com/ivansanzcarasa'
-  email: 'mailto:ivansanzcarasa@gmail.com'
+  'fab fa-linkedin': '//linkedin.com/in/ivan-sanz-carasa'
+  'fab fa-github': '//github.com/isc30'
+  'fab fa-twitter': '//twitter.com/ivansanzcarasa'
+  'far fa-envelope': 'mailto:ivansanzcarasa@gmail.com'
 
 # Tags
 recommend-tags: true # whether or not display recommend-tags on the sidebar

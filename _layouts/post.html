@@ -27,8 +27,8 @@
         {% endif %}
 
         <div class="post-meta">
-            <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="{{ site.url }}" target="_blank" rel="author">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a></></span>
-            <time class="post-meta-item" datetime="{{ page.date | date:"%y-%m-%d" }}"><i class="iconfont icon-date"></i>{{ page.date | date_to_string }}</time>
+            <span class="post-meta-item"><i class="far fa-user"></i><a href="{{ site.url }}" target="_blank" rel="author">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a></></span>
+            <time class="post-meta-item" datetime="{{ page.date | date:"%y-%m-%d" }}"><i class="far fa-calendar-alt"></i>{{ page.date | date_to_string }}</time>
         </div>
     </div>
     {% if page.cover %}
@@ -79,7 +79,7 @@
             {% for s in site.sns %}
             <li>
                 <a href="{{ s[1] }}" target="_blank">
-                    <i class="iconfont icon-{{ s[0] }}"></i>
+                    <i class="{{ s[0] }}"></i>
                 </a>
             </li>
             {% endfor %}
@@ -148,7 +148,7 @@
 
 {% include footer.html %}
 
-<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="/assets/js/jquery.min.js"></script>
 <script src="/assets/js/index.min.js"></script>
 <script src="/assets/js/social-share.min.js"></script>
 

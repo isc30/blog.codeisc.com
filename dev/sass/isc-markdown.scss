@@ -79,4 +79,23 @@
             margin-top: -1em;
         }
     }
+
+    .header-link {
+        position: absolute;
+        margin-left: 0.25em;
+        opacity: 0;
+
+        transition: opacity 0.1s ease-in-out 0.05s;
+        -webkit-transition: opacity 0.1s ease-in-out 0.05s;
+        -moz-transition: opacity 0.1s ease-in-out 0.05s;
+        -ms-transition: opacity 0.1s ease-in-out 0.05s;
+    }
+      
+    h2:hover .header-link,
+    h3:hover .header-link,
+    h4:hover .header-link,
+    h5:hover .header-link,
+    h6:hover .header-link {
+        opacity: 1;
+    }
 }
