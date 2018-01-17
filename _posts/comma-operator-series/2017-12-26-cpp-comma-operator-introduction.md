@@ -5,6 +5,7 @@ series: 'C++ Comma Operator'
 chapter: 1
 date: 2017-12-26
 #cover: '/assets/img/cpp-header.jpg'
+subreddit: cpp
 tags: c++
 ---
 

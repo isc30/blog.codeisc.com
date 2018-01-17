@@ -53,7 +53,14 @@
     </article>
     {% if site.social-share %}
     <div class="social-share-wrapper">
-        <div class="social-share"></div>
+        <div class="social-share row"></div><br/>
+        <div class="row">
+            <script>
+                window.reddit_target = '{% if page.subreddit %}{{ page.subreddit }}{% else %}programming{% endif %}';
+                window.reddit_url = '{{ site.url }}{% if page.reddit_url %}{{ page.reddit_url }}{% else %}{{ page.url }}{% endif %}';
+            </script>
+            <script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
+        </div>
     </div>
     {% endif %}
 </div>

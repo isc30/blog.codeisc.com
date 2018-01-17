@@ -68,4 +68,15 @@
         box-sizing: border-box;
         vertical-align: middle;
     }
+
+    h1, h2, h3, h4 {
+        &:before {
+            content: '';
+            display: block;
+            position: relative;
+            width: 0;
+            height: 1em;
+            margin-top: -1em;
+        }
+    }
 }

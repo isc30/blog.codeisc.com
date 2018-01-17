@@ -667,9 +667,10 @@ a {
   float: left;
   position: relative;
   left: 50%; }
-  .social-share-wrapper .social-share {
+  .social-share-wrapper .row {
     position: relative;
-    left: -50%; }
+    left: -50%;
+    text-align: center; }
 
 .post-footer-item {
   margin: 0 auto;
@@ -1161,6 +1162,14 @@ a {
   margin: 0;
   box-sizing: border-box;
   vertical-align: middle; }
+
+.markdown-body h1:before, .series-note h1:before, .markdown-body h2:before, .series-note h2:before, .markdown-body h3:before, .series-note h3:before, .markdown-body h4:before, .series-note h4:before {
+  content: '';
+  display: block;
+  position: relative;
+  width: 0;
+  height: 1em;
+  margin-top: -1em; }
 
 .embedd-container pre {
   overflow: auto;
