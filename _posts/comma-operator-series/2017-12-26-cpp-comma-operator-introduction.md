@@ -5,8 +5,8 @@ series: 'C++ Comma Operator'
 chapter: 1
 date: 2017-12-26
 #cover: '/assets/img/cpp-header.jpg'
-subreddit: cpp
-tags: c++
+subreddit: 'cpp'
+tags: 'c++'
 ---
 
 Comma operator has been with us for a long time. First seen in C spec and *improved* with custom overloads in C++, it quickly became one of those *hidden things you shouldn’t use*.
