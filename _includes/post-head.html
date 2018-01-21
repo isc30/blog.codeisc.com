@@ -20,6 +20,7 @@
     <meta property="og:url" content="{{ page.url | prepend: site.url }}">
     <meta property="og:description" content="{{ description }}">
     <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:image" content="{{ site.url }}{% if page.cover %}{{ page.cover }}{% else %}{{ site.image }}{% endif %}" />
 
     <link rel="alternate" href="/feed.xml" type="application/rss+xml" title="CodeIsc blog feed (atom)" />
     <link rel="icon" href="/favicon.ico"/>

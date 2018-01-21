@@ -20,27 +20,34 @@ Most C/C++ books avoid speaking about `goto` the same way they do about *comma o
 ## But first, what does it do?
 ------
 
-Comma operator is associative, it returns the **result of the last expression** after evaluating all of them (from left to right, one by one, as any other *binary operation*)
+Comma operator is associative, it returns the **result of the last expression** after evaluating all of them (from left to right, one by one as any other *binary operation*) and discards the left-side result just before returning (if it has class type, it won't be destroyed until the end of the containing full expression).
 
 ```cpp
 cout << (1, 2, 3); // prints `3`
 ```
 <br/>
 
-Back in C times, returning a *lvalue* from the operator wasn’t allowed. This changed in C++, so you get **exactly** the last element as if it was [forwaded][doc-forward], being *lvalue*, *rvalue* or [*whatever*][doc-value-category]. This feature allows writing things like:
+Back in C times, returning something different than *rvalue* from the operator wasn’t allowed. This changed in C++, so it returns **exactly** the last element with it's type being *lvalue*, *rvalue* or [*whatever*][doc-value-category]. This feature allows writing things like:
 
 ```cpp
 cout << &(a, b); // address of `b`
 ```
 <br/>
 
-Another nice point of the comma is that it introduces a [sequence point][doc-sequence-point] between operands, in other words: [**ensures that all the sub-expressions will be evaluated in order (§8.19.2)**][standard-8-19]. This is a really nice feature, as the compiler is usually allowed to evaluate operands in an arbitrary order (f.e. function args evaluation order is *unspecified*)
+Another nice point of the comma is that it guarantees [sequenced-before evaluation][doc-sequencing], in other words: [**ensures that all the sub-expressions will be evaluated in order (§8.19.2)**][standard-8-19]. This is a really nice feature, as the compiler is usually allowed to evaluate operands in an arbitrary order.
 
 ```cpp
 int i = 0;
 cout << ++i + i++; // undefined behavior
 cout << (i=3, i+=2, i+3); // 8 (perfectly defined behavior)
 ```
+
+<blockquote class="jackass">
+    <p class="title" markdown="1">Warning!</p>
+    <p class="content" markdown="1">
+        A user-defined `operator,()` cannot guarantee sequencing!
+    </p>
+</blockquote>
 
 <br/>
 
@@ -86,6 +93,6 @@ cout << 1, 2, 3 << endl; // compilation error
 
 [doc-forward]: http://en.cppreference.com/w/cpp/utility/forward
 [doc-value-category]: http://en.cppreference.com/w/cpp/language/value_category
-[doc-sequence-point]: https://en.wikipedia.org/wiki/Sequence_point
+[doc-sequencing]: http://en.cppreference.com/w/cpp/language/eval_order
 [standard-8-19]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf#section.8.19
 [doc-operator-precedence]: http://en.cppreference.com/w/cpp/language/operator_precedence

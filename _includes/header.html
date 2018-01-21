@@ -1,8 +1,8 @@
 <header class="g-header">
     <div class="g-logo">
-      <a href="{{ "/" | relative_url }}"></a>
+      <a href="{{ "/" | relative_url }}">{{ site.title }}</a>
     </div>
-    <i id="menu-toggle" class="iconfont icon-menu"></i>
+    <i id="menu-toggle" class="fas fa-bars"></i>
     <nav class="g-nav">
         <ul>
             {% for i in site.nav %}

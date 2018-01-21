@@ -26,7 +26,7 @@ $(document).ready(function(){
         var header = $('.g-header');
         var header_h = header.outerHeight();
         var appLogo = $('.g-logo');
-        var navText = $('.g-nav a');
+        var navText = header.find('a');
 
         var themeColorFlag = $('.g-banner').attr('data-theme');
 
@@ -38,41 +38,52 @@ $(document).ready(function(){
 
             if(scrollTop > header_h) {
 
-                if(scrollTop > 3*header_h) {
+                header.addClass('fixed');
+
+                if (scrollTop > 3*header_h)
+                {
                     header.addClass('headerUp');
                 }
-                header.css({
+
+                /*header.css({
                     'background-color': 'rgba(255, 255, 255, .98)',
                     'box-shadow': '0 1px 12px rgba(0, 0, 0, .08)'
                 });
                 appLogo.css({
-                    'background': 'url(/assets/icons/logo-color.svg) no-repeat center',
-                    'background-size': '100% 100%'
+                    'background-image': 'url(/assets/icons/logo-color.svg)',
+                    //'background-size': '100% 100%'
                 });
                 navText.css('color', '#666');
-                $('.g-nav').addClass('nav-' + themeColorFlag);
+                $('.g-nav').addClass('nav-' + themeColorFlag);*/
 
             }else{
 
+                header.removeClass('fixed');
                 header.removeClass('headerUp');
-                header.css({
+
+                /*header.css({
                     'background-color': 'transparent',
                     'box-shadow': 'none'
                 });
                 appLogo.css({
-                    'background': 'url(/assets/icons/logo-white.svg) no-repeat center',
-                    'background-size': '100% 100%'
+                    'background-image': '',
+                    //'background-size': '100% 100%'
                 });
                 navText.css('color', '#fff');
-                $('.g-nav').removeClass('nav-' + themeColorFlag);
+                $('.g-nav').removeClass('nav-' + themeColorFlag);*/
 
             }
+
             // scroll action
-            if(scFlag > scrollTop) {
+            if (scFlag > scrollTop)
+            {
                 header.addClass('headerDown');
-            }else{
+            }
+            else
+            {
                 header.removeClass('headerDown');
             }
+            
             scFlag = scrollTop;
         });
     }

@@ -32,7 +32,7 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 868px) {
     .post-wrapper, .markdown-body, .read-next {
         width: 92%;
     }
@@ -53,15 +53,23 @@
         position: absolute;
         top: 0;
         padding: 28px 0;
-        .icon-menu {
+
+        #menu-toggle {
             display: block;
         }
+
+        &.fixed {
+            background-color: transparent;
+        }
+
+        transition: none;
+
         .g-nav {
             position: relative;
             top: 48px;
             right: 1%;
             display: none;
-            width: 120px;
+            //width: 120px;
             background-color: #fff;
             border-radius: 2px;
             padding: 8px 16px;
