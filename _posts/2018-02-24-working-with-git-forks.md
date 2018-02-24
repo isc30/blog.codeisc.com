@@ -47,7 +47,7 @@ Now you need to ask yourself:
 
 99% of the time the answer will be **no**. This is very important when configuring the remote, as we want to **allow pulling but not pushing** to the `upstream`. If we don't do this, we can end up getting **weird authentication errors** when running `git push`.
 
-If you have no write access to `upstream`, I recommend setting the push url to `no_push` to tell git that you have no write access:
+If you have no write access to `upstream`, I recommend setting the push url to `no_push`:
 
 ```bash
 git remote set-url --push upstream no_push
