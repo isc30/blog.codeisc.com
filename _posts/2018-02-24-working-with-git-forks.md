@@ -20,12 +20,10 @@ In case you are too lazy to read the explanation...
 * You: `https://github.com/isc30/roslyn`
 * Base: `https://github.com/microsoft/roslyn`
 
-<div class="filename" data-file="Terminal" markdown="1">
 ```bash
 git remote add upstream https://github.com/microsoft/roslyn
 git remote set-url --push upstream no_push
 ```
-</div>
 
 <div class="filename" data-file=".git/config" markdown="1">
 ```ini
