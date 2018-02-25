@@ -104,4 +104,24 @@
             margin-right: 5px;
         }
     }
+
+    .filename {
+        &:before {
+            content: attr(data-file);
+            display: block;
+            color: #24292e;
+            text-shadow: 0 1px rgba(255,255,255,.3);
+            padding: .5em 1em;
+            background-color: rgb(41,171,164);
+            font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
+
+            border-top-left-radius: 0.3em;
+            border-top-right-radius: 0.3em;
+        }
+
+        pre {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    }
 }

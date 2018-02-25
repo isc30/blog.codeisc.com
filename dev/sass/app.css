@@ -1201,6 +1201,21 @@ a {
 .markdown-body .code-toolbar .toolbar-item, .series-note .code-toolbar .toolbar-item {
   margin-right: 5px; }
 
+.markdown-body .filename:before, .series-note .filename:before {
+  content: attr(data-file);
+  display: block;
+  color: #24292e;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.3);
+  padding: .5em 1em;
+  background-color: #29aba4;
+  font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em; }
+
+.markdown-body .filename pre, .series-note .filename pre {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
+
 .embedd-container pre {
   overflow: auto;
   padding: 5px;
