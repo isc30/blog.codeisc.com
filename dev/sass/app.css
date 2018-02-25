@@ -1093,7 +1093,7 @@ a {
       font-weight: 300;
       -webkit-font-smoothing: auto;
       -moz-osx-font-smoothing: auto; }
-    .markdown-body pre, .series-note pre {
+    .markdown-body .filename, .series-note .filename, .markdown-body pre, .series-note pre {
       font-size: 14px;
       font-weight: 300;
       -webkit-font-smoothing: auto;
