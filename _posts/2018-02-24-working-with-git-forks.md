@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'How to configure git forks'
+title: 'Configuring git forks'
 date: 2018-02-24
 subreddit: 'programming'
 tags: 'git'
