@@ -1,5 +1,26 @@
 .markdown-body {
 
+    font-size: 16px;
+
+    table.no-border {
+        border: 0;
+
+        tr {
+            border: 0;
+
+            td {
+                border: 0;
+            }
+        }
+    }
+
+    p {
+        font-size: inherit;
+        line-height: 1.8;
+        text-align: left;
+        margin-bottom: 1em;
+    }
+
     pre {
         background-color: #272822;
         padding: 1em;
@@ -23,6 +44,11 @@
         -moz-hyphens: none;
         -ms-hyphens: none;
         hyphens: none;
+    }
+
+    blockquote.description {
+        padding: 1em;
+        border: 2px dotted #ffb466;
     }
 
     blockquote.jackass {
@@ -91,6 +117,7 @@
         -ms-transition: opacity 0.1s ease-in-out 0.05s;
     }
 
+    h1:hover .header-link,
     h2:hover .header-link,
     h3:hover .header-link,
     h4:hover .header-link,

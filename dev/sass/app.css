@@ -1118,103 +1118,111 @@ a {
     width: 695px;
     left: -100px; } }
 
-.markdown-body pre, .series-note pre {
-  background-color: #272822;
-  padding: 1em;
-  overflow: auto;
-  border-radius: 0.3em;
-  color: #f8f8f2;
-  text-decoration-color: #f8f8f2;
-  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.5;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none; }
-
-.markdown-body blockquote.jackass, .series-note blockquote.jackass {
-  background-color: #131313;
-  color: #f8f8f2;
-  text-decoration-color: #f8f8f2;
-  padding: 1em;
-  background-image: url("/assets/img/skull.png");
-  background-repeat: no-repeat;
-  background-size: auto 3em;
-  padding-left: 5em;
-  background-position: 1em center;
-  border-color: #ff6666; }
-  .markdown-body blockquote.jackass .title, .series-note blockquote.jackass .title {
-    color: #ff6666;
-    text-decoration-color: #ff6666;
-    margin-bottom: 0; }
-  .markdown-body blockquote.jackass .content code, .series-note blockquote.jackass .content code {
-    background-color: rgba(255, 255, 255, 0.1); }
-
-.markdown-body blockquote.note, .series-note blockquote.note {
-  padding: 1em;
-  background-color: #FFFFCC;
-  border-color: #FFEB3B; }
-  .markdown-body blockquote.note .content, .series-note blockquote.note .content {
+.markdown-body, .series-note {
+  font-size: 16px; }
+  .markdown-body table.no-border, .series-note table.no-border {
+    border: 0; }
+    .markdown-body table.no-border tr, .series-note table.no-border tr {
+      border: 0; }
+      .markdown-body table.no-border tr td, .series-note table.no-border tr td {
+        border: 0; }
+  .markdown-body p, .series-note p {
+    font-size: inherit;
+    line-height: 1.8;
+    text-align: left;
+    margin-bottom: 1em; }
+  .markdown-body pre, .series-note pre {
+    background-color: #272822;
+    padding: 1em;
+    overflow: auto;
+    border-radius: 0.3em;
+    color: #f8f8f2;
+    text-decoration-color: #f8f8f2;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none; }
+  .markdown-body blockquote.description, .series-note blockquote.description {
+    padding: 1em;
+    border: 2px dotted #ffb466; }
+  .markdown-body blockquote.jackass, .series-note blockquote.jackass {
+    background-color: #131313;
+    color: #f8f8f2;
+    text-decoration-color: #f8f8f2;
+    padding: 1em;
+    background-image: url("/assets/img/skull.png");
+    background-repeat: no-repeat;
+    background-size: auto 3em;
+    padding-left: 5em;
+    background-position: 1em center;
+    border-color: #ff6666; }
+    .markdown-body blockquote.jackass .title, .series-note blockquote.jackass .title {
+      color: #ff6666;
+      text-decoration-color: #ff6666;
+      margin-bottom: 0; }
+    .markdown-body blockquote.jackass .content code, .series-note blockquote.jackass .content code {
+      background-color: rgba(255, 255, 255, 0.1); }
+  .markdown-body blockquote.note, .series-note blockquote.note {
+    padding: 1em;
+    background-color: #FFFFCC;
+    border-color: #FFEB3B; }
+    .markdown-body blockquote.note .content, .series-note blockquote.note .content {
+      color: #24292e;
+      text-decoration-color: #24292e; }
+  .markdown-body h2 img, .series-note h2 img {
+    display: inline-block;
+    height: 1.25em;
+    margin: 0;
+    box-sizing: border-box;
+    vertical-align: middle; }
+  .markdown-body h1:before, .series-note h1:before, .markdown-body h2:before, .series-note h2:before, .markdown-body h3:before, .series-note h3:before, .markdown-body h4:before, .series-note h4:before {
+    content: '';
+    display: block;
+    position: relative;
+    width: 0;
+    height: 1em;
+    margin-top: -1em; }
+  .markdown-body .header-link, .series-note .header-link {
+    position: absolute;
+    margin-left: 0.25em;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out 0.05s;
+    -webkit-transition: opacity 0.1s ease-in-out 0.05s;
+    -moz-transition: opacity 0.1s ease-in-out 0.05s;
+    -ms-transition: opacity 0.1s ease-in-out 0.05s; }
+  .markdown-body h1:hover .header-link, .series-note h1:hover .header-link,
+  .markdown-body h2:hover .header-link, .series-note h2:hover .header-link,
+  .markdown-body h3:hover .header-link, .series-note h3:hover .header-link,
+  .markdown-body h4:hover .header-link, .series-note h4:hover .header-link,
+  .markdown-body h5:hover .header-link, .series-note h5:hover .header-link,
+  .markdown-body h6:hover .header-link, .series-note h6:hover .header-link {
+    opacity: 1; }
+  .markdown-body .code-toolbar .toolbar-item, .series-note .code-toolbar .toolbar-item {
+    margin-right: 5px; }
+  .markdown-body .filename:before, .series-note .filename:before {
+    content: attr(data-file);
+    display: block;
     color: #24292e;
-    text-decoration-color: #24292e; }
-
-.markdown-body h2 img, .series-note h2 img {
-  display: inline-block;
-  height: 1.25em;
-  margin: 0;
-  box-sizing: border-box;
-  vertical-align: middle; }
-
-.markdown-body h1:before, .series-note h1:before, .markdown-body h2:before, .series-note h2:before, .markdown-body h3:before, .series-note h3:before, .markdown-body h4:before, .series-note h4:before {
-  content: '';
-  display: block;
-  position: relative;
-  width: 0;
-  height: 1em;
-  margin-top: -1em; }
-
-.markdown-body .header-link, .series-note .header-link {
-  position: absolute;
-  margin-left: 0.25em;
-  opacity: 0;
-  transition: opacity 0.1s ease-in-out 0.05s;
-  -webkit-transition: opacity 0.1s ease-in-out 0.05s;
-  -moz-transition: opacity 0.1s ease-in-out 0.05s;
-  -ms-transition: opacity 0.1s ease-in-out 0.05s; }
-
-.markdown-body h2:hover .header-link, .series-note h2:hover .header-link,
-.markdown-body h3:hover .header-link, .series-note h3:hover .header-link,
-.markdown-body h4:hover .header-link, .series-note h4:hover .header-link,
-.markdown-body h5:hover .header-link, .series-note h5:hover .header-link,
-.markdown-body h6:hover .header-link, .series-note h6:hover .header-link {
-  opacity: 1; }
-
-.markdown-body .code-toolbar .toolbar-item, .series-note .code-toolbar .toolbar-item {
-  margin-right: 5px; }
-
-.markdown-body .filename:before, .series-note .filename:before {
-  content: attr(data-file);
-  display: block;
-  color: #24292e;
-  text-shadow: 0 1px rgba(255, 255, 255, 0.3);
-  padding: .5em 1em;
-  background-color: #29aba4;
-  font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
-  border-top-left-radius: 0.3em;
-  border-top-right-radius: 0.3em; }
-
-.markdown-body .filename pre, .series-note .filename pre {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0; }
+    text-shadow: 0 1px rgba(255, 255, 255, 0.3);
+    padding: .5em 1em;
+    background-color: #29aba4;
+    font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
+    border-top-left-radius: 0.3em;
+    border-top-right-radius: 0.3em; }
+  .markdown-body .filename pre, .series-note .filename pre {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0; }
 
 .embedd-container pre {
   overflow: auto;
