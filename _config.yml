@@ -48,7 +48,7 @@ sns:
   'fab fa-linkedin': '//linkedin.com/in/ivan-sanz-carasa'
   'fab fa-github': '//github.com/isc30'
   'fab fa-twitter': '//twitter.com/ivansanzcarasa'
-  'far fa-envelope': 'mailto:ivansanzcarasa@gmail.com'
+  'far fa-envelope': 'mailto:me@ivansanz.com'
 
 # Tags
 recommend-tags: true # whether or not display recommend-tags on the sidebar
