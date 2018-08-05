@@ -1155,7 +1155,9 @@ a {
     hyphens: none; }
   .markdown-body blockquote.description, .series-note blockquote.description {
     padding: 1em;
-    border: 2px dotted #ffb466; }
+    border: 2px dotted #ffb466;
+    color: #24292e;
+    text-decoration-color: #24292e; }
   .markdown-body blockquote.jackass, .series-note blockquote.jackass {
     background-color: #131313;
     color: #f8f8f2;
