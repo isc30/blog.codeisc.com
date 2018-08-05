@@ -1171,15 +1171,14 @@ a {
       color: #ff6666;
       text-decoration-color: #ff6666;
       margin-bottom: 0; }
-    .markdown-body blockquote.jackass .content code, .series-note blockquote.jackass .content code {
+    .markdown-body blockquote.jackass code, .series-note blockquote.jackass code {
       background-color: rgba(255, 255, 255, 0.1); }
   .markdown-body blockquote.note, .series-note blockquote.note {
     padding: 1em;
     background-color: #FFFFCC;
-    border-color: #FFEB3B; }
-    .markdown-body blockquote.note .content, .series-note blockquote.note .content {
-      color: #24292e;
-      text-decoration-color: #24292e; }
+    border-color: #FFEB3B;
+    color: #24292e;
+    text-decoration-color: #24292e; }
   .markdown-body h2 img, .series-note h2 img {
     display: inline-block;
     height: 1.25em;

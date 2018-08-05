@@ -69,10 +69,8 @@
             margin-bottom: 0;
         }
 
-        .content {
-            code {
-                background-color: rgba(255, 255, 255, 0.1);
-            }
+        code {
+            background-color: rgba(255, 255, 255, 0.1);
         }
     }
 
@@ -81,10 +79,8 @@
         background-color: #FFFFCC;
         border-color: #FFEB3B;
 
-        .content {
-            color: #24292e;
-            text-decoration-color: #24292e;
-        }
+        color: #24292e;
+        text-decoration-color: #24292e;
     }
 
     h2 img {

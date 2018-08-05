@@ -94,40 +94,44 @@
 
     <section class="post-footer-item read-next">
         {% if page.next.url %}
-        <div class="read-next-item">
-            <a href="{{ page.next.url }}" class="read-next-link"></a>
-            <section>
-                {% if page.next.series %}
-                <span class="item-title">{{ page.next.series }}</span>
-                <span class="item-subtitle">{{ page.next.chapter }}. {{ page.next.title }}</span>
-                {% else %}
-                <span class="item-title">{{ page.next.title }}</span>
+            {% unless page.next.hidden %}
+            <div class="read-next-item">
+                <a href="{{ page.next.url }}" class="read-next-link"></a>
+                <section>
+                    {% if page.next.series %}
+                    <span class="item-title">{{ page.next.series }}</span>
+                    <span class="item-subtitle">{{ page.next.chapter }}. {{ page.next.title }}</span>
+                    {% else %}
+                    <span class="item-title">{{ page.next.title }}</span>
+                    {% endif %}
+                    <p>{{ page.next.excerpt | strip_html | strip_newlines | truncate: 60}}</p>
+                </section>
+                {% if page.next.cover %}
+                <div class="filter"></div>
+                <img src="{{ page.next.cover }}" alt="">
                 {% endif %}
-                <p>{{ page.next.excerpt | strip_html | strip_newlines | truncate: 60}}</p>
-            </section>
-            {% if page.next.cover %}
-            <div class="filter"></div>
-            <img src="{{ page.next.cover }}" alt="">
-            {% endif %}
-        </div>
+            </div>
+            {% endunless %}
         {% endif %}
         {% if page.previous.url %}
-        <div class="read-next-item">
-            <a href="{{ page.previous.url }}" class="read-next-link"></a>
-            <section>
-                {% if page.previous.series %}
-                <span class="item-title">{{ page.previous.series }}</span>
-                <span class="item-subtitle">{{ page.previous.chapter }}. {{ page.previous.title }}</span>
-                {% else %}
-                <span class="item-title">{{ page.previous.title }}</span>
+            {% unless page.previous.hidden %}
+            <div class="read-next-item">
+                <a href="{{ page.previous.url }}" class="read-next-link"></a>
+                <section>
+                    {% if page.previous.series %}
+                    <span class="item-title">{{ page.previous.series }}</span>
+                    <span class="item-subtitle">{{ page.previous.chapter }}. {{ page.previous.title }}</span>
+                    {% else %}
+                    <span class="item-title">{{ page.previous.title }}</span>
+                    {% endif %}
+                    <p>{{ page.previous.excerpt | strip_html | strip_newlines | truncate: 60}}</p>
+                </section>
+                {% if page.previous.cover %}
+                <div class="filter"></div>
+                <img src="{{ page.previous.cover }}" alt="">
                 {% endif %}
-                <p>{{ page.previous.excerpt | strip_html | strip_newlines | truncate: 60}}</p>
-            </section>
-            {% if page.previous.cover %}
-            <div class="filter"></div>
-            <img src="{{ page.previous.cover }}" alt="">
-            {% endif %}
-        </div>
+            </div>
+            {% endunless %}
         {% endif %}
     </section>
 

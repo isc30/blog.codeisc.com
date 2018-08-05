@@ -3,7 +3,7 @@ layout: post
 title: 'Constrained Types: reusing static assertions'
 date: 2018-08-02
 subreddit: 'c++'
-tags: 'cpp'
+tags: 'c++'
 hidden: true
 ---
 
@@ -189,7 +189,6 @@ I leave that as an exercise for the reader (or a future article).
 >The magic trick
 >{: .title }
 >defining a constexpr overloaded templated lambda that acts like a type trait and fallbacks to a `static_assert` 🙂 ([example](https://gist.github.com/isc30/fcd53dbb00526a70e5c27a754488480e))
->{: .content }
 {: .jackass }
 
 # Sample code
