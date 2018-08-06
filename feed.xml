@@ -9,6 +9,7 @@
 		<atom:link href="{{ site.url }}/{{ page.path }}" rel="self" type="application/rss+xml" />
 		<lastBuildDate>{% for post in site.posts limit:1 %}{{ post.date | date_to_rfc822 }}{% endfor %}</lastBuildDate>
 		{% for post in site.posts %}
+			{% unless post.hidden %}
 			<item>
 				{% if post.series %}
 				<title>{{ post.series | append: ' - ' | append: post.chapter | append: '. ' | append: post.title | xml_escape }}</title>
@@ -27,6 +28,7 @@
 				<link>{{ site.url }}{{ post.url }}</link>
 				<guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
 			</item>
+			{% endunless %}
 		{% endfor %}
 	</channel>
 </rss>
