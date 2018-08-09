@@ -105,12 +105,12 @@ cout << "O(" << bigO/(double)n << "n)"; // O(1.5n) = O(n+n/2)
 ## Assert with message
 ------
 
-It turns out that one of the **best ways** to include an **error message** in our `assert(...)` is using the comma operator. It discards the message and uses just the **predicate for the assertion**.
+It turns out that one of the **best ways** to include an **error message** in our `assert(...)` is using the comma operator. It discards the message and uses the **predicate for the assertion**.
 
 ```cpp
 assert(("message", predicate));
 
-// useful macro
+// useful macro-version
 #ifndef m_assert
     #define m_assert(predicate, msg) assert((msg, predicate))
 #endif
@@ -318,7 +318,8 @@ void push_back_vec(std::vector<T>& v, Args&&... args)
 ------
 
 Take a "good practices guide" and reverse it. You will get the **definitive guide for creating unmaintainable code** (bible of code obfuscation).
-One of the main rules will be: **use the comma operator frequently** (YESSS!).
+One of the main rules will be:
+>use the comma operator frequently
 
 Here's a simple mind-blowing example that takes advantage of commas, enjoy :D
 
@@ -351,4 +352,4 @@ That's all! I didn't want to end up with a huge post so I omitted many other ~~e
 
 Now that you are a real expert on the comma operator, what do you think about it? **Drop a comment below!**
 
-> Edit: Thanks a lot for your comments! I did some changes based on them :)
+> Edit: Thanks a lot for your comments!
