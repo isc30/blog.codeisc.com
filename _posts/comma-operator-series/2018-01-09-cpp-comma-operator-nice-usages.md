@@ -102,6 +102,31 @@ cout << "O(" << bigO/(double)n << "n)"; // O(1.5n) = O(n+n/2)
 <br/>
 
 ------
+## Assert with message
+------
+
+It turns out that one of the **best ways** to include an **error message** in our `assert(...)` is using the comma operator. It discards the message and uses just the **predicate for the assertion**.
+
+```cpp
+assert(("message", predicate));
+
+// useful macro
+#ifndef m_assert
+    #define m_assert(predicate, msg) assert((msg, predicate))
+#endif
+```
+
+>What's wrong with other approaches?
+>- Altering the predicate *(logic may break, also unreadable)*
+>- Redefining internal compiler macros *(just don't!)*
+>- Depending on `BOOST_ASSERT_MSG` **just for this**
+>
+>I personally consider those bad practices. Comma wins this round!
+{: .note }
+
+<br/>
+
+------
 ## SFINAE: decltype magic with custom type deduction
 ------
 
