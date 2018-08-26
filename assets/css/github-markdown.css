@@ -198,7 +198,7 @@
 .markdown-body code,
 .markdown-body kbd,
 .markdown-body pre {
-  font-family: monospace, monospace;
+  font-family: 'Inconsolata', Consolas, Courier, monospace;
   font-size: 1em;
 }
 
@@ -506,10 +506,12 @@ li p:nth-child(2) {
 
 .markdown-body h1 {
   font-size: 2em;
+  margin-top: 3em;
 }
 
 .markdown-body h2 {
   font-size: 1.5em;
+  margin-top: 2.5em;
 }
 
 .markdown-body h3 {
@@ -591,7 +593,7 @@ li p:nth-child(2) {
   padding: 0.2em 0.4em;
   margin: 0;
   font-size: 85%;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-family: "Inconsolata", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
   background-color: rgba(27,31,35,0.05);
   border-radius: 3px;
 }
@@ -604,7 +606,7 @@ li p:nth-child(2) {
 .markdown-body kbd {
   display: inline-block;
   padding: 3px 5px;
-  font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font: 11px "Inconsolata", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
   line-height: 10px;
   color: #444d56;
   vertical-align: middle;

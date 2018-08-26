@@ -14,11 +14,7 @@ Comma operator has been with us for a long time. First seen in C spec and *impro
 
 Most C/C++ books avoid speaking about `goto` the same way they do about *comma operator*. This is not fair, as both of them can be used properly on certain cases. Let’s speak about that.
 
-<br/>
-
-------
-## But first, what does it do?
-------
+# But First, What Does It Do?
 
 Comma operator is associative, it returns the **result of the last expression** after evaluating all of them (from left to right, one by one as any other *binary operation*) and discards the left-side result just before returning (if it has class type, it won't be destroyed until the end of the containing full expression).
 
@@ -49,11 +45,7 @@ cout << (i=3, i+=2, i+3); // 8 (perfectly defined behavior)
     </p>
 </blockquote>
 
-<br/>
-
-------
-## Short point about precedence
-------
+# Short Point About Precedence
 
 It has the [lowest precedence][doc-operator-precedence] in the language, which makes it quite **unstable** when mixed with other operators.
 

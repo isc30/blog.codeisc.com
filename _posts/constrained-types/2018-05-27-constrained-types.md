@@ -9,6 +9,8 @@ hidden: true
 
 There we gooo!
 
+<!-- more -->
+
 # Intent
 Centralize **static assertions**, making them **reusable** to **avoid code duplication**.
 

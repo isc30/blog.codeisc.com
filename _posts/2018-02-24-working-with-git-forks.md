@@ -9,11 +9,8 @@ tags: 'git'
 When working with git, you may want to contribute to other people's projects and wonder which one is the best option to setup your forked repository. In this small article I will explain my configurations and how I deal with branches and remotes.
 
 <!-- more -->
-<br/>
 
-------
-## Result
-------
+# TL;DR;
 
 In case you are too lazy to read the explanation...
 
@@ -35,14 +32,10 @@ git remote set-url --push upstream no_push
 
 Done! check the new remote with `git remote -v`
 
-<br/>
-
-------
-## Explanation
-------
+# Explanation
 
 In git, forking a repository doesn't add the base remote automatically.
-Remotes can have any name, but I usually use `upstream` and `origin`.
+Remotes can have any name, but we usually use `upstream` and `origin`.
 
 ```
 microsoft/roslyn  ----------->  isc30/roslyn
@@ -66,10 +59,7 @@ After this, you can configure `master` branch to be taken from `upstream` instea
 ```
 </div>
 
-<br/>
-
-### Specifying readonly access to upstream
-------
+## Specifying Readonly Access to Upstream
 
 Some times, we want to **allow pulling but not pushing** to the `upstream`. If we don't configure this, we can end up getting **weird authentication errors** when running `git push`.
 

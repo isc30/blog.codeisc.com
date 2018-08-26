@@ -18,11 +18,7 @@ In this article I will explain some *nice* real world usages for the comma opera
 
 Oh, Bjarne, you are totally right.
 
-<br/>
-
-------
-## Conclusions first
-------
+# Conclusions First
 
 Comma operator is **tricky** and nowadays (C++17) using it won't help you much (except for some cases, explained in this article).
 
@@ -35,11 +31,7 @@ Overloading the comma operator with explicit types is a bit tricky too, as you c
     </p>
 </blockquote>
 
-<br/>
-
-------
-## Beautiful loop
-------
+# Beautiful Loop
 
 Imagine the situation: we need to **perform some action** in a loop **before checking the loop condition**, for every cycle.
 
@@ -67,11 +59,7 @@ while (processWindowEvents(window), window.isOpen())
 
 I personally prefer the *comma* version, I think it’s more readable and less susceptible to algorithmic bugs (after refactors, etc) than the other.
 
-<br/>
-
-------
-## Maintaining multiple variables in limited places
-------
+# Maintaining Multiple Variables in Limited Places
 
 No, I’m not talking about *declaring* multiple variables, I mean **maintaining** them.
 
@@ -99,11 +87,7 @@ cout << "O(" << bigO/(double)n << "n)"; // O(1.5n) = O(n+n/2)
     </p>
 </blockquote>
 
-<br/>
-
-------
-## Assert with message
-------
+# Assert With Message
 
 It turns out that one of the **best ways** to include an **error message** in our `assert(...)` is using the comma operator. It discards the message and uses the **predicate for the assertion**.
 
@@ -124,11 +108,7 @@ assert(("message", predicate));
 >I personally consider those bad practices. Comma wins this round!
 {: .note }
 
-<br/>
-
-------
-## SFINAE: decltype magic with custom type deduction
-------
+# SFINAE: Decltype Magic with Custom Type Deduction
 
 If you ever tried to master this demon, I’m pretty sure you have seen things like `decltype(T::something(), 0)` that you don't really understand but you just copy-paste them because, well... they work.
 
@@ -176,11 +156,7 @@ As long as every previous sub-expression compiles, compiler will continue evalua
 <p class="content" markdown="1">(C++17) `void_t<...>` was added to avoid the need of manual resolution to fallback type. Proper C++17 implementation can be found [here](https://ideone.com/OKQu18).
 </p></blockquote>
 
-<br/>
-
-------
-## (C++03) Params of specific type
-------
+# (C++03) Params of Specific Type
 
 In modern C++, passing **unlimited arguments of a specific type** is very easy with *variadic templates*, *std::initializer_list* or *brace initializers*.
 For old C++03, *explicit overloads* or *variadic args* are the only options... (or not? ...)
@@ -197,7 +173,7 @@ Variadic args is something that comes from C world: it **only works in runtime**
 
 ([full example of the variadic args problem](https://ideone.com/2PBSMa))
 
-### My comma-based solution:
+## My comma-based solution:
 
 Why don't we create a class that overloads the comma operator for pushing parameters into a `std::vector<T>`?
 
@@ -260,11 +236,7 @@ This method is the best for **C++03** as it provides **nice syntax** and **compi
     </p>
 </blockquote>
 
-<br/>
-
-------
-## (C++11) Bypass constexpr restrictions
-------
+# (C++11) Bypass Constexpr Restrictions
 
 In **C++11**, *constexpr* function body is limited to a simple return expression. This forced us to use *smart* ways to combine multiple expressions, being comma one of the most used ones as it ensures a perfectly defined evaluation order. Typical example is compile time assertions + return:
 
@@ -284,11 +256,7 @@ constexpr T array_at(T(&array)[N]) // `array` is a reference to `T[N]`
 
 ([full working example](https://ideone.com/5qZxa2))
 
-<br/>
-
-------
-## (C++17) Fold expressions (reducing parameter packs)
-------
+# (C++17) Fold Expressions (reducing parameter packs)
 
 One of the best features of C++17, [fold expression](http://en.cppreference.com/w/cpp/language/fold), allows **reducing a parameter pack by applying a binary operator** (including comma). This opens a huge branch of possibilities like calling a function for each argument or easily getting the last argument from the pack.
 
@@ -311,11 +279,7 @@ void push_back_vec(std::vector<T>& v, Args&&... args)
 
 ([full working example](https://ideone.com/bksyWj))
 
-<br/>
-
-------
-## Obfuscation
-------
+# Obfuscation
 
 Take a "good practices guide" and reverse it. You will get the **definitive guide for creating unmaintainable code** (bible of code obfuscation).
 One of the main rules will be:
@@ -335,11 +299,7 @@ if (c = 0, delete c++, c--)
 
 ([full working example](https://ideone.com/3Z1HnZ))
 
-<br/>
-
-----
-## The end
-----
+# The End
 
 That's all! I didn't want to end up with a huge post so I omitted many other ~~even more questionable~~ uses of the comma operator, listed below.
 

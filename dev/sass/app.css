@@ -1098,8 +1098,10 @@ a {
       font-weight: 300;
       -webkit-font-smoothing: auto;
       -moz-osx-font-smoothing: auto; }
-    .markdown-body h1, .series-note h1, .markdown-body h2, .series-note h2, .markdown-body h3, .series-note h3, .markdown-body h4, .series-note h4 {
-      margin-top: 24px; }
+    .markdown-body h1, .series-note h1 {
+      margin-top: 3em; }
+    .markdown-body h2, .series-note h2, .markdown-body h3, .series-note h3, .markdown-body h4, .series-note h4 {
+      margin-top: 2em; }
     .markdown-body table, .series-note table {
       margin: 16px auto; }
     .markdown-body img, .series-note img {
@@ -1132,6 +1134,7 @@ a {
     text-align: left;
     margin-bottom: 1em; }
   .markdown-body pre, .series-note pre {
+    font-size: 15px;
     background-color: #272822;
     padding: 1em;
     overflow: auto;
@@ -1139,7 +1142,7 @@ a {
     color: #f8f8f2;
     text-decoration-color: #f8f8f2;
     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-family: 'Inconsolata', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     text-align: left;
     white-space: pre;
     word-spacing: normal;
@@ -1181,6 +1184,12 @@ a {
     border-color: #FFEB3B;
     color: #24292e;
     text-decoration-color: #24292e; }
+  .markdown-body h1, .series-note h1 {
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.25em; }
+  .markdown-body h2, .series-note h2 {
+    /*border-bottom: 1px solid #eaecef;*/
+    padding-bottom: 0.25em; }
   .markdown-body h2 img, .series-note h2 img {
     display: inline-block;
     height: 1.25em;
@@ -1218,7 +1227,7 @@ a {
     text-shadow: 0 1px rgba(255, 255, 255, 0.3);
     padding: .5em 1em;
     background-color: #29aba4;
-    font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
+    font-family: "Inconsolata",Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
     border-top-left-radius: 0.3em;
     border-top-right-radius: 0.3em; }
   .markdown-body .filename pre, .series-note .filename pre {
