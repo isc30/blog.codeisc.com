@@ -21,14 +21,12 @@ Comma operator is associative, it returns the **result of the last expression** 
 ```cpp
 cout << (1, 2, 3); // prints `3`
 ```
-<br/>
 
 Back in C times, returning something different than *rvalue* from the operator wasn’t allowed. This changed in C++, so it returns **exactly** the last element with it's type being *lvalue*, *rvalue* or [*whatever*][doc-value-category]. This feature allows writing things like:
 
 ```cpp
 cout << &(a, b); // address of `b`
 ```
-<br/>
 
 Another nice point of the comma is that it guarantees [sequenced-before evaluation][doc-sequencing], in other words: [**ensures that all the sub-expressions will be evaluated in order (§8.19.2)**][standard-8-19]. This is a really nice feature, as the compiler is usually allowed to evaluate operands in an arbitrary order.
 
@@ -57,7 +55,6 @@ y = 1, 2, 3; // y = 1
 // previous line is equivalent to
 // (y = 1), 2, 3;
 ```
-<br/>
 
 Did you notice the parenthesis at the very first example in the post? It’s needed because *bitwise shift* operator (used by *std::ostream*) also has a higher precedence than comma. Using **parenthesis** is crucial here as it directly affects the result of the expression:
 

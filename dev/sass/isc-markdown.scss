@@ -18,12 +18,13 @@
         font-size: inherit;
         line-height: 1.8;
         text-align: left;
-        margin-bottom: 1em;
+    }
+
+    p, ul, blockquote, pre {
+        margin-bottom: 2em;
     }
 
     pre {
-        font-size: 15px;
-        
         background-color: #272822;
         padding: 1em;
         overflow: auto;

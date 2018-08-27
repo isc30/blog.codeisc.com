@@ -253,13 +253,13 @@
         }
     }
     .markdown-body {
-        p, pre, ul>li {
+        p, ul>li {
             font-size: 16px;
             font-weight: 300;
             -webkit-font-smoothing: auto;
             -moz-osx-font-smoothing: auto;
         }
-        .filename, pre {
+        .filename, pre, code {
             font-size: 14px;
             font-weight: 300;
             -webkit-font-smoothing: auto;

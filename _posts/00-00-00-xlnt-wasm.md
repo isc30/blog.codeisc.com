@@ -45,7 +45,7 @@ I wanted answers.
 
 ## Compiling the Library
 
-The selected library was [XLNT](https://github.com/tfussell/xlnt), a simple C++14 library for Excel manipulation. I've chosen this one because it relies a lot on implicit conversions and overloads, and I was curious about how
+The selected library was [XLNT](https://github.com/tfussell/xlnt), a simple C++14 library for Excel manipulation. I had chosen this one because it relies a lot on implicit conversions and overloads, and I was curious about how
 the bindings behave with those.
 
 After running some git commands I had [my fork](https://github.com/isc30/xlnt-wasm) ready. A fast look in CMAKE files revealed that it had some dependencies, but those were included in the repository itself (good job).
@@ -60,7 +60,7 @@ I got disheartened at this moment. 9MB! that's too much! But then I realized the
 > You need to rename the library file from `xlnt.lib` to `libxlnt.a` in order to link it using `-lxlnt`.
 {: .note }
 
-## Hello World
+## Hello World, XLNT
 
 I created a `example.cpp` file containing the exact code that you can find in the original XLNT repository.
 
@@ -104,11 +104,78 @@ em++ example.cpp -std=c++14 -O3 -s WASM=1 -I../include -L. -lxlnt -o example.htm
 ![](/assets/posts/xlnt-wasm/example-folder.png)
 
 <br/>
-
 From this point, it was all about opening the page in Firefox, retrieving the binary content from the file and passing it into a simple [function to download byte arrays as named files](https://gist.github.com/isc30/cd996814113869bef40a27d4af79f92d).
 
 ![](/assets/posts/xlnt-wasm/download-dialog.png)
 
 # Bindings and JavaScript API
 
-in progress...
+After this great success it was time to start exporting stuff to JavaScript. There are two ways of achieving this easily with emscripten: embind and WebIDL. I had chosen embind because it doesn't require any special file format and its way more complete and explicit than WebIDL.
+
+It allows you exposing classes, constructors and methods by simply defining their exportable members.
+
+```cpp
+EMSCRIPTEN_BINDINGS()
+{
+    class_<xlnt::workbook>("workbook")
+        .constructor<>()
+        .function("active_sheet", &xlnt::workbook::active_sheet);
+}
+```
+
+After this, I was able to create workbooks from JavaScript. Quite simple, right?
+
+```js
+const workbook = new xsnt.workbook();
+const sheet = workbook.active_sheet();
+
+sheet.delete(); // calls destructor, explained later
+workbook.delete(); // calls destructor, explained later
+```
+
+I started writing all the bindings until I found some problems I expected: implicit conversions, exporting custom members, function overloads and templates in general.
+
+## Implicit Conversions and Custom Functions
+
+I expected implicit conversions to work magically, but that was dreaming too much. Retrieving a `cell` from the given worksheet can be done in two ways: providing a `cell_reference` which is implicitly convertible from a `string` or passing both `column_t` and `row_t` which are implicitly convertible from `uint32_t`.
+
+```cpp
+cell worksheet::cell(const cell_reference& reference);
+cell worksheet::cell(column_t column, row_t row);
+```
+
+This was an issue. I didn't want to export those intermediate types to the API, I wanted to use `string` and `uint32_t` for the overloads. There is a huge benefit that comes from avoiding those intermediate classes: not forcing users to clean their memory manually.
+
+> It's our responsibility to manually call the destructor of all new C++ objects in javascript and everything from the API that returns by value. This can be achieved by calling the member function `.delete()`.
+{: .note }
+
+The solution was obvious: wrapping those functions into custom exposed methods that take `std::string` and `uint32_t` as parameters. Turns out you can define custom member functions if they take the reference to the object as first parameter. Also, `optional_override([](...){ ... })` helps when defining those with lambdas.
+
+```cpp
+class_<xlnt::worksheet>("worksheet")
+
+    .function("cell", optional_override([](
+        xlnt::worksheet& worksheet,
+        const std::string& cell_reference)
+    {
+        return worksheet.cell(cell_reference);
+    }))
+
+    .function("cell", optional_override([](
+        xlnt::worksheet& worksheet,
+        std::uint32_t col,
+        std::uint32_t row)
+    {
+        return worksheet.cell(col, row);
+    }));
+```
+
+This was an elegant solution, but it had a big drawback: it exposed the ownership of the cell to javascript, forcing users to call `cell.delete()` all the time. This completely ruins the method chain shown in the XLNT example. Unacceptable.
+
+```js
+sheet.cell("B2").value(1234); // memory leak, nice
+```
+
+## Avoiding Exposed Ownership
+
+J

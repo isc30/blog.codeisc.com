@@ -1088,12 +1088,12 @@ a {
                 word-break: break-all;
             }
         }*/ }
-    .markdown-body p, .series-note p, .markdown-body pre, .series-note pre, .markdown-body ul > li, .series-note ul > li {
+    .markdown-body p, .series-note p, .markdown-body ul > li, .series-note ul > li {
       font-size: 16px;
       font-weight: 300;
       -webkit-font-smoothing: auto;
       -moz-osx-font-smoothing: auto; }
-    .markdown-body .filename, .series-note .filename, .markdown-body pre, .series-note pre {
+    .markdown-body .filename, .series-note .filename, .markdown-body pre, .series-note pre, .markdown-body code, .series-note code {
       font-size: 14px;
       font-weight: 300;
       -webkit-font-smoothing: auto;
@@ -1131,10 +1131,10 @@ a {
   .markdown-body p, .series-note p {
     font-size: inherit;
     line-height: 1.8;
-    text-align: left;
-    margin-bottom: 1em; }
+    text-align: left; }
+  .markdown-body p, .series-note p, .markdown-body ul, .series-note ul, .markdown-body blockquote, .series-note blockquote, .markdown-body pre, .series-note pre {
+    margin-bottom: 2em; }
   .markdown-body pre, .series-note pre {
-    font-size: 15px;
     background-color: #272822;
     padding: 1em;
     overflow: auto;
