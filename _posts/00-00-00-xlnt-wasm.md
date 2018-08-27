@@ -144,9 +144,9 @@ cell worksheet::cell(const cell_reference& reference);
 cell worksheet::cell(column_t column, row_t row);
 ```
 
-This was an issue. I didn't want to export those intermediate types to the API, I wanted to use `string` and `uint32_t` for the overloads. There is a huge benefit that comes from avoiding those intermediate classes: not forcing users to clean their memory manually.
+This was an issue. I didn't want to expose those intermediate types to the API, I preferred to use `string` and `uint32_t` for the overloads. There is a huge benefit that comes from avoiding those intermediate classes: not forcing users to clean their memory manually.
 
-> It's our responsibility to manually call the destructor of all new C++ objects in javascript and everything from the API that returns by value. This can be achieved by calling the member function `.delete()`.
+> It's our responsibility to manually call the destructor of all new C++ objects in javascript and everything from the API that gets returned by value. This can be achieved by calling the member function `.delete()`.
 {: .note }
 
 The solution was obvious: wrapping those functions into custom exposed methods that take `std::string` and `uint32_t` as parameters. Turns out you can define custom member functions if they take the reference to the object as first parameter. Also, `optional_override([](...){ ... })` helps when defining those with lambdas.
