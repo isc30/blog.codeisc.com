@@ -73,7 +73,7 @@ class_<xlnt::worksheet>("worksheet")
     }));
 ```
 
-This was an elegant solution, but it had a big drawback: it exposed the ownership of the cell to javascript, forcing users to call `cell.delete()` all the time. This completely ruins the experience when using method chains, like shown in the XLNT example. Unacceptable.
+This was an elegant solution, but it had a big drawback: it exposed the ownership of the cell to javascript, forcing users to call `cell.delete()` all the time. This completely ruins the experience when using method chains, like the ones shown in the XLNT example. Unacceptable.
 
 ```js
 sheet.cell("B2").value(1234); // memory leak, nice...
