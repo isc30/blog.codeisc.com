@@ -10,21 +10,28 @@
     {% endfor %}
     {% assign seriesPosts = seriesPosts | sort: 'chapter' %}
 
-<div class="series-note">
-    <div class="series-table">
-        <p class="series-title"><strong>{{ page.series }}</strong> series:</p>
-        <ul>
+    {% unless include.isTop %}
+        <hr style="margin: 6em 0" />
+        <h4>{{ page.series }}:</h4>
+    {% else %}
+        <h4>Chapters:</h4>
+    {% endunless %}
+
+    <ol>
         {% for post in seriesPosts %}
             <li class="{% if page.chapter == post.chapter %}current-chapter{% endif %}">
                 {% if page.chapter != post.chapter %}
-                    <a href="{{ post.url }}">{{ post.chapter }}. {{post.title}}</a>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
                 {% else %}
-                    <span>{{ page.chapter }}. {{ page.title }}</span>
+                    <span>{{ page.title }}</span>
                     {% comment %}{% include toc.html html=page.content %}{% endcomment %}
                 {% endif %}
             </li>
         {% endfor %}
-        </ul>
-    </div>
-</div>
+    </ol>
+
+    {% if include.isTop %}
+        <hr/>
+    {% endif %}
+
 {% endif %}

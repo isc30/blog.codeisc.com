@@ -623,6 +623,8 @@ a {
     left: 10px;
     top: 10px;
     width: 350px;*/ }
+  .series-note p, .series-note ul, .series-note ol, .series-note blockquote, .series-note pre {
+    margin-bottom: 0 !important; }
   .series-note > .series-table {
     overflow: hidden;
     border: 1px solid gray;
@@ -632,27 +634,26 @@ a {
       display: inline-block;
       box-sizing: border-box;
       padding: 5px; }
-    .series-note > .series-table > ul > li.current-chapter {
+    .series-note > .series-table > ol > li.current-chapter {
       background-color: #f5f5f5; }
-    .series-note > .series-table > ul > li > a {
+    .series-note > .series-table > ol > li > a {
       display: inline-block;
       box-sizing: border-box;
       border-top: 1px solid gray;
       padding: 5px;
       width: 100%; }
-      .series-note > .series-table > ul > li > a:hover {
+      .series-note > .series-table > ol > li > a:hover {
         background-color: #f0f0f0; }
-    .series-note > .series-table > ul > li > span {
+    .series-note > .series-table > ol > li > span {
       display: inline-block;
       box-sizing: border-box;
       border-top: 1px solid gray;
       padding: 5px;
       width: 100%;
       font-style: italic; }
-    .series-note > .series-table > ul > li ul, .series-note > .series-table > ul > li ol {
-      list-style-type: circle;
+    .series-note > .series-table > ol > li ul, .series-note > .series-table > ol > li ol {
       padding: 0.5em 1.5em; }
-      .series-note > .series-table > ul > li ul li, .series-note > .series-table > ul > li ol li {
+      .series-note > .series-table > ol > li ul li, .series-note > .series-table > ol > li ol li {
         margin: 0 1.5em; }
 
 .markdown-body, .series-note {
@@ -671,6 +672,7 @@ a {
       margin-bottom: 0; }
 
 .social-share-wrapper {
+  margin-top: 3em;
   float: left;
   position: relative;
   left: 50%; }
@@ -937,6 +939,8 @@ a {
   .post-content .post-subtitle {
     width: 92%; }
   .author-detail .author-card {
+    width: 92%; }
+  .author-detail .comment {
     width: 92%; } }
 
 @media screen and (max-width: 695px) {
@@ -1107,7 +1111,9 @@ a {
     .markdown-body img, .series-note img {
       margin: 0 auto 16px; }
     .markdown-body .header-link, .series-note .header-link {
-      display: none; } }
+      display: none; }
+    .markdown-body hr, .series-note hr {
+      margin: 3em 0 2em 0 !important; } }
 
 @media screen and (max-width: 376px) {
   .home-banner h2 {
@@ -1129,10 +1135,9 @@ a {
       .markdown-body table.no-border tr td, .series-note table.no-border tr td {
         border: 0; }
   .markdown-body p, .series-note p {
-    font-size: inherit;
     line-height: 1.8;
     text-align: left; }
-  .markdown-body p, .series-note p, .markdown-body ul, .series-note ul, .markdown-body blockquote, .series-note blockquote, .markdown-body pre, .series-note pre {
+  .markdown-body p, .series-note p, .markdown-body ul, .series-note ul, .markdown-body ol, .series-note ol, .markdown-body blockquote, .series-note blockquote, .markdown-body pre, .series-note pre {
     margin-bottom: 2em; }
   .markdown-body pre, .series-note pre {
     background-color: #272822;
@@ -1156,6 +1161,10 @@ a {
     -moz-hyphens: none;
     -ms-hyphens: none;
     hyphens: none; }
+  .markdown-body hr, .series-note hr {
+    margin: 4.5em 0 2em 0;
+    height: 1px;
+    color: #eaecef; }
   .markdown-body blockquote.description, .series-note blockquote.description {
     padding: 1em;
     border: 2px dotted #ffb466;

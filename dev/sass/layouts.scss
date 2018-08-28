@@ -45,6 +45,9 @@
         .author-card {
             width: 92%;
         }
+        .comment {
+            width: 92%;
+        }
     }
 }
 
@@ -279,6 +282,9 @@
         }
         .header-link {
             display: none;
+        }
+        hr {
+            margin: 3em 0 2em 0 !important;
         }
         /*strong {
             font-weight: 400;

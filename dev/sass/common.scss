@@ -547,6 +547,14 @@
 
 .series-note {
     @extend .markdown-body;
+
+    //padding: 0 !important;
+    //margin: 3em auto;
+
+    p, ul, ol, blockquote, pre {
+        margin-bottom: 0 !important;
+    }
+
     /*position: fixed;
     left: 10px;
     top: 10px;
@@ -565,7 +573,7 @@
             padding: 5px;
         }
 
-        & > ul > li {
+        & > ol > li {
             &.current-chapter {
                 background-color: #f5f5f5;
             }
@@ -592,7 +600,7 @@
             }
 
             ul, ol {
-                list-style-type: circle;
+                //list-style-type: circle;
                 padding: 0.5em 1.5em;
 
                 li {
@@ -629,6 +637,7 @@
 }
 
 .social-share-wrapper {
+    margin-top: 3em;
     float: left;
     position: relative;
     left: 50%;

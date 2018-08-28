@@ -15,12 +15,11 @@
     }
 
     p {
-        font-size: inherit;
         line-height: 1.8;
         text-align: left;
     }
 
-    p, ul, blockquote, pre {
+    p, ul, ol, blockquote, pre {
         margin-bottom: 2em;
     }
 
@@ -47,6 +46,12 @@
         -moz-hyphens: none;
         -ms-hyphens: none;
         hyphens: none;
+    }
+
+    hr {
+        margin: 4.5em 0 2em 0;
+        height: 1px;
+        color: #eaecef;
     }
 
     blockquote.description {
