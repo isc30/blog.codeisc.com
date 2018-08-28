@@ -52,7 +52,7 @@ I didn't want to expose those intermediate types to the API, I preferred to use 
 > It's our responsibility to manually call the destructor of all new C++ objects in javascript and everything from the API that gets returned by value. This can be achieved by calling the member function `.delete()`.
 {: .note }
 
-The solution was obvious: wrapping those functions into custom exposed methods that take `string` and `uint32_t` as parameters. Turns out that you can define custom member functions if they take the reference to `*this` as first parameter. Also, `optional_override` helps a lot when defining those functions using inline lambdas.
+The solution was obvious: wrapping those functions into custom exposed methods that take `string` and `uint32_t` as parameters. Turns out that you can define custom member functions if they take the reference to `*this` as the first parameter. Also, `optional_override` helps a lot when defining those functions using inline lambdas.
 
 ```cpp
 class_<xlnt::worksheet>("worksheet")
