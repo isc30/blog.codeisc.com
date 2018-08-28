@@ -50,9 +50,9 @@ I picked one library: [XLNT](https://github.com/tfussell/xlnt), a simple C++14 l
 
 After running some git commands I had [my fork](https://github.com/isc30/xlnt-wasm) ready. A fast look in CMake files revealed that it had some dependencies but those were included in the repository itself (good job, authors).
 
-Creating a static library with `em++` requires you to turn on all the optimizations with `-O3` and WebAssembly support with `-s WASM=1` (this triggers some WebAssembly specific warnings/errors so it's good to have even when compiling static libraries). Getting this to work forced me to apply [some small tweaks](https://github.com/isc30/xlnt-wasm/commit/b0f9304e143740779030e8082ccfae2a1f4f3c25) to the CMake configurations, nothing really complicated.
+Creating a static library with `em++` requires you to turn on all the optimizations with `-O3` and WebAssembly support with `-s WASM=1` (this triggers some WebAssembly specific warnings/errors so it's good to have even when compiling static libraries). I was also forced to apply [some small tweaks](https://github.com/isc30/xlnt-wasm/commit/b0f9304e143740779030e8082ccfae2a1f4f3c25) to the CMake configurations, nothing really complicated.
 
-Building the whole thing with CMake took some time, mostly because I didn't realize that the "normal" build includes benchmarks and some tests. A new static library was born, hurray!
+Building the whole thing with CMake took some time, mostly because I didn't realize that the "normal" build included  benchmarks and some tests which I didn't need. In the end, a new static library was born and I was happy.
 
 ![](/assets/posts/xlnt-wasm/lib-file.png "8.9MB WTF!")
 
