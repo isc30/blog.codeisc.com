@@ -10,7 +10,6 @@ layout: default
 </div>
 
 <main class="tags-content">
-
     <ul class="tags-list">
         <li>
         {% if site.recommend-tags and site.tags.size>0 %}
@@ -21,12 +20,14 @@ layout: default
         </li>
         {% for tag in site.tags %}
         <li>
-            <span class="tag-name" id="{{ tag[0] }}">「{{ tag[0] }}」</span>
+            <span class="tag-name" id="{{ tag[0] }}">[{{ tag[0] }}]</span>
             {% for post in tag[1] %}
-            <a class="tag-post" href="{{ post.url }}" title="{{ post.title }}">
-                {% if post.series %}{{ post.series }}: {{ post.chapter }}. {% endif %}
-                {{ post.title }}
-            </a>
+                {% unless post.hidden %}
+                    <a class="tag-post" href="{{ post.url }}" title="{{ post.title }}">
+                        {% if post.series %}{{ post.series }}: {{ post.chapter }}. {% endif %}
+                        {{ post.title }}
+                    </a>
+                {% endunless %}
             {% endfor %}
         </li>
         
