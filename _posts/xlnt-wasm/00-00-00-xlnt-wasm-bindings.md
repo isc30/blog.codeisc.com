@@ -9,13 +9,9 @@ tags: 'c++ webassembly'
 hidden: true
 ---
 
-Chapaaa
+After the successful "hello world" example, it was time to start exposing stuff to JavaScript. There are two ways of achieving this easily: embind and WebIDL. I had chosen embind because it doesn't require any special file format and its way more complete and explicit than WebIDL.
 
 <!-- more -->
-
-# Bindings and JavaScript API
-
-After this great success it was time to start exposing stuff to JavaScript. There are two ways of achieving this easily: embind and WebIDL. I had chosen embind because it doesn't require any special file format and its way more complete and explicit than WebIDL.
 
 This magical library allows exposing classes, constructors and methods by simply defining their exportable members.
 
@@ -40,7 +36,7 @@ workbook.delete(); // calls destructor, explained later
 
 I started writing all the bindings until I found some challenges that I already expected: implicit conversions, exporting custom members, exposing ownership, function overloads and templates in general.
 
-## Implicit Conversions and Custom Functions
+# Implicit Conversions and Custom Functions
 
 I expected implicit conversions to work magically, but that was too much dreaming. Retrieving a `cell` from the given worksheet can be done in two ways: providing a `cell_reference` which is implicitly convertible from a `string` or passing both `column_t` and `row_t` which are implicitly convertible from `uint32_t`.
 The code explains better by itself.
@@ -83,6 +79,6 @@ This was an elegant solution, but it had a big drawback: it exposed the ownershi
 sheet.cell("B2").value(1234); // memory leak, nice...
 ```
 
-## Avoiding Exposed Ownership
+# Avoiding Exposed Ownership
 
 Now that 

@@ -105,6 +105,9 @@ em++ example.cpp -std=c++14 -O3 -s WASM=1 -I../include -L. -lxlnt -o example.htm
 ![](/assets/posts/xlnt-wasm/example-folder.png)
 
 <br/>
-From this point, it was all about opening the HTML page in Firefox, retrieving the binary content from the file and passing it into a simple [function to download byte arrays as named files](https://gist.github.com/isc30/cd996814113869bef40a27d4af79f92d). Boom! It worked.
+From this point, it was all about opening the HTML page in Firefox, retrieving the binary content from the file and passing it into a simple [function to download byte arrays as named files](https://gist.github.com/isc30/cd996814113869bef40a27d4af79f92d).
 
 ![](/assets/posts/xlnt-wasm/download-dialog.png)
+
+Boom! It worked.<br/>
+In the next chapter: creating our JavaScript API!
