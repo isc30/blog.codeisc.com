@@ -3,35 +3,39 @@
     {% assign seriesPosts = "" | split: "" %}
     {% for post in site.posts %}
         {% if post.series == page.series %}
-            {% unless post.hidden %}
+            {% unless post.hidden and not(page.hidden) %}
                 {% assign seriesPosts = seriesPosts | push: post %}
             {% endunless %}
         {% endif %}
     {% endfor %}
     {% assign seriesPosts = seriesPosts | sort: 'chapter' %}
 
-    {% unless include.isTop %}
-        <hr style="margin: 6em 0" />
-        <h4>{{ page.series }}:</h4>
-    {% else %}
-        <h4>Chapters:</h4>
-    {% endunless %}
+    {% if seriesPosts.size > 0 %}
 
-    <ol>
-        {% for post in seriesPosts %}
-            <li class="{% if page.chapter == post.chapter %}current-chapter{% endif %}">
-                {% if page.chapter != post.chapter %}
-                    <a href="{{ post.url }}">{{ post.title }}</a>
-                {% else %}
-                    <span>{{ page.title }}</span>
-                    {% comment %}{% include toc.html html=page.content %}{% endcomment %}
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ol>
+        {% unless include.isTop %}
+            <hr style="margin: 6em 0" />
+            <h4>{{ page.series }}:</h4>
+        {% else %}
+            <h4>Chapters:</h4>
+        {% endunless %}
 
-    {% if include.isTop %}
-        <hr/>
+        <ol>
+            {% for post in seriesPosts %}
+                <li class="{% if page.chapter == post.chapter %}current-chapter{% endif %}">
+                    {% if page.chapter != post.chapter %}
+                        <a href="{{ post.url }}">{{ post.title }}</a>
+                    {% else %}
+                        <span>{{ page.title }}</span>
+                        {% comment %}{% include toc.html html=page.content %}{% endcomment %}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ol>
+
+        {% if include.isTop %}
+            <hr/>
+        {% endif %}
+
     {% endif %}
 
 {% endif %}
