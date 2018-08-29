@@ -29,6 +29,7 @@
             opacity: 1;
         }
         a {
+            font-size: 24px;
             height: 100%;
             line-height: 32px;
             padding-left: 40px;
@@ -65,7 +66,7 @@
             }
             &>a {
                 display: inline-block;
-                font-size: 14px;
+                font-size: 16px;
                 letter-spacing: 1px;
                 color: #fff;
                 padding: 0 12px;
@@ -220,7 +221,7 @@
                 color: $color-brand;
                 line-height: 26px;
             }
-            
+
             .post-excerpt {
                 margin-top: 21px;
                 font-size: 16px;
@@ -619,6 +620,30 @@
                 }
             }
         }
+    }
+}
+
+.p-sidebar {
+    display: none;
+    background-color: orange;
+
+    float: left;
+    left: 15px;
+
+    position: relative;
+    top: 40px;
+    bottom: unset;
+
+    &.fixed {
+        position: fixed;
+        top: 64px + 40px;
+        bottom: unset;
+    }
+
+    &.stick-bottom {
+        position: absolute;
+        top: unset;
+        bottom: 40px;
     }
 }
 

@@ -74,6 +74,7 @@ a {
     .g-header .g-logo:hover {
       opacity: 1; }
     .g-header .g-logo a {
+      font-size: 24px;
       height: 100%;
       line-height: 32px;
       padding-left: 40px;
@@ -103,7 +104,7 @@ a {
         margin-right: 0; }
       .g-header .g-nav > ul > li > a {
         display: inline-block;
-        font-size: 14px;
+        font-size: 16px;
         letter-spacing: 1px;
         color: #fff;
         padding: 0 12px;
@@ -273,12 +274,12 @@ a {
       width: 100%; }
   .author-card .author-name {
     width: 100%;
-    font-size: 16px;
+    font-size: 17px;
     color: #4E4E4E;
     font-weight: 500;
     margin: 12px 0 6px; }
   .author-card .bio p {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 20px; }
   .author-card .sns-links {
     margin-top: 14px;
@@ -662,6 +663,23 @@ a {
       padding: 0.5em 1.5em; }
       .series-note > .series-table > ol > li ul li, .series-note > .series-table > ol > li ol li {
         margin: 0 1.5em; }
+
+.p-sidebar {
+  display: none;
+  background-color: orange;
+  float: left;
+  left: 15px;
+  position: relative;
+  top: 40px;
+  bottom: unset; }
+  .p-sidebar.fixed {
+    position: fixed;
+    top: 104px;
+    bottom: unset; }
+  .p-sidebar.stick-bottom {
+    position: absolute;
+    top: unset;
+    bottom: 40px; }
 
 .markdown-body, .series-note {
   font-family: "Merriweather-Light", -apple-system, sans-serif, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei";
@@ -1156,6 +1174,8 @@ a {
       border: 0; }
       .markdown-body table.no-border tr td, .series-note table.no-border tr td {
         border: 0; }
+  .markdown-body .chapters.top, .series-note .chapters.top {
+    margin-bottom: calc(2em + 40px); }
   .markdown-body p, .series-note p {
     font-size: 1em;
     line-height: 1.8;
@@ -1219,7 +1239,7 @@ a {
     color: #24292e;
     text-decoration-color: #24292e; }
   .markdown-body h1, .series-note h1 {
-    border-bottom: 1px solid #eaecef;
+    border-bottom: 2px dashed #eaecef;
     padding-bottom: 0.25em; }
   .markdown-body h2, .series-note h2 {
     /*border-bottom: 1px solid #eaecef;*/

@@ -19,7 +19,7 @@
             <h4>Chapters:</h4>
         {% endunless %}
 
-        <ol>
+        <ol class="chapters {% if include.isTop %}top{% endif %}">
             {% for post in seriesPosts %}
                 <li class="{% if page.chapter == post.chapter %}current-chapter{% endif %}">
                     {% if page.chapter != post.chapter %}
@@ -31,10 +31,6 @@
                 </li>
             {% endfor %}
         </ol>
-
-        {% if include.isTop %}
-            <hr/>
-        {% endif %}
 
     {% endif %}
 

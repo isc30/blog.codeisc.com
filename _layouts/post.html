@@ -42,6 +42,12 @@
         <h2 class="post-subtitle">{{ page.subtitle }}</h2>
     {% endif %}
 
+    {% if page.toc == true %}
+        <div class="p-sidebar">
+            {{ page.content | toc_only }}
+        </div>
+    {% endif %}
+
     <article class="markdown-body">
 
         {% if page.series %}

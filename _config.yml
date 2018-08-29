@@ -70,4 +70,6 @@ kramdown:
 excerpt_separator: <!-- more -->
 
 # Plugins
-plugins: [jekyll-paginate]
+plugins: 
+  - jekyll-paginate
+  - jekyll-toc

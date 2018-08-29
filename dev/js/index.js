@@ -28,6 +28,11 @@ $(document).ready(function(){
         var appLogo = $('.g-logo');
         var navText = header.find('a');
 
+        var content = $('.post-content');
+        var content_top = content.position().top;
+        var content_bottom = content_top + content.outerHeight();
+        var sidebar = $('.p-sidebar');
+
         var themeColorFlag = $('.g-banner').attr('data-theme');
 
         var scFlag = $(document).scrollTop();
@@ -35,6 +40,22 @@ $(document).ready(function(){
         $(document).scroll(function(){
 
             var scrollTop = $(this).scrollTop();
+            
+            if (scrollTop + 25 < content_top) // 40 - 15
+            {
+                sidebar.removeClass("fixed");
+                sidebar.removeClass("stick-bottom");
+            }
+            else if (scrollTop < content_bottom - sidebar.outerHeight() - 144) // 104 + 40
+            {
+                sidebar.addClass("fixed");
+                sidebar.removeClass("stick-bottom");
+            }
+            else
+            {
+                sidebar.removeClass("fixed");
+                sidebar.addClass("stick-bottom");
+            }
 
             if(scrollTop > header_h) {
 
