@@ -49,6 +49,17 @@
             width: 92%;
         }
     }
+    .markdown-body {
+
+        font-size: 17px !important;
+        font-weight: 300 !important;
+        -webkit-font-smoothing: auto !important;
+        -moz-osx-font-smoothing: auto !important;
+
+        .filename, pre, code {
+            font-size: 15px !important;
+        }
+    }
 }
 
 @media screen and (max-width: 695px) {
@@ -166,6 +177,18 @@
         padding: 30px 0;
     }
 
+    .markdown-body {
+
+        font-size: 16.5px !important;
+        font-weight: 300 !important;
+        -webkit-font-smoothing: auto !important;
+        -moz-osx-font-smoothing: auto !important;
+
+        .filename, pre, code {
+            font-size: 14.5px !important;
+        }
+    }
+
 }
 
 @media screen and (max-width: 500px) {
@@ -256,17 +279,14 @@
         }
     }
     .markdown-body {
-        p, ul>li {
-            font-size: 16px;
-            font-weight: 300;
-            -webkit-font-smoothing: auto;
-            -moz-osx-font-smoothing: auto;
-        }
+
+        font-size: 16px !important;
+        font-weight: 300 !important;
+        -webkit-font-smoothing: auto !important;
+        -moz-osx-font-smoothing: auto !important;
+
         .filename, pre, code {
-            font-size: 14px;
-            font-weight: 300;
-            -webkit-font-smoothing: auto;
-            -moz-osx-font-smoothing: auto;
+            font-size: 14px !important;
         }
         h1 {
             margin-top: 3em;

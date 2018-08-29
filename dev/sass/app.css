@@ -941,7 +941,14 @@ a {
   .author-detail .author-card {
     width: 92%; }
   .author-detail .comment {
-    width: 92%; } }
+    width: 92%; }
+  .markdown-body, .series-note {
+    font-size: 17px !important;
+    font-weight: 300 !important;
+    -webkit-font-smoothing: auto !important;
+    -moz-osx-font-smoothing: auto !important; }
+    .markdown-body .filename, .series-note .filename, .markdown-body pre, .series-note pre, .markdown-body code, .series-note code {
+      font-size: 15px !important; } }
 
 @media screen and (max-width: 695px) {
   .g-header {
@@ -1016,7 +1023,14 @@ a {
   .tags-list {
     padding: 0 0 24px; }
   .g-footer {
-    padding: 30px 0; } }
+    padding: 30px 0; }
+  .markdown-body, .series-note {
+    font-size: 16.5px !important;
+    font-weight: 300 !important;
+    -webkit-font-smoothing: auto !important;
+    -moz-osx-font-smoothing: auto !important; }
+    .markdown-body .filename, .series-note .filename, .markdown-body pre, .series-note pre, .markdown-body code, .series-note code {
+      font-size: 14.5px !important; } }
 
 @media screen and (max-width: 500px) {
   /*.home-banner {
@@ -1081,6 +1095,10 @@ a {
       .post-content .post-subtitle:before {
         height: 0; }
   .markdown-body, .series-note {
+    font-size: 16px !important;
+    font-weight: 300 !important;
+    -webkit-font-smoothing: auto !important;
+    -moz-osx-font-smoothing: auto !important;
     /*strong {
             font-weight: 400;
         }
@@ -1092,16 +1110,8 @@ a {
                 word-break: break-all;
             }
         }*/ }
-    .markdown-body p, .series-note p, .markdown-body ul > li, .series-note ul > li {
-      font-size: 16px;
-      font-weight: 300;
-      -webkit-font-smoothing: auto;
-      -moz-osx-font-smoothing: auto; }
     .markdown-body .filename, .series-note .filename, .markdown-body pre, .series-note pre, .markdown-body code, .series-note code {
-      font-size: 14px;
-      font-weight: 300;
-      -webkit-font-smoothing: auto;
-      -moz-osx-font-smoothing: auto; }
+      font-size: 14px !important; }
     .markdown-body h1, .series-note h1 {
       margin-top: 3em; }
     .markdown-body h2, .series-note h2, .markdown-body h3, .series-note h3, .markdown-body h4, .series-note h4 {
@@ -1127,7 +1137,7 @@ a {
     left: -100px; } }
 
 .markdown-body, .series-note {
-  font-size: 16px; }
+  font-size: 18px; }
   .markdown-body table.no-border, .series-note table.no-border {
     border: 0; }
     .markdown-body table.no-border tr, .series-note table.no-border tr {
@@ -1138,8 +1148,10 @@ a {
     font-size: 1em;
     line-height: 1.8;
     text-align: left; }
-  .markdown-body p, .series-note p, .markdown-body ul, .series-note ul, .markdown-body ol, .series-note ol, .markdown-body blockquote, .series-note blockquote, .markdown-body pre, .series-note pre {
+  .markdown-body p, .series-note p, .markdown-body ul, .series-note ul, .markdown-body ol, .series-note ol, .markdown-body kdb, .series-note kdb, .markdown-body blockquote, .series-note blockquote, .markdown-body pre, .series-note pre {
     margin-bottom: 2em; }
+  .markdown-body code, .series-note code, .markdown-body kdb, .series-note kdb, .markdown-body pre, .series-note pre {
+    font-size: 16px; }
   .markdown-body pre, .series-note pre {
     background-color: #272822;
     padding: 1em;

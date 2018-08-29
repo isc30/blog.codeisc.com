@@ -1,6 +1,6 @@
 .markdown-body {
 
-    font-size: 16px;
+    font-size: 18px;
 
     table.no-border {
         border: 0;
@@ -20,8 +20,12 @@
         text-align: left;
     }
 
-    p, ul, ol, blockquote, pre {
+    p, ul, ol, kdb, blockquote, pre {
         margin-bottom: 2em;
+    }
+
+    code, kdb, pre {
+        font-size: 16px;
     }
 
     pre {
