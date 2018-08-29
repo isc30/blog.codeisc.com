@@ -3,7 +3,7 @@
     {% assign seriesPosts = "" | split: "" %}
     {% for post in site.posts %}
         {% if post.series == page.series %}
-            {% unless post.hidden or not(page.hidden) %}
+            {% unless post.hidden %}
                 {% assign seriesPosts = seriesPosts | push: post %}
             {% endunless %}
         {% endif %}
