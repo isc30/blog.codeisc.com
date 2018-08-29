@@ -9,7 +9,6 @@ tags: 'c++ webassembly'
 ---
 
 > Your software needs a well-known feature but there isn't any good (and free) library for it. 
-{: .jackass }
 
 Does this situation sound familiar to you? it happens to me all the time, and it sucks. If you really need this feature, you will end up reinventing the wheel and investing a lot of time rewriting something that already exists for many other languages but not for the one you are currently using ([my LINQ implementation for javascript](https://github.com/isc30/linq-collections) is a good example of this).
 
