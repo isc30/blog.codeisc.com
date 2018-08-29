@@ -27,18 +27,22 @@ description: 'CodeIsc'
                 {% endif %}
                 <section class="post-preview">
                     <a class="post-link" href="{{ post.url }}" title="{{ post.title }}"></a>
+
                     {% if post.series %}
-                    <h2 class="post-title">{{ post.series }}</h2>
-                    <h3>{{ post.chapter }}. {{ post.title }}</h3>
+                        <h2 class="post-title">{{ post.series }}</h2>
+                        <h3 class="post-chapter">{{ post.chapter }}. {{ post.title }}</h3>
                     {% else %}
-                    <h2 class="post-title">{{ post.title }}</h2>
+                        <h2 class="post-title">{{ post.title }}</h2>
                     {% endif %}
+
                     {% if post.subtitle %}
-                    <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+                        <h3 class="post-subtitle">{{ post.subtitle }}</h3>
                     {% endif %}
+
                     {% if post.subtitle.size==0 or post.subtitle==nil %}
-                    <p class="post-excerpt">{{ post.excerpt | strip_html | strip_newlines }}</p>
+                        <p class="post-excerpt">{{ post.excerpt | strip_html | strip_newlines }}</p>
                     {% endif %}
+
                 </section>
                 <footer class="post-meta">
                     <div class="post-tags">
