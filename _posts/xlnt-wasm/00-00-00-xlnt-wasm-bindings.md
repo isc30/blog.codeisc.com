@@ -3,7 +3,7 @@ layout: post
 series: 'Excel-ent experiment with WebAssembly'
 chapter: 2
 title: 'Bindings and JavaScript API'
-date: 2018-08-27
+date: 2018-08-29
 subreddit: 'c++'
 tags: 'c++ webassembly'
 hidden: true

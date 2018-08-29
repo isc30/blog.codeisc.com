@@ -3,16 +3,15 @@ layout: post
 series: 'Excel-ent experiment with WebAssembly'
 chapter: 1
 title: 'Introduction'
-date: 2018-08-26
+date: 2018-08-28
 subreddit: 'c++'
 tags: 'c++ webassembly'
-hidden: true
 ---
 
-> Your software needs a well-known feature but there isn't any good (and free) library for it
+> Your software needs a well-known feature but there isn't any good (and free) library for it. 
 {: .jackass }
 
-Does this situation sound familiar to you? it happens to me all the time, and it sucks. If you **really** need this feature, you will end up **reinventing the wheel** and investing a lot of time rewriting something that **already exists for many other languages** but not for the one you are currently using ([my LINQ implementation for javascript](https://github.com/isc30/linq-collections) is a good example of this).
+Does this situation sound familiar to you? it happens to me all the time, and it sucks. If you really need this feature, you will end up reinventing the wheel and investing a lot of time rewriting something that already exists for many other languages but not for the one you are currently using ([my LINQ implementation for javascript](https://github.com/isc30/linq-collections) is a good example of this).
 
 <!-- more -->
 
@@ -36,17 +35,17 @@ However, experiments and funny stuff are always welcome in my personal projects.
 
 # Getting Hands Dirty
 
-I already had some experience with emscripten and WebAssembly, so I decided to run a small experiment on my own. The main idea was porting a C++ library to WebAssembly and checking if the results are good enough even to be considered.
+I already had some experience with emscripten and WebAssembly, so I decided to run a small experiment on my own. The main idea was porting a C++ library to WebAssembly and checking if the results were good enough to even be considered.
 
-- How much time does it take to adapt the library to WebAssembly? *(is it worth my time?)*<br/>
-- What's the size of it after compilation? *(is it too big for a webpage?)*<br/>
-- How to manage bindings to JavaScript properly? *(is it really usable from js?)*<br/>
+- How much time does it take to adapt the library to WebAssembly? *(Is it worth my time?)*<br/>
+- What's the size of it after compilation? *(Is it too big for a webpage?)*<br/>
+- How to manage bindings to JavaScript properly? *(Is it really usable from js?)*<br/>
 
 I wanted answers.
 
 ## Compiling the Library
 
-I picked one library: [XLNT](https://github.com/tfussell/xlnt), a simple C++14 library for Excel manipulation. I had chosen this one because it relies a lot on implicit conversions and overloads, and I was curious about how the javascript bindings behave with those.
+I picked [XLNT](https://github.com/tfussell/xlnt), a simple C++14 library for Excel manipulation. I chose this one because it relies a lot on implicit conversions and overloads, and I was curious about how the javascript bindings behave with those.
 
 After running some git commands I had [my fork](https://github.com/isc30/xlnt-wasm) ready. A fast look in CMake files revealed that it had some dependencies but those were included in the repository itself (good job, authors).
 
