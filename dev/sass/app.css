@@ -1175,7 +1175,7 @@ a {
       .markdown-body table.no-border tr td, .series-note table.no-border tr td {
         border: 0; }
   .markdown-body .chapters.top, .series-note .chapters.top {
-    margin-bottom: 3em; }
+    margin-bottom: 3.5em; }
   .markdown-body p, .series-note p {
     font-size: 1em;
     line-height: 1.8;
