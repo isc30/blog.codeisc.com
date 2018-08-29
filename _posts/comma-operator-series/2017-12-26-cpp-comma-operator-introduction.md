@@ -4,7 +4,7 @@ title: 'Introduction to our filthy friend'
 series: 'C++ Comma Operator'
 chapter: 1
 date: 2017-12-26
-#cover: '/assets/img/cpp-header.jpg'
+reddit_url: 'http://blog.codeisc.com/2017/12/26/cpp-comma-operator-introduction.html'
 subreddit: 'cpp'
 tags: 'c++'
 ---

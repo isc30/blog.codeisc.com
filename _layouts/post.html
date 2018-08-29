@@ -141,7 +141,7 @@
         <div class="embedd-container"></div>
         <script src="/assets/js/embedd.js">
         {
-            "url": "{{ site.url }}{% if page.reddit_url %}{{ page.reddit_url }}{% else %}{{ page.url }}{% endif %}",
+            "url": "{% if page.reddit_url %}{{ page.reddit_url | absolute_url }}{% else %}{{ page.url | absolute_url }}{% endif %}",
             "element": ".embedd-container"
         }
         </script>

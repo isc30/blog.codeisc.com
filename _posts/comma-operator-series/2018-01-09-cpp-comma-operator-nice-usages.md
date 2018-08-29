@@ -4,7 +4,7 @@ title: 'Nice usages'
 series: 'C++ Comma Operator'
 chapter: 2
 date: 2018-01-09
-reddit_url: '/2017/12/26/cpp-comma-operator-introduction.html'
+reddit_url: 'http://blog.codeisc.com/2017/12/26/cpp-comma-operator-introduction.html'
 subreddit: 'cpp'
 tags: c++
 ---
