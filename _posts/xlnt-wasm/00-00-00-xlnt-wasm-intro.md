@@ -52,7 +52,7 @@ Creating a static library with `em++` requires you to turn on all the optimizati
 
 Building the whole thing with CMake took some time, mostly because I didn't realize that the "normal" build included  benchmarks and some tests which I didn't need. In the end, a new static library was born and I was happy.
 
-![](/assets/posts/xlnt-wasm/lib-file.png "8.9MB WTF!")
+[![](/assets/posts/xlnt-wasm/lib-file.png "8.9MB WTF!")](/assets/posts/xlnt-wasm/lib-file.png)
 
 I got disheartened at this moment. 9MB! that's too much! But then I realized the amount of static stuff that it contained (libzip, libstudxml, pybind, utfcpp, etc) so it wasn't that bad.
 
@@ -101,12 +101,12 @@ But let's go step by step. Compiling the example turned out to be effortless:
 em++ example.cpp -std=c++14 -O3 -s WASM=1 -I../include -L. -lxlnt -o example.html
 ```
 
-![](/assets/posts/xlnt-wasm/example-folder.png)
+[![](/assets/posts/xlnt-wasm/example-folder.png)](/assets/posts/xlnt-wasm/example-folder.png)
 
 <br/>
 From this point, it was all about opening the HTML page in Firefox, retrieving the binary content from the fake filesystem and passing it into a simple [function to download byte arrays as named files](https://gist.github.com/isc30/cd996814113869bef40a27d4af79f92d).
 
-![](/assets/posts/xlnt-wasm/download-dialog.png)
+[![](/assets/posts/xlnt-wasm/download-dialog.png)](/assets/posts/xlnt-wasm/download-dialog.png)
 
 Boom! It worked. This is a story of success after all.
 
