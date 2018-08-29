@@ -56,7 +56,7 @@ y = 1, 2, 3; // y = 1
 // (y = 1), 2, 3;
 ```
 
-Did you notice the parenthesis at the very first example in the post? It’s needed because *bitwise shift* operator (used by *std::ostream*) also has a higher precedence than comma. Using **parenthesis** is crucial here as it directly affects the result of the expression:
+Did you notice the parenthesis at the very first example in the post? It’s needed because *bitwise shift* operator (used by `std::ostream`) also has a higher precedence than comma. Using **parenthesis** is crucial here as it directly affects the result of the expression:
 
 ```cpp
 cout << 1, 2, 3; // prints `1`
