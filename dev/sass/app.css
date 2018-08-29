@@ -218,7 +218,7 @@ a {
         font-size: 24px;
         line-height: 32px; }
       .article-list .article-item .post-preview .post-chapter {
-        margin: 4px 0 1em 0;
+        margin: 4px 0 0 0;
         font-size: 21px;
         font-weight: normal;
         line-height: 26px;
@@ -231,7 +231,7 @@ a {
         color: #B8BDC3;
         line-height: 26px; }
       .article-list .article-item .post-preview .post-excerpt {
-        margin-top: 8px;
+        margin-top: 21px;
         font-size: 16px;
         font-family: "Merriweather-Light", -apple-system, sans-serif, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei";
         line-height: 26px; }
@@ -1071,14 +1071,16 @@ a {
     .article-list .article-item .post-cover {
       max-height: 200px; }
     .article-list .article-item .post-preview .post-title {
-      font-size: 20px;
+      font-size: 22px;
       line-height: 26px; }
     .article-list .article-item .post-preview .post-chapter {
-      font-size: 18px;
+      font-size: 20px;
       line-height: 20px; }
     .article-list .article-item .post-preview .post-subtitle {
-      font-size: 16px;
+      font-size: 18px;
       line-height: 20px; }
+    .article-list .article-item .post-preview .post-excerpt {
+      margin-top: 20px; }
     .article-list .article-item .post-meta {
       margin-top: 12px; }
       .article-list .article-item .post-meta .post-tags {

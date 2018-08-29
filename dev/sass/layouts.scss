@@ -228,16 +228,20 @@
             }
             .post-preview {
                 .post-title {
-                    font-size: 20px;
+                    font-size: 22px;
                     line-height: 26px;
                 }
                 .post-chapter {
-                    font-size: 18px;
+                    font-size: 20px;
                     line-height: 20px;
                 }
                 .post-subtitle {
-                    font-size: 16px;
+                    font-size: 18px;
                     line-height: 20px;
+                }
+
+                .post-excerpt {
+                    margin-top: 20px;
                 }
             }
             .post-meta {
