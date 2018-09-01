@@ -56,7 +56,11 @@
         -webkit-font-smoothing: auto !important;
         -moz-osx-font-smoothing: auto !important;
 
-        .filename, pre, code {
+        p, ul, ol, kdb, blockquote, pre {
+            margin-bottom: calc(17px * 2) !important;
+        }
+
+        .filename, pre, pre code {
             font-size: 15px !important;
         }
     }
@@ -184,7 +188,11 @@
         -webkit-font-smoothing: auto !important;
         -moz-osx-font-smoothing: auto !important;
 
-        .filename, pre, code {
+        p, ul, ol, kdb, blockquote, pre {
+            margin-bottom: calc(16.5px * 2) !important;
+        }
+
+        .filename, pre, pre code {
             font-size: 14.5px !important;
         }
     }
@@ -293,7 +301,11 @@
         -webkit-font-smoothing: auto !important;
         -moz-osx-font-smoothing: auto !important;
 
-        .filename, pre, code {
+        p, ul, ol, kdb, blockquote, pre {
+            margin-bottom: calc(16px * 2) !important;
+        }
+
+        .filename, pre, pre code {
             font-size: 14px !important;
         }
         h1 {

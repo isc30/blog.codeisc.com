@@ -2,6 +2,10 @@
 
     font-size: 17px;
 
+    .no-margin {
+        margin-bottom: 1em;
+    }
+
     table.no-border {
         border: 0;
 
@@ -27,11 +31,11 @@
     }
 
     p, ul, ol, kdb, blockquote, pre {
-        margin-bottom: 2em;
+        margin-bottom: calc(17px * 2);
     }
 
-    code, kdb, pre {
-        font-size: 16px;
+    kdb, pre, pre code {
+        font-size: 15px;
     }
 
     pre {

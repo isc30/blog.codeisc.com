@@ -972,7 +972,9 @@ a {
     font-weight: 300 !important;
     -webkit-font-smoothing: auto !important;
     -moz-osx-font-smoothing: auto !important; }
-    .markdown-body .filename, .series-note .filename, .markdown-body pre, .series-note pre, .markdown-body code, .series-note code {
+    .markdown-body p, .series-note p, .markdown-body ul, .series-note ul, .markdown-body ol, .series-note ol, .markdown-body kdb, .series-note kdb, .markdown-body blockquote, .series-note blockquote, .markdown-body pre, .series-note pre {
+      margin-bottom: calc(17px * 2) !important; }
+    .markdown-body .filename, .series-note .filename, .markdown-body pre, .series-note pre, .markdown-body pre code, .series-note pre code {
       font-size: 15px !important; } }
 
 @media screen and (max-width: 695px) {
@@ -1054,7 +1056,9 @@ a {
     font-weight: 300 !important;
     -webkit-font-smoothing: auto !important;
     -moz-osx-font-smoothing: auto !important; }
-    .markdown-body .filename, .series-note .filename, .markdown-body pre, .series-note pre, .markdown-body code, .series-note code {
+    .markdown-body p, .series-note p, .markdown-body ul, .series-note ul, .markdown-body ol, .series-note ol, .markdown-body kdb, .series-note kdb, .markdown-body blockquote, .series-note blockquote, .markdown-body pre, .series-note pre {
+      margin-bottom: calc(16.5px * 2) !important; }
+    .markdown-body .filename, .series-note .filename, .markdown-body pre, .series-note pre, .markdown-body pre code, .series-note pre code {
       font-size: 14.5px !important; } }
 
 @media screen and (max-width: 500px) {
@@ -1140,7 +1144,9 @@ a {
                 word-break: break-all;
             }
         }*/ }
-    .markdown-body .filename, .series-note .filename, .markdown-body pre, .series-note pre, .markdown-body code, .series-note code {
+    .markdown-body p, .series-note p, .markdown-body ul, .series-note ul, .markdown-body ol, .series-note ol, .markdown-body kdb, .series-note kdb, .markdown-body blockquote, .series-note blockquote, .markdown-body pre, .series-note pre {
+      margin-bottom: calc(16px * 2) !important; }
+    .markdown-body .filename, .series-note .filename, .markdown-body pre, .series-note pre, .markdown-body pre code, .series-note pre code {
       font-size: 14px !important; }
     .markdown-body h1, .series-note h1 {
       margin-top: 3em; }
@@ -1168,6 +1174,8 @@ a {
 
 .markdown-body, .series-note {
   font-size: 17px; }
+  .markdown-body .no-margin, .series-note .no-margin {
+    margin-bottom: 1em; }
   .markdown-body table.no-border, .series-note table.no-border {
     border: 0; }
     .markdown-body table.no-border tr, .series-note table.no-border tr {
@@ -1181,9 +1189,9 @@ a {
     line-height: 1.8;
     text-align: left; }
   .markdown-body p, .series-note p, .markdown-body ul, .series-note ul, .markdown-body ol, .series-note ol, .markdown-body kdb, .series-note kdb, .markdown-body blockquote, .series-note blockquote, .markdown-body pre, .series-note pre {
-    margin-bottom: 2em; }
-  .markdown-body code, .series-note code, .markdown-body kdb, .series-note kdb, .markdown-body pre, .series-note pre {
-    font-size: 16px; }
+    margin-bottom: calc(17px * 2); }
+  .markdown-body kdb, .series-note kdb, .markdown-body pre, .series-note pre, .markdown-body pre code, .series-note pre code {
+    font-size: 15px; }
   .markdown-body pre, .series-note pre {
     background-color: #272822;
     padding: 1em;
