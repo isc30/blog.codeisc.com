@@ -20,9 +20,9 @@ This awesome library allows exposing class definitions, constructors and methods
 
 EMSCRIPTEN_BINDINGS()
 {
-    class_<xlnt::workbook>("workbook")
+    class_<workbook>("workbook")
         .constructor<>()
-        .function("active_sheet", &xlnt::workbook::active_sheet);
+        .function("active_sheet", &workbook::active_sheet);
 }
 ```
 
@@ -43,8 +43,8 @@ I started writing all the bindings for other classes and methods until I found s
 I expected implicit conversions to work magically but, of course, they didn't. There are two ways of retrieving a `cell` from the given worksheet in XLNT: providing a `cell_reference` which is implicitly convertible from a `string` or passing both `column_t` and `row_t` which are implicitly convertible from `uint32_t`.
 
 ```cpp
-cell worksheet::cell(const cell_reference& reference); // worksheet.cell("B2")
-cell worksheet::cell(column_t column, row_t row); // worksheet.cell(2, 2)
+cell worksheet::cell(const cell_reference& reference); // sheet.cell("B2")
+cell worksheet::cell(column_t column, row_t row); // sheet.cell(2, 2)
 ```
 
 The javascript API always needs to be a 100% explicit, and this was an issue. Implicit conversions like those are forbidden, so you are forcing your API consumers to construct those intermediate types manually before passing them to our functions.
@@ -57,19 +57,19 @@ I didn't want to expose those types to the API, I preferred to use `string` and 
 The solution was obvious: I decided to wrap those functions into custom exposed methods that took `string` and `uint32_t` as parameters. Turns out that you can expose custom member functions that are implemented by static functions if they take the reference to `*this` as the first parameter. Also, `optional_override` helps a lot when defining those by using inline lambdas.
 
 ```cpp
-class_<xlnt::worksheet>("worksheet")
+class_<worksheet>("worksheet")
 
     .function("cell", optional_override([](
-        xlnt::worksheet& worksheet,
-        const std::string& cell_reference)
+        worksheet& worksheet,
+        const string& cell_reference)
     {
         return worksheet.cell(cell_reference);
     }))
 
     .function("cell", optional_override([](
-        xlnt::worksheet& worksheet,
-        std::uint32_t col,
-        std::uint32_t row)
+        worksheet& worksheet,
+        uint32_t col,
+        uint32_t row)
     {
         return worksheet.cell(col, row);
     }));
@@ -102,29 +102,65 @@ sheet.using_cell("B2", c => c.value(1234));
 There is a [magical type](https://kripken.github.io/emscripten-site/docs/api_reference/val.h.html) called `emscripten::val` that basically wraps anything that comes from JavaScript world to C++. It implements some explicit conversions and `operator()`, which is exactly what we need for invoking callbacks.
 
 ```cpp
-class_<xlnt::worksheet>("worksheet")
+class_<worksheet>("worksheet")
 
     .function("using_cell", optional_override([](
-        xlnt::worksheet& worksheet,
-        const std::string& cell_reference,
-        emscripten::val action)
+        worksheet& worksheet,
+        const string& cell_reference,
+        val action)
     {
         auto cell = worksheet.cell(cell_reference);
         
-        // ptr avoids the extra copy
+        // ptr avoids extra copies
         auto* cell_ptr = &cell;
         action(cell_ptr); 
     }))
 
     // ... the other overload
 ```
-{: data-line="6, 8-12"}
+{: data-line="6, 10-12"}
 
-We just managed to preserve the method chain and abstracted the API consumer from memory ownerships just by using this smart pattern. I love it.
+We just preserved the method chain style and abstracted the API consumer from managing memory ownerships just by using this smart pattern. I love it.
 
 > In case you wonder why I created a new local variable for storing the pointer, it is a workaround for a [bug in embind](https://github.com/kripken/emscripten/issues/7084): passing an lvalue ref to the ptr instead of the ptr itself.
 {: .note }
 
-# Function Overloads and Templates
+# Function Overloads
 
-This is easy
+You can basically do anything with `optional_override` but sometimes you just want something simple that doesn't require that much boilerplate. In such cases, `select_overload` is your friend.
+
+I found myself thinking about this problem and how to handle it properly when writing the binding for the `merge_cells` methods. One of the overloads took a `string` representing the cell range (great for JS) and the other overload worked via implicit conversions (terrible).
+
+```cpp
+void worksheet::merge_cells(const string& cells);
+// sheet.merge_cells("C3:C4")
+
+void worksheet::merge_cells(const range_reference& range);
+// sheet.merge_cells({"C3", "C4"})
+// sheet.merge_cells({ {3, 3}, {3, 4} })
+```
+
+Having this in mind, I decided to follow some simple rules regarding method overloading:
+
+- Use `optional_override` if the signature contained any implicit conversions.
+- Use `select_overload` for direct method exposure.
+
+```cpp
+class_<worksheet>("worksheet")
+
+    .function("merge_cells",
+        select_overload<void(const string&)>(
+            &worksheet::merge_cells))
+
+    .function("merge_cells", optional_override([](
+        worksheet& worksheet,
+        uint32_t startCol, uint32_t startRow,
+        uint32_t endCol, uint32_t endRow)
+    {
+        range_reference range = { startCol, startRow, endCol, endRow };
+        worksheet.merge_cells(range);
+    }))
+```
+
+> `select_overload` gets the method signature as the template parameter, and returns the specific implementation.
+{: .note }
