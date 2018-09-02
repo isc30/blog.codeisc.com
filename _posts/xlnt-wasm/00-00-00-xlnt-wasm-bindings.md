@@ -122,6 +122,9 @@ class_<xlnt::worksheet>("worksheet")
 
 We just managed to preserve the method chain and abstracted the API consumer from memory ownerships just by using this smart pattern. I love it.
 
+> In case you wonder why I created a new local variable for storing the pointer, it is a workaround for a [bug in embind](https://github.com/kripken/emscripten/issues/7084): passing an lvalue ref to the ptr instead of the ptr itself.
+{: .note }
+
 # Function Overloads and Templates
 
 This is easy
