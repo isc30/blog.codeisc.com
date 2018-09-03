@@ -31,7 +31,7 @@ Overloading the comma operator with explicit types is a bit tricky too, as you c
     </p>
 </blockquote>
 
-# Beautiful Loop
+# Avoiding Duplicated Logic
 
 Imagine the situation: we need to **perform some action** in a loop **before checking the loop condition**, for every cycle.
 
@@ -108,7 +108,7 @@ assert(("message", predicate));
 >I personally consider those bad practices. Comma wins this round!
 {: .note }
 
-# SFINAE: Decltype Magic with Custom Type Deduction
+# SFINAE: decltype Magic with Custom Type Deduction
 
 If you ever tried to master this demon, I’m pretty sure you have seen things like `decltype(T::something(), 0)` that you don't really understand but you just copy-paste them because, well... they work.
 
@@ -151,12 +151,12 @@ This is the perfect example when using the comma in `decltype` helps us avoiding
 <blockquote class="note">
     <p class="content" markdown="1">
 As long as every previous sub-expression compiles, compiler will continue evaluating them. The behavior is very similar to `std::enable_if_t` but with a different/custom resolution type.</p>
-<p class="content" markdown="1">(C++14) Using `decltype(0, auto)` for the return type doesn't deduct the proper type due to more complex technical limitations. If you want to learn more about this edge case please add a comment below.
+<p class="content" markdown="1">[C++14] Using `decltype(0, auto)` for the return type doesn't deduct the proper type due to more complex technical limitations. If you want to learn more about this edge case please add a comment below.
 </p>
-<p class="content" markdown="1">(C++17) `void_t<...>` was added to avoid the need of manual resolution to fallback type. Proper C++17 implementation can be found [here](https://ideone.com/OKQu18).
+<p class="content" markdown="1">[C++17] `void_t<...>` was added to avoid the need of manual resolution to fallback type. Proper C++17 implementation can be found [here](https://ideone.com/OKQu18).
 </p></blockquote>
 
-# (C++03) Params of Specific Type
+# [C++03] Params of Specific Type
 
 In modern C++, passing **unlimited arguments of a specific type** is very easy with *variadic templates*, *std::initializer_list* or *brace initializers*.
 For old C++03, *explicit overloads* or *variadic args* are the only options... (or not? ...)
@@ -236,7 +236,7 @@ This method is the best for **C++03** as it provides **nice syntax** and **compi
     </p>
 </blockquote>
 
-# (C++11) Bypass Constexpr Restrictions
+# [C++11] Bypass Constexpr Restrictions
 
 In **C++11**, *constexpr* function body is limited to a simple return expression. This forced us to use *smart* ways to combine multiple expressions, being comma one of the most used ones as it ensures a perfectly defined evaluation order. Typical example is compile time assertions + return:
 
@@ -256,7 +256,7 @@ constexpr T array_at(T(&array)[N]) // `array` is a reference to `T[N]`
 
 ([full working example](https://ideone.com/5qZxa2))
 
-# (C++17) Fold Expressions (reducing parameter packs)
+# [C++17] Fold Expressions (reducing parameter packs)
 
 One of the best features of C++17, [fold expression](http://en.cppreference.com/w/cpp/language/fold), allows **reducing a parameter pack by applying a binary operator** (including comma). This opens a huge branch of possibilities like calling a function for each argument or easily getting the last argument from the pack.
 
