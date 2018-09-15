@@ -4,7 +4,8 @@ series: 'Excel-ent experiment with WebAssembly'
 chapter: 2
 title: 'Bindings and JavaScript API'
 date: 2018-09-15
-subreddit: 'c++'
+reddit_url: '2018/08/28/xlnt-wasm-intro.html'
+subreddit: 'cpp'
 tags: 'c++ webassembly'
 toc: true
 ---

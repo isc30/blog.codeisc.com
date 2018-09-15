@@ -4,7 +4,7 @@ series: 'Excel-ent experiment with WebAssembly'
 chapter: 1
 title: 'Introduction'
 date: 2018-08-28
-subreddit: 'c++'
+subreddit: 'cpp'
 tags: 'c++ webassembly'
 toc: true
 ---
