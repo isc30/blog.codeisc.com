@@ -127,7 +127,7 @@ class_<worksheet>("worksheet")
 
     // ... the other overload
 ```
-{: data-line="6, 10-12"}
+{: data-line="6, 10-13"}
 
 We just preserved the method chain style and abstracted the API consumer from managing memory ownerships just by using this smart pattern. I love it.
 
