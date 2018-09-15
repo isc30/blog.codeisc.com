@@ -257,7 +257,8 @@ $(document).ready(function(){
     // anchor link icon
 
     var content = $(".post-content");
-    var toc = [];
+    var articleIntro = $("#article-intro");
+    var toc = [{element: articleIntro, children: []}];
 
     content.find("h1, h2, h3, h4, h5, h6").each(function(i, el)
     {

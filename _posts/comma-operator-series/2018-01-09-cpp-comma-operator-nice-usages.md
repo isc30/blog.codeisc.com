@@ -7,7 +7,6 @@ date: 2018-01-09
 reddit_url: 'http://blog.codeisc.com/2017/12/26/cpp-comma-operator-introduction.html'
 subreddit: 'cpp'
 tags: c++
-toc: true
 ---
 
 In this article I will explain some *nice* real world usages for the comma operator.

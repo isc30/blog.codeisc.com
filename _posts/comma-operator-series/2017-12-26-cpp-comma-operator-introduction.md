@@ -7,7 +7,6 @@ date: 2017-12-26
 reddit_url: 'http://blog.codeisc.com/2017/12/26/cpp-comma-operator-introduction.html'
 subreddit: 'cpp'
 tags: 'c++'
-toc: true
 ---
 
 Comma operator has been with us for a long time. First seen in C spec and *improved* with custom overloads in C++, it quickly became one of those *hidden things you shouldn’t use*.

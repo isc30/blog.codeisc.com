@@ -7,7 +7,6 @@ date: 2018-09-15
 reddit_url: '2018/08/28/xlnt-wasm-intro.html'
 subreddit: 'cpp'
 tags: 'c++ webassembly'
-toc: true
 ---
 
 After the successful "hello XLNT" example, it was time to start exposing stuff to JavaScript. There are two easy ways of achieving this: embind and WebIDL. I chose [embind](https://kripken.github.io/emscripten-site/docs/porting/connecting_cpp_and_javascript/embind.html) because it doesn't require any special file format and its way more complete and explicit than WebIDL.

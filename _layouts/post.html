@@ -42,11 +42,13 @@
         <h2 class="post-subtitle">{{ page.subtitle }}</h2>
     {% endif %}
 
-    {% if page.toc == true %}
+    {% unless page.toc == false %}
         <div class="p-toc"><h4>Table of Contents</h4><br/></div>
-    {% endif %}
+    {% endunless %}
 
     <article class="markdown-body">
+
+        <a id="article-intro" href="#">Introduction</a>
 
         {% if page.series %}
             {% include post-series.html isTop="True" %}

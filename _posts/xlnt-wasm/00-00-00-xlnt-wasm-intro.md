@@ -6,7 +6,6 @@ title: 'Introduction'
 date: 2018-08-28
 subreddit: 'cpp'
 tags: 'c++ webassembly'
-toc: true
 ---
 
 > Your software needs a well-known feature but there isn't any good (and free) library for it. 

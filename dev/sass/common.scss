@@ -623,6 +623,15 @@
     }
 }
 
+#article-intro
+{
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: -2em;
+}
+
 .p-toc {
     display: block;
     border: 1px solid lightgray;
