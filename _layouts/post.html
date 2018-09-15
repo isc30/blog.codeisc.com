@@ -43,9 +43,7 @@
     {% endif %}
 
     {% if page.toc == true %}
-        <div class="p-sidebar">
-            {{ page.content | toc_only }}
-        </div>
+        <div class="p-toc"><h4>Table of Contents</h4><br/></div>
     {% endif %}
 
     <article class="markdown-body">

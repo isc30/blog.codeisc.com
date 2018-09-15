@@ -623,9 +623,12 @@
     }
 }
 
-.p-sidebar {
-    display: none;
-    background-color: orange;
+.p-toc {
+    display: block;
+    border: 1px solid lightgray;
+    padding: 15px;
+    font-size: 0.8em;
+    //background-color: orange;
 
     float: left;
     left: 15px;
@@ -644,6 +647,19 @@
         position: absolute;
         top: unset;
         bottom: 40px;
+    }
+
+    ul {
+        list-style-type: square;
+        margin-left: 1em;
+
+        li {
+            padding: 4px 0;
+
+            a {
+                //text-decoration: underline;
+            }
+        }
     }
 }
 

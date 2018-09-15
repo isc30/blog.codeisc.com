@@ -668,22 +668,29 @@ a {
       .series-note > .series-table > ol > li ul li, .series-note > .series-table > ol > li ol li {
         margin: 0 1.5em; }
 
-.p-sidebar {
-  display: none;
-  background-color: orange;
+.p-toc {
+  display: block;
+  border: 1px solid lightgray;
+  padding: 15px;
+  font-size: 0.8em;
   float: left;
   left: 15px;
   position: relative;
   top: 40px;
   bottom: unset; }
-  .p-sidebar.fixed {
+  .p-toc.fixed {
     position: fixed;
     top: 104px;
     bottom: unset; }
-  .p-sidebar.stick-bottom {
+  .p-toc.stick-bottom {
     position: absolute;
     top: unset;
     bottom: 40px; }
+  .p-toc ul {
+    list-style-type: square;
+    margin-left: 1em; }
+    .p-toc ul li {
+      padding: 4px 0; }
 
 .markdown-body, .series-note {
   font-family: "Merriweather-Light", -apple-system, sans-serif, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei";
@@ -948,6 +955,10 @@ a {
             font-size: 22px;
         }
     }*/ }
+
+@media screen and (max-width: 1500px) {
+  .p-toc {
+    display: none; } }
 
 @media screen and (max-width: 960px) {
   .g-container {

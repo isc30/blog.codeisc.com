@@ -31,7 +31,7 @@ $(document).ready(function(){
         var content = $('.post-content');
         var content_top = content.position().top;
         var content_bottom = content_top + content.outerHeight();
-        var sidebar = $('.p-sidebar');
+        var sidebar = $('.p-toc');
 
         var themeColorFlag = $('.g-banner').attr('data-theme');
 
@@ -255,15 +255,93 @@ $(document).ready(function(){
     new Search();
 
     // anchor link icon
-    $("h1, h2, h3, h4, h5, h6").each(function(i, el) {
-        var $el, icon, id;
-        $el = $(el);
-        id = $el.attr('id');
-        icon = '<i class="fa fa-link"></i>';
+
+    var content = $(".post-content");
+    var toc = [];
+
+    content.find("h1, h2, h3, h4, h5, h6").each(function(i, el)
+    {
+        var $el = $(el);
+        var depth = parseInt(el.tagName.substr(1,1)) - 1;
+        var id = $el.attr('id');
+        var icon = '<i class="fa fa-link"></i>';
+
         if (id) {
+
+            if ($(".p-toc").length > 0)
+            {
+                var toc_el = toc;
+                
+                console.log(depth);
+
+                for (var i = 0; i < depth; ++i)
+                {
+                    if (toc_el.length === 0)
+                    {
+                        break;
+                    }
+
+                    var inner = toc_el[toc_el.length - 1];
+
+                    if (inner !== undefined)
+                    {
+                        toc_el = inner.children;
+                    }
+                }
+
+                toc_el.push({
+                    element: $el,
+                    children: [],
+                });
+            }
+
             return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
         }
     });
+
+    function createTocLink(node)
+    {
+        var text = node.element.text();
+        var link = "#" + node.element.attr('id');
+
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+
+        a.href = link;
+        a.innerText = text;
+
+        li.append(a);
+
+        return li;
+    }
+
+    function createTocList(nodes)
+    {
+        if (nodes.length === 0)
+        {
+            return null;
+        }
+
+        var ul = document.createElement("ul");
+
+        for (var i = 0; i < nodes.length; i++) {
+
+            var node = nodes[i];
+            ul.append(createTocLink(node));
+
+            if (node.children.length > 0)
+            {
+                var childrenToc = createTocList(node.children);
+                ul.append(childrenToc);
+            }
+        }
+
+        return ul;
+    }
+
+    console.log(toc);
+
+    $(".p-toc").append(createTocList(toc));
 
     // add anchor link class to all links
     $('a').each(function(i, el) {

@@ -4,6 +4,7 @@ title: 'Configuring git forks'
 date: 2018-02-24
 subreddit: 'programming'
 tags: 'git'
+toc: true
 ---
 
 When working with git, you may want to contribute to other people's projects and wonder which one is the best option to setup your forked repository. In this small article I will explain my configurations and how I deal with branches and remotes.

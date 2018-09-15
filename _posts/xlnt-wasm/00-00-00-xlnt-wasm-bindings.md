@@ -6,6 +6,7 @@ title: 'Bindings and JavaScript API'
 date: 2018-08-29
 subreddit: 'c++'
 tags: 'c++ webassembly'
+toc: true
 hidden: true
 ---
 

@@ -11,6 +11,12 @@
     }*/
 }
 
+@media screen and (max-width: 1500px) {
+    .p-toc {
+        display: none;
+    }
+}
+
 @media screen and (max-width: $g-container-w) {
     .g-container {
         width: auto;
@@ -33,6 +39,7 @@
 }
 
 @media screen and (max-width: 868px) {
+
     .post-wrapper, .markdown-body, .read-next {
         width: 92%;
     }
