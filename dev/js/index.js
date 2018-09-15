@@ -271,8 +271,6 @@ $(document).ready(function(){
             if ($(".p-toc").length > 0)
             {
                 var toc_el = toc;
-                
-                console.log(depth);
 
                 for (var i = 0; i < depth; ++i)
                 {
@@ -338,8 +336,6 @@ $(document).ready(function(){
 
         return ul;
     }
-
-    console.log(toc);
 
     $(".p-toc").append(createTocList(toc));
 
