@@ -673,6 +673,7 @@ a {
   border: 1px solid lightgray;
   padding: 15px;
   font-size: 0.8em;
+  color: #6a737d;
   float: left;
   left: 15px;
   position: relative;
@@ -691,6 +692,8 @@ a {
     margin-left: 1em; }
     .p-toc ul li {
       padding: 4px 0; }
+      .p-toc ul li a {
+        color: #6a737d; }
 
 .markdown-body, .series-note {
   font-family: "Merriweather-Light", -apple-system, sans-serif, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei";
