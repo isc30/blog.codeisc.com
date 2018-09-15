@@ -45,6 +45,7 @@ I expected implicit conversions to work magically but, of course, they didn't.
 There are two ways of retrieving a `cell` from the given worksheet in XLNT: providing a `cell_reference` which is implicitly convertible from a `string` or passing both `column_t` and `row_t` which are implicitly convertible from `uint32_t`.
 
 ```cpp
+// XLNT declarations
 cell worksheet::cell(const cell_reference& reference); // sheet.cell("B2")
 cell worksheet::cell(column_t column, row_t row); // sheet.cell(2, 2)
 ```
@@ -153,14 +154,14 @@ template<typename T> T cell::value() const;
 
 # Overloading by Return Type
 
-Considering that C++ has templates and also allows overloading by return type, its normal that XLNT uses those features for operations like getting the value of a cell. This is a nice C++ design but exposing it to JavaScript can be really painful.
+Considering that C++ has templates and also allows overloading by return type, it's normal that XLNT uses those features for operations like getting the value of a cell. This is a nice C++ design but exposing it to JavaScript can be really painful.
 
 ```cpp
-template<typename T>
-T cell::value() const;
+// XLNT declarations
+template<typename T> T cell::value() const;
 ```
 
-Embind doesn't support type-based overloading so the obvious solution here is to create different methods with different names depending on the return type. The implementation for this is a no-brainer.
+Embind doesn't support type-based overloading so the obvious solution here is to create different methods with different names depending on the return type. The implementation of this is a no-brainer.
 
 ```cpp
 .function("get_value_str", &cell::value<string>)
@@ -170,7 +171,7 @@ Embind doesn't support type-based overloading so the obvious solution here is to
 
 Done! ...right? nope. This sucks.
 
-## std::variant to the rescue
+## Visitor Pattern to the Rescue!
 
 I was sure that there was a better way to do this, mostly because I would NEVER design my API like this if it was purely implemented in JavaScript.
 
@@ -214,13 +215,57 @@ Since XLNT is C++14, it doesn't use `std::variant` but the design ideas remain t
 
 # Overloading by Argument Type
 
+Setting the cell value can be tricky... XLNT defines the methods for doing this as completely different ones and does different overloads depending on the value type. This is great for C++ but we can do it better for JavaScript.
 
+```cpp
+// XLNT declarations
+void cell::value(bool value);
+void cell::value(double value);
+void cell::value(const string& value);
+void cell::value(nullptr_t);
+```
+
+Now that I knew how to deal with dynamic return types, doing it on arguments sounded easy-peasy. After checking the `emscripten::val` implementation, I saw a `typeOf()` method that is basically a proxy for JavaScript's `typeof` operator.
+
+Using this, I was able to bind anything from my parameters to `val` and do the type-checking in runtime. The solution turns out to be very similar to the switch-case from the previous example.
+
+```cpp
+.function("set_value", optional_override([](
+    cell& cell,
+    val value)
+{
+    auto type = value.typeOf().as<string>();
+    
+    if (type == "number")
+    {
+        return cell.value(value.as<double>());
+    }
+    else if (type == "string")
+    {
+        return cell.value(value.as<string>());
+    }
+    else if (type == "boolean")
+    {
+        return cell.value(value.as<bool>());
+    }
+    else if (value.isNull() || value.isUndefined())
+    {
+        return cell.value(nullptr_t{});
+    }
+
+    EM_ASM({
+        throw new TypeError("value must be string, number or boolean");
+    });
+}
+```
 
 # Exporting Custom JavaScript Functions
 
-I also want to share one interesting trick I found when implementing the method `workbook.download`. This method was really simple: saving the workbook and triggering the download dialog as we saw in the first post, but this required some JavaScript underneath and I didn't want to add an extra JS file to the solution just for this.
+I also want to share one interesting trick I found when implementing the method `workbook.download(fileName)`. This method was really simple: saving the workbook and triggering the download dialog as we saw in the first post, but this required some JavaScript underneath and I didn't want to add an extra JS file to the solution just for this.
 
-After some brainstorming I realized that `EM_ASM_` can be really helpful in those cases and decided to give it a try. This macro allows inlining sync JavaScript code in C++ code, giving you the chance to manipulate the generated code from the bindings. The implementation of `download(fileName)` turned out to be really simple when using this trick.
+After some brainstorming, I realized that `EM_ASM` can be really helpful in those cases and decided to give it a try. This macro allows inlining sync JavaScript code in C++ code, giving you the chance to manipulate the generated code from the bindings.
+
+The implementation of `download(fileName)` turned out to be really simple when using this trick.
 
 ```cpp
 void download(
