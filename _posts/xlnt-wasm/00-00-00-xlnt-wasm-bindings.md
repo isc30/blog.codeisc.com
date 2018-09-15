@@ -106,6 +106,9 @@ v = sheet.using_cell("B2", c => c.get_value());
 
 There is a [magical type](https://kripken.github.io/emscripten-site/docs/api_reference/val.h.html) called `emscripten::val` that basically wraps anything that comes from JavaScript world to C++. It implements some explicit conversions and `operator()`, which is exactly what we need for invoking callbacks.
 
+> Passing a pointer to the object avoids extra copies. This is the most important part in the implementation.
+{: .note }
+
 ```cpp
 class_<worksheet>("worksheet")
 
@@ -128,8 +131,8 @@ class_<worksheet>("worksheet")
 
 We just preserved the method chain style and abstracted the API consumer from managing memory ownerships just by using this smart pattern. I love it.
 
-> In case you wonder why I created a new local variable for storing the pointer, it is a workaround for a [bug in embind](https://github.com/kripken/emscripten/issues/7084): passing an lvalue ref to the ptr instead of the ptr itself.
-{: .note }
+> In case you wonder why I created a new local variable for storing the pointer, it is a workaround for a [bug in embind](https://github.com/kripken/emscripten/issues/7084): passing the ptr as lvalue instead of the ptr itself.
+{: .jackass }
 
 <!--
 # Function Overloads and Templates
@@ -215,7 +218,7 @@ Since XLNT is C++14, it doesn't use `std::variant` but the design ideas remain t
 
 # Overloading by Argument Type
 
-Setting the cell value can be tricky... XLNT defines the methods for doing this as completely different ones and does different overloads depending on the value type. This is great for C++ but we can do it better for JavaScript.
+XLNT is designed to take advantage of C++ overloads to make the interfaces "simple" for the consumers. This is great for C++ but we can do it better for JavaScript.
 
 ```cpp
 // XLNT declarations
