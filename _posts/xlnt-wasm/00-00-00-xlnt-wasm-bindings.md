@@ -3,11 +3,10 @@ layout: post
 series: 'Excel-ent experiment with WebAssembly'
 chapter: 2
 title: 'Bindings and JavaScript API'
-date: 2018-08-29
+date: 2018-09-15
 subreddit: 'c++'
 tags: 'c++ webassembly'
 toc: true
-hidden: true
 ---
 
 After the successful "hello XLNT" example, it was time to start exposing stuff to JavaScript. There are two easy ways of achieving this: embind and WebIDL. I chose [embind](https://kripken.github.io/emscripten-site/docs/porting/connecting_cpp_and_javascript/embind.html) because it doesn't require any special file format and its way more complete and explicit than WebIDL.
@@ -165,7 +164,7 @@ Considering that C++ has templates and also allows overloading by return type, i
 template<typename T> T cell::value() const;
 ```
 
-Embind doesn't support type-based overloading so the obvious solution here is to create different methods with different names depending on the return type. The implementation of this is a no-brainer.
+Embind doesn't support type-based overloading so the obvious solution here was to create different methods with different names depending on the return type. The implementation of this was a no-brainer.
 
 ```cpp
 .function("get_value_str", &cell::value<string>)
@@ -179,7 +178,7 @@ Done! ...right? nope. This sucks.
 
 I was sure that there was a better way to do this, mostly because I would NEVER design my API like this if it was purely implemented in JavaScript.
 
-C++17 introduced `std::variant` which provides storage for different types, like a type-safe union. I would expect any modern excel library to use a `variant<double, bool, string>` to store the value of the cells. If this is the case, we can later visit whatever value we have there and convert it to `emscripten::val`.
+C++17 introduced `std::variant` which provides storage for different types, like a type-safe union. I would expect any modern excel library to use a `variant<double, bool, string>` to store the value of the cells. If this was the case, I could later visit whatever value it stores there and convert it to `emscripten::val`.
 
 ```cpp
 variant<string, double> var;
