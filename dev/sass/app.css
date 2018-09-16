@@ -702,6 +702,7 @@ a {
       .p-toc ul li a {
         color: #6a737d; }
         .p-toc ul li a.active {
+          color: #24292e;
           text-decoration: underline; }
 
 .markdown-body, .series-note {
