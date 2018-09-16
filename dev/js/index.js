@@ -259,6 +259,8 @@ $(document).ready(function(){
     var content = $(".post-content");
     var articleIntro = $("#article-intro");
     var toc = [{element: articleIntro, children: []}];
+    var links = [];
+    var pToc = $(".p-toc");
 
     content.find("h1, h2, h3, h4, h5, h6").each(function(i, el)
     {
@@ -269,7 +271,7 @@ $(document).ready(function(){
 
         if (id) {
 
-            if ($(".p-toc").length > 0)
+            if (pToc.length > 0)
             {
                 var toc_el = toc;
 
@@ -310,6 +312,7 @@ $(document).ready(function(){
         a.innerText = text;
 
         li.append(a);
+        links.push({toc: $(a), page: node.element});
 
         return li;
     }
@@ -338,7 +341,44 @@ $(document).ready(function(){
         return ul;
     }
 
-    $(".p-toc").append(createTocList(toc));
+    if (pToc.length > 0)
+    {
+        pToc.append(createTocList(toc));
+
+        $(window).on("resize scroll", function()
+        {
+            var top = $(this).scrollTop();
+            var bottom = top + $(this).height();
+            var center = top + ((bottom - top) / 2);
+            var forcedPreviousSection = false;
+
+            for (var i = links.length - 1; i >= 0; --i)
+            {
+                var link = $(links[i].page);
+                var linkTop = link.offset().top;
+                var linkBottom = linkTop + link.outerHeight();
+
+                if (linkTop < top && !forcedPreviousSection)
+                {
+                    forcedPreviousSection = true;
+                    links[i].toc.addClass("active");
+                }
+                else if (linkTop > top && linkBottom < bottom)
+                {
+                    if (linkBottom < center)
+                    {
+                        forcedPreviousSection = true;
+                    }
+
+                    links[i].toc.addClass("active");
+                }
+                else
+                {
+                    links[i].toc.removeClass("active");
+                }
+            }
+        });
+    }
 
     // add anchor link class to all links
     $('a').each(function(i, el) {

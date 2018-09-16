@@ -668,7 +668,10 @@
 
             a {
                 color: #6a737d;
-                //text-decoration: underline;
+
+                &.active {
+                    text-decoration: underline;
+                }
             }
         }
     }
