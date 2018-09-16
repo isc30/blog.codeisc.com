@@ -358,14 +358,14 @@ $(document).ready(function(){
                 var linkTop = link.offset().top;
                 var linkBottom = linkTop + link.outerHeight();
 
-                if (linkTop < top && !forcedPreviousSection)
+                if (linkTop <= top && !forcedPreviousSection)
                 {
                     forcedPreviousSection = true;
                     links[i].toc.addClass("active");
                 }
-                else if (linkTop > top && linkBottom < bottom)
+                else if (linkTop >= top && linkBottom <= bottom)
                 {
-                    if (linkBottom < center)
+                    if (linkBottom <= center)
                     {
                         forcedPreviousSection = true;
                     }
