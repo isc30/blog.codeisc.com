@@ -16,7 +16,7 @@ nav:
 # Author
 author: 'Ivan Sanz-Carasa'
 nickname: 'Ivan Sanz-Carasa'
-bio: 'C++/.NET engineer'
+bio: 'Senior C++/.NET Software Architect'
 avatar: '/assets/img/ivansanz.png'
 
 # Analytics
@@ -72,5 +72,3 @@ excerpt_separator: <!-- more -->
 # Plugins
 plugins: 
   - jekyll-paginate
-
-theme: jekyll-theme-cayman
