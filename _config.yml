@@ -72,3 +72,5 @@ excerpt_separator: <!-- more -->
 # Plugins
 plugins: 
   - jekyll-paginate
+
+theme: jekyll-theme-cayman
