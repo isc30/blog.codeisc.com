@@ -13,6 +13,9 @@ After the successful "hello XLNT" example, it was time to start exposing stuff t
 
 <!-- more -->
 
+> All the sources from this blog post can be found here: https://github.com/isc30/xlnt-wasm
+{: .note }
+
 This awesome library allows exposing class definitions by simply defining their exportable members (constructors, methods, properties, etc).
 
 ```cpp
