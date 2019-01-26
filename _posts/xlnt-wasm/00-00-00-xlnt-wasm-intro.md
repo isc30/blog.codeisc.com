@@ -32,6 +32,8 @@ I'm not encouraging you to use the techniques described here in production. Comp
 
 However, experiments and funny stuff are always welcome in my personal projects. And this was the case.
 
+All the sources from this blog post can be found here: [https://github.com/isc30/xlnt-wasm](https://github.com/isc30/xlnt-wasm)
+
 # Getting Hands Dirty
 
 I already had some experience with emscripten and WebAssembly, so I decided to run a small experiment on my own. The main idea was porting a C++ library to WebAssembly and checking if the results were good enough to even be considered.
