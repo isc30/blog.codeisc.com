@@ -14,7 +14,7 @@ Does this situation sound familiar to you? it happens to me all the time, and it
 
 <!-- more -->
 
-> All the sources from this blog post can be found here: https://github.com/isc30/xlnt-wasm
+> All the sources from this blog post can be found here: [https://github.com/isc30/xlnt-wasm](https://github.com/isc30/xlnt-wasm)
 {: .note }
 
 # Storytime
