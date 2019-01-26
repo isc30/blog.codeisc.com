@@ -14,6 +14,9 @@ Does this situation sound familiar to you? it happens to me all the time, and it
 
 <!-- more -->
 
+> All the sources from this blog post can be found here: https://github.com/isc30/xlnt-wasm
+{: .note }
+
 # Storytime
 
 The other day at work, one of the clients wanted a *simple* functionality: possibility to export pivot tables to excel. This is easy *- I thought -* the pivot tables were made using the [PivotTable](https://react-pivottable.js.org/) library which may have this functionality out of the box.
@@ -31,8 +34,6 @@ Hands on keyboard, the search began. I wanted to find something quite specific, 
 I'm not encouraging you to use the techniques described here in production. Compiling C++ code to WebAssembly instead of using already existing JavaScript libraries is usually a stupid decision.
 
 However, experiments and funny stuff are always welcome in my personal projects. And this was the case.
-
-All the sources from this blog post can be found here: [https://github.com/isc30/xlnt-wasm](https://github.com/isc30/xlnt-wasm)
 
 # Getting Hands Dirty
 
