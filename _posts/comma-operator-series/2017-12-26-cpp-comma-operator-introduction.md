@@ -39,7 +39,7 @@ cout << (i=3, i+=2, i+3); // 8 (perfectly defined behavior)
 <blockquote class="jackass">
     <p class="title" markdown="1">Warning!</p>
     <p class="content" markdown="1">
-        A user-defined `operator,()` cannot guarantee sequencing!
+        A user-defined `operator,()` cannot guarantee sequencing! (until C++17)
     </p>
 </blockquote>
 
