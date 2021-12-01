@@ -20,6 +20,7 @@ In case you are too lazy to read the explanation...
 ```bash
 git remote add upstream https://github.com/microsoft/roslyn
 git remote set-url --push upstream no_push
+git fetch upstream master
 git branch master -u upstream/master
 ```
 
@@ -41,9 +42,10 @@ Let's add the `upstream` remote using `git remote add <name> <url>`:
 git remote add upstream https://github.com/microsoft/roslyn
 ```
 
-After this, you can configure `master` branch to be taken from `upstream` instead of `origin` with the following command:
+After this, you can configure `master` branch to be taken from `upstream` instead of `origin` with the following commands:
 
 ```bash
+git fetch upstream master
 git branch master -u upstream/master
 ```
 
