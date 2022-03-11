@@ -3,10 +3,10 @@ layout: post
 title: 'Installing WebKit (safari) in Windows via WSL2'
 date: 2022-03-11
 subreddit: 'programming'
-tags: 'wsl'
+tags: safari webkit windows wsl
 ---
 
-If you want to debug your website in safari but without a Mac, you are lucky!
+If you want to debug your website in safari but without a Mac, you are lucky!<br />
 This guide explains how to get a fully featured WebKit browser running natively in Windows 10 and Windows 11 :)
 
 <!-- more -->
@@ -40,7 +40,9 @@ sudo apt install epiphany-browser
 
 ## Open Epiphany browser
 
-If you are on a recent win10 version or win11, you should be ready to go. Execute `epiphany` and check if everything works:
+If you are on a recent Win10 or Win11, you should be ready to go.
+
+Execute `epiphany` and check if everything works:
 
 ```bash
 epiphany
