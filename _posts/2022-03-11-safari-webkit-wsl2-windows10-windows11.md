@@ -24,6 +24,7 @@ We will be installing `epiphany`, a Linux-only browser that is based on WebKit. 
 Please follow the [official Microsoft instructions on how to install WSL2](https://docs.microsoft.com/en-us/windows/wsl/install) and make sure you are using WSL version 2:
 
 ```bash
+wsl --update
 wsl --set-default-version 2
 ```
 
