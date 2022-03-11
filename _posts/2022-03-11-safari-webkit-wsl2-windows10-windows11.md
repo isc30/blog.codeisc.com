@@ -1,15 +1,23 @@
 ---
 layout: post
-title: 'Installing WebKit (safari) in Windows via WSL2'
+title: 'Installing WebKit (safari) in Windows 10 and Windows 11 via WSL2'
 date: 2022-03-11
-subreddit: 'programming'
+subreddit: 'webdev'
 tags: safari webkit windows wsl
 ---
 
-If you want to debug your website in safari but without a Mac, you are lucky!<br />
+If you want to debug your website in safari from Windows without any emulator involved, you are lucky!<br />
 This guide explains how to get a fully featured WebKit browser running natively in Windows 10 and Windows 11 :)
 
 <!-- more -->
+
+## What to expect from this post
+
+At the end of this short guide you will have a free, non-emulated local browser that runs and behaves almost the same as safari desktop.
+
+We will be installing `epiphany`, a Linux-only browser that is based on WebKit. All of this is possible thanks to WSL2, available in Win10 and Win11.
+
+[![](/assets/posts/safari-webkit-wsl2-windows10-windows11/result.jpg)](/assets/posts/safari-webkit-wsl2-windows10-windows11/result.jpg)
 
 ## Install WSL2
 
@@ -48,7 +56,9 @@ Execute `epiphany` and check if everything works:
 epiphany
 ```
 
-If it opens, you're done!
+If it opens, you're done! Enjoy :)
+
+<img src="/assets/img/so_good.png" style="margin: 0 auto; width: 175px" />
 
 If it doesn't and you see the following error, continue with the next steps.
 
@@ -56,6 +66,9 @@ If it doesn't and you see the following error, continue with the next steps.
 Unable to init server: Could not connect: Connection refused
 Failed to parse arguments: Cannot open display:
 ```
+
+> If you are on Windows 11 and it didn't work, it should. Please update your GPU drivers and try again, you don't need the extra steps.
+{: .jackass }
 
 ## Installing an X Server for Windows
 
@@ -89,14 +102,6 @@ export LIBGL_ALWAYS_INDIRECT=1
 
 Optionally, add these lines to your `.bashrc` file so they run automatically on startup.
 
-Check the new value:
-
-```bash
-echo $DISPLAY
-```
-
-It should look something like your Windows IP + ":0".
-
 > You can read more about this step [here](https://wiki.ubuntu.com/WSL#Running_Graphical_Applications)
 
 ## Open Epiphany browser (again)
@@ -106,3 +111,12 @@ This time it should all work. From your Ubuntu terminal run:
 ```bash
 epiphany
 ```
+
+As promised, enjoy :)
+
+<div style="margin: 0 auto 2rem auto; height: 200px">
+    <iframe src="https://giphy.com/embed/cF7QqO5DYdft6" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+</div>
+
+> If it gets stuck when opening, check your firewall rules. XMing should have inbound rules for all networks enabled (both public and private)
+{: .jackass }

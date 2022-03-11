@@ -198,7 +198,6 @@
         .post-preview {
             position: relative;
             .post-title {
-                //font-family: 'Merriweather', $fonts;
                 color: $color-f-primary;
                 text-decoration-color: $color-f-primary;
                 font-size: 24px;
@@ -225,7 +224,6 @@
             .post-excerpt {
                 margin-top: 21px;
                 font-size: 16px;
-                font-family: 'Merriweather-Light', $fonts;
                 line-height: 26px;
             }
         }
@@ -680,7 +678,6 @@
 
 // Post style
 .markdown-body {
-    font-family: 'Merriweather-Light', $fonts;
     width: $post-content-w;
     box-sizing: border-box;
     padding: 0 0 32px;

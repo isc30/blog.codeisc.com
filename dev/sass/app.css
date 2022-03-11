@@ -6,14 +6,6 @@
 /*** Mixins ***/
 /** Font **/
 @font-face {
-  font-family: "Merriweather";
-  src: url("../fonts/Merriweather-Black.ttf"); }
-
-@font-face {
-  font-family: "Merriweather-Light";
-  src: url("../fonts/Merriweather-Light.ttf"); }
-
-@font-face {
   font-family: "Inconsolata";
   src: url("../fonts/Inconsolata-Regular.ttf"); }
 
@@ -30,7 +22,7 @@ time, mark, audio, video, iframe, main, header, footer {
   outline: 0 none; }
 
 body {
-  font-family: -apple-system, sans-serif, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI Web Regular", "Segoe UI", "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   color: #656565;
   -webkit-font-smoothing: antialiased;
   background-color: #F7F8FA; }
@@ -238,7 +230,6 @@ a {
       .article-list .article-item .post-preview .post-excerpt {
         margin-top: 21px;
         font-size: 16px;
-        font-family: "Merriweather-Light", -apple-system, sans-serif, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei";
         line-height: 26px; }
     .article-list .article-item .post-meta {
       height: 22px;
@@ -337,7 +328,7 @@ a {
   padding: 0 8px;
   font-size: 14px;
   color: #A6ABB2;
-  font-family: -apple-system, sans-serif, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI Web Regular", "Segoe UI", "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   line-height: 22px;
   box-sizing: border-box;
   box-shadow: 0 0 .6px #D5DAE1;
@@ -519,7 +510,7 @@ a {
       padding: 0 8px;
       font-size: 14px;
       color: #A6ABB2;
-      font-family: -apple-system, sans-serif, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei";
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI Web Regular", "Segoe UI", "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
       line-height: 22px;
       box-sizing: border-box;
       box-shadow: 0 0 .6px #D5DAE1;
@@ -706,7 +697,6 @@ a {
           text-decoration: underline; }
 
 .markdown-body, .series-note {
-  font-family: "Merriweather-Light", -apple-system, sans-serif, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei";
   width: 820px;
   box-sizing: border-box;
   padding: 0 0 32px; }
@@ -1302,11 +1292,16 @@ a {
     -moz-transition: opacity 0.1s ease-in-out 0.05s;
     -ms-transition: opacity 0.1s ease-in-out 0.05s; }
   .markdown-body h1:hover .header-link, .series-note h1:hover .header-link,
-  .markdown-body h2:hover .header-link, .series-note h2:hover .header-link,
-  .markdown-body h3:hover .header-link, .series-note h3:hover .header-link,
-  .markdown-body h4:hover .header-link, .series-note h4:hover .header-link,
-  .markdown-body h5:hover .header-link, .series-note h5:hover .header-link,
-  .markdown-body h6:hover .header-link, .series-note h6:hover .header-link {
+  .markdown-body h2:hover .header-link,
+  .series-note h2:hover .header-link,
+  .markdown-body h3:hover .header-link,
+  .series-note h3:hover .header-link,
+  .markdown-body h4:hover .header-link,
+  .series-note h4:hover .header-link,
+  .markdown-body h5:hover .header-link,
+  .series-note h5:hover .header-link,
+  .markdown-body h6:hover .header-link,
+  .series-note h6:hover .header-link {
     opacity: 1; }
   .markdown-body .code-toolbar .toolbar-item, .series-note .code-toolbar .toolbar-item {
     margin-right: 5px; }
