@@ -10,96 +10,51 @@ When working with git, you may want to contribute to other people's projects and
 
 <!-- more -->
 
-## Install WSL2
+# TL;DR;
 
-Please follow the [official Microsoft instructions on how to install WSL2](https://docs.microsoft.com/en-us/windows/wsl/install) and make sure you are using WSL version 2:
+In case you are too lazy to read the explanation...
 
-```bash
-wsl --set-default-version 2
-```
-
-## Install and Upgrade Ubuntu
-
-Head to the Microsoft Store (disconnect from VPNs as it can cause issues) and [install Ubuntu 20.04](https://www.microsoft.com/store/productId/9N6SVWS3RX71).
-
-Run ubuntu for the first time and upgrade all the packages:
+* You: `https://github.com/isc30/roslyn`
+* Base: `https://github.com/microsoft/roslyn`
 
 ```bash
-sudo apt update -y
-sudo apt upgrade -y
+git remote add upstream https://github.com/microsoft/roslyn
+git remote set-url --push upstream no_push
+git fetch upstream master
+git branch master -u upstream/master
 ```
 
-## Install a WebKit based browser (Epiphany)
+Done! check the new remote with `git remote -v`
 
-Run the following commands to get `epiphany-browser` installed:
+# Explanation
+
+In git, forking a repository doesn't add the base remote automatically.
+Remotes can have any name, but we usually use `upstream` and `origin`.
+
+```
+microsoft/roslyn  ----------->  isc30/roslyn
+upstream                        origin
+```
+
+Let's add the `upstream` remote using `git remote add <name> <url>`:
 
 ```bash
-sudo apt install epiphany-browser
+git remote add upstream https://github.com/microsoft/roslyn
 ```
 
-## Open Epiphany browser
-
-If you are on a recent win10 version or win11, you should be ready to go. Execute `epiphany` and check if everything works:
+After this, you can configure `master` branch to be taken from `upstream` instead of `origin` with the following commands:
 
 ```bash
-epiphany
+git fetch upstream master
+git branch master -u upstream/master
 ```
 
-If it opens, you're done!
+## Specifying Readonly Access to Upstream
 
-If it doesn't and you see the following error, continue with the next steps.
+Some times, we want to **allow pulling but not pushing** to the `upstream`. If we don't configure this, we can end up getting **weird authentication errors** when running `git push`.
 
-```
-Unable to init server: Could not connect: Connection refused
-Failed to parse arguments: Cannot open display:
-```
-
-## Installing an X Server for Windows
-
-There are a few free and opensource X Servers for windows, but XMing is the one that worked better for me.
-
-Start by downloading and installing it [from this link](https://sourceforge.net/projects/xming/).
-
-Keep all the default configurations when installing.
-
-Once its done, you will see a new program called XLaunch.
-Open it and **enable all traffic through the firewall (public and private)**.
-
-- Select `Multiple windows` and set `Display number` to 0
-- `Start no client`
-- Check both `Clipboard` and `No Access Control`
-- (Optional) Save your config to a file
-- `Finish`
-
-The X Server is running now, you can see it in the system tray.
-
-## Connecting WSL2 to XMing
-
-Linux GUI applications depend on the `DISPLAY` environment variable to know where to send the data.
-
-Open Ubuntu terminal and run the following command to assign the proper variable:
+If you have no write access to `upstream`, I recommend setting the push url to `no_push`:
 
 ```bash
-export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
-export LIBGL_ALWAYS_INDIRECT=1
-```
-
-Optionally, add these lines to your `.bashrc` file so they run automatically on startup.
-
-Check the new value:
-
-```bash
-echo $DISPLAY
-```
-
-It should look something like your Windows IP + ":0".
-
-> You can read more about this step [here](https://wiki.ubuntu.com/WSL#Running_Graphical_Applications)
-
-## Open Epiphany browser (again)
-
-This time it should all work. From your Ubuntu terminal run:
-
-```bash
-epiphany
+git remote set-url --push upstream no_push
 ```
