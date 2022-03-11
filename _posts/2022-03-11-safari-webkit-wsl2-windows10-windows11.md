@@ -3,7 +3,7 @@ layout: post
 title: 'Installing WebKit (safari) in Windows via WSL2'
 date: 2022-03-11
 subreddit: 'programming'
-tags: 'wsl', 'windows', 'safari', 'webkit'
+tags: 'wsl'
 ---
 
 If you want to debug your website in safari but without a Mac, you are lucky!
