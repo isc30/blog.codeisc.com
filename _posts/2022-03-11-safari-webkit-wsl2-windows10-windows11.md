@@ -6,7 +6,7 @@ subreddit: 'webdev'
 tags: safari webkit windows wsl
 ---
 
-If you want to debug your website in safari from Windows without any emulator involved, you are lucky!<br />
+If you want to debug your website in safari from Windows without any emulator involved, you are lucky! <br />
 This guide explains how to get a fully featured WebKit browser running natively in Windows 10 and Windows 11 :)
 
 <!-- more -->
