@@ -1,0 +1,68 @@
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 300px;
+  .mail {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    color: $gray;
+    font-size: 15px;
+    margin-top: 45px;
+    line-height: 21.45px;
+    @include pc {
+      padding-left: 12px;
+    }
+    .tag-image {
+      margin-right: 10px;
+    }
+
+    span {
+      margin-bottom: 5px;
+    }
+  }
+  @keyframes hover-animation {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    23% {
+      transform: translate3d(0, 3px, 0);
+    }
+    80% {
+      transform: translate3d(0, -2px, 0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .snslink {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 28px;
+    margin-top: 36px;
+    @include pc {
+      padding-left: 12px;
+    }
+    &--item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      background-color: $theme-green;
+      border-radius: 50%;
+      box-sizing: border-box;
+      transition: 0.2s ease-in-out;
+      &:not(first-child) {
+        margin-right: 10px;
+      }
+      &:hover {
+        animation: hover-animation 0.8s ease-in-out infinite;
+      }
+    }
+  }
+}
