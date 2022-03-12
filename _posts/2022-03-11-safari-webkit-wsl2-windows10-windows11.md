@@ -11,7 +11,7 @@ This guide explains how to get a fully featured WebKit browser running natively 
 
 <!-- more -->
 
-## What to expect from this post
+# What to expect from this post
 
 At the end of this short guide you will have a free, non-emulated local browser that runs and behaves almost the same as safari desktop.
 
@@ -19,7 +19,7 @@ We will be installing `epiphany`, a Linux-only browser that is based on WebKit. 
 
 [![](/assets/posts/safari-webkit-wsl2-windows10-windows11/result.jpg)](/assets/posts/safari-webkit-wsl2-windows10-windows11/result.jpg)
 
-## Install WSL2
+# Install WSL2
 
 Please follow the [official Microsoft instructions on how to install WSL2](https://docs.microsoft.com/en-us/windows/wsl/install) and make sure you are using WSL version 2:
 
@@ -39,7 +39,7 @@ sudo apt update -y
 sudo apt upgrade -y
 ```
 
-## Install a WebKit based browser (Epiphany)
+# Install a WebKit based browser (Epiphany)
 
 Run the following commands to get `epiphany-browser` installed:
 
@@ -71,7 +71,7 @@ Failed to parse arguments: Cannot open display:
 > If you are on Windows 11 and it didn't work, it should. Please update your GPU drivers and try again, you don't need the extra steps.
 {: .jackass }
 
-## Installing an X Server for Windows
+# Installing an X Server for Windows
 
 There are a few free and opensource X Servers for windows, but XMing is the one that worked better for me.
 
