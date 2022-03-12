@@ -9,6 +9,10 @@
   font-family: "Inconsolata";
   src: url("../fonts/Inconsolata-Regular.ttf"); }
 
+@font-face {
+  font-family: "Inconsolata Condensed";
+  src: url("../fonts/Inconsolata-Condensed.ttf"); }
+
 /*** Base ***/
 html, body {
   height: 100%; }
@@ -1165,7 +1169,7 @@ a {
     .markdown-body p, .series-note p, .markdown-body ul, .series-note ul, .markdown-body ol, .series-note ol, .markdown-body kdb, .series-note kdb, .markdown-body blockquote, .series-note blockquote, .markdown-body pre, .series-note pre {
       margin-bottom: calc(16px * 2) !important; }
     .markdown-body .filename, .series-note .filename, .markdown-body pre, .series-note pre, .markdown-body pre code, .series-note pre code {
-      font-size: 14px !important; }
+      font-size: 15px !important; }
     .markdown-body h1, .series-note h1 {
       margin-top: 3em; }
     .markdown-body h2, .series-note h2, .markdown-body h3, .series-note h3, .markdown-body h4, .series-note h4 {
@@ -1209,7 +1213,7 @@ a {
   .markdown-body p, .series-note p, .markdown-body ul, .series-note ul, .markdown-body ol, .series-note ol, .markdown-body kdb, .series-note kdb, .markdown-body blockquote, .series-note blockquote, .markdown-body pre, .series-note pre {
     margin-bottom: calc(17px * 2); }
   .markdown-body kdb, .series-note kdb, .markdown-body pre, .series-note pre, .markdown-body pre code, .series-note pre code {
-    font-size: 15px; }
+    font-size: 18px; }
   .markdown-body pre, .series-note pre {
     background-color: #272822;
     padding: 1em;
@@ -1218,7 +1222,7 @@ a {
     color: #f8f8f2;
     text-decoration-color: #f8f8f2;
     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-    font-family: 'Inconsolata', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-family: 'Inconsolata Condensed', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     text-align: left;
     white-space: pre;
     word-spacing: normal;
