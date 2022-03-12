@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Installing WebKit (safari) in Windows 10 and Windows 11 via WSL2'
+title: 'Debugging Safari-specific bugs in Windows via WSL2'
 date: 2022-03-11
 subreddit: 'webdev'
 tags: safari webkit windows wsl
