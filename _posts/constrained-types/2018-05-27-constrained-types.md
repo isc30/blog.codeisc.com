@@ -4,7 +4,7 @@ title: 'Constrained Types: reusing static assertions'
 date: 2018-08-02
 subreddit: 'c++'
 tags: 'c++'
-hidden: true
+published: false
 ---
 
 There we gooo!

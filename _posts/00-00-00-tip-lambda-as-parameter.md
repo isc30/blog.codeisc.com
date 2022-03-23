@@ -4,7 +4,7 @@ title: 'Working With Callables'
 date: 2018-08-14
 subreddit: 'c++'
 tags: 'c++ tip'
-hidden: true
+published: false
 ---
 
 Have you ever wondered about the different ways of passing or storing a callable (closure, std::function, etc)? What performance implications do they have? What can I do to improve compilation errors related to them? How can I inline a lambda call?
